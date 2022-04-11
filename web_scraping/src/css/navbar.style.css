@@ -5,6 +5,11 @@
     border-radius: 75px 75px;
 }
 
+.cartIcon{
+    color: #00DBE9;
+    width: 5vh;
+}
+
 .category-toggle{
     color: #00C6B6;
     position: absolute;

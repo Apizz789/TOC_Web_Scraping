@@ -7,7 +7,7 @@ const Searchbox = () => {
     }
     return (
         <div class="Searchbox">
-            <div class='text-center search-header'> Searchbox</div>
+            <div class='text-center search-header'> ค้นหาสินค้าของคุณได้เลยคะ^^</div>
             <div class="search">
                 <input type="text" name="" placeholder="Serach" class="text" id='searchText'
                     onKeyPress={event => {
