@@ -1,0 +1,108 @@
+<!-- W3hubs.com - Download Free Responsive Website Layout Templates designed on HTML5 CSS3,Bootstrap which are 100% Mobile friendly. w3Hubs all Layouts are responsive cross browser supported, best quality world class designs. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>search bar in css</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+      body{
+      padding:0;
+      margin: 0;
+      background-color: #2471A3;
+      }
+      a{
+      text-decoration: none;
+      }
+      .search{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 40px;
+      border-radius: 40px;
+      padding: 10px;
+      transform: translate(-50%,-50%);
+      background: #2f3640;
+      }
+      .btn{
+      border-radius:50%;
+      background: #2f3640;
+      color: #2471A3;
+      float: right;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+      .text{
+      border:none;
+      background: none;
+      outline: none;
+      float: left;
+      padding:0;
+      color: #fff;
+      font-size:16px;
+      transition: 0.6s;
+      line-height: 40px;
+      width: 0px;
+      }
+      ::placeholder{
+      padding-left:15px;
+      color: #ddd;
+      }
+      .search:hover> .text{
+      width: 350px;
+      padding: 0 5px;
+      transition: 0.4s;
+      }
+      @media(max-width: 841px){
+      .search:hover> .text{
+      width: 300px;
+      }
+      }
+      @media(max-width: 740px){
+      .search:hover> .text{
+      width: 250px;
+      }
+      }
+      @media(max-width: 640px){
+      .search:hover> .text{
+      width: 200px;
+      }
+      }
+      @media(max-width: 540px){
+      .search:hover> .text{
+      width: 160px;
+      }
+      .text{
+      line-height: 30px;
+      }
+      .search{
+      height: 30px;
+      }
+      .btn{
+      width: 30px;
+      height: 30px;
+      }
+      }
+      @media(max-width: 461px){
+      .search:hover> .text{
+      width: 140px;
+      }
+      }
+      @media(max-width: 401px){
+      .search:hover> .text{
+      width: 110px;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search">
+      <input type="text" name="" placeholder="Serach" class="text">
+      <a href="#" class="btn"><i class="fa fa-search "></i></a>
+    </div>
+  </body>
+</html>
