@@ -1,12 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import Searchbox from './components/Searchbox';
-import Navbar from './components/Navbar';
-import Content from './components/Content';
-import Cart from './components/Cart'
+import Searchbox from './components/Contents/Home/Searchbox';
+import Content from './components/Contents/Home/Content';
+import Cart from './components/Contents/Products/Cart';
+import Navbar from './components/Navbar/Navbar';
 import React, { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleDown, faArrowDown, faArrowDown19, faArrowDownShortWide, faArrowDownWideShort, faArrowsV, faArrowTrendDown, faCaretDown, faDroplet, faExclamationTriangle, faExpand, faExpandArrowsAlt, faTriangleCircleSquare, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const [navbarHeader,setNavbarHeader] = useState("category")
@@ -23,6 +21,7 @@ function App() {
   }
 
   const showSearchResult =(val)=>{
+    alert(val)
     setSearchResult(val)
   }
   
@@ -32,8 +31,9 @@ function App() {
 
   return (
     <div className="App">
-        <Navbar header ={navbarHeader} search={search} showSearch={showSearch}/>
+        <Navbar header ={navbarHeader} search={search} showSearch={showSearch} selectCategory={showSearchResult}/>
         {search && <Searchbox isOnSearch={isOnSearch} setSearchResult={showSearchResult}/>}
+        show{showSearchResult}
         {search &&<Content onSearch={onSearch} content={searchResult}/>}
         {!search && <Cart showSearch={showSearch}/>}
         
