@@ -11,7 +11,7 @@ function App() {
     <div className="App">
         <Searchbox/>
         <Card img={"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/VAN_CAT.png/1024px-VAN_CAT.png"} name={"hello my name is brabrabrabrabra"}
-        Clickfunction={shoot()}></Card>
+        Clickfunction={shoot}></Card>
     </div>
   );
 }
