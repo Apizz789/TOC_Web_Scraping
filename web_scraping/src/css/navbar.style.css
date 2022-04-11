@@ -5,9 +5,17 @@
     border-radius: 75px 75px;
 }
 
+.logo{
+    padding-top: 1vh;
+    height: 5vh;
+}
+
 .cartIcon{
+    position: absolute;
+    padding-top: 1vh;
+    padding-left: 80vw;
     color: #00DBE9;
-    width: 5vh;
+    width: 4vh;
 }
 
 .category-toggle{
