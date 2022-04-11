@@ -10,12 +10,17 @@
     height: 5vh;
 }
 
-.cartIcon{
+.cartlogo-box{
     position: absolute;
+    width: fit-content;
+    margin-left: 80vw;
     padding-top: 1vh;
-    padding-left: 80vw;
+}
+
+.cartIcon{
     color: #00DBE9;
     width: 4vh;
+    height: 4vh;
 }
 
 .category-toggle{
@@ -30,7 +35,11 @@
 }
 
 .toggle-icon{
-    padding: 3px;
+    margin-left: 10px;
+    color: #2d8977;
+    margin-top: 2px;
+    width: 3vh;
+    height: 3vh;
 }
 
 .hor-center{

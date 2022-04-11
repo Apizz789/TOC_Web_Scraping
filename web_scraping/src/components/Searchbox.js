@@ -1,10 +1,8 @@
 import React from 'react'
 import '../css/searchbox.style.css'
 
-const Searchbox = () => {
-    const enterSearch = (input) => {
-        alert(input);
-    }
+const Searchbox = (props) => {
+
     return (
         <div class="Searchbox">
             <div class='text-center search-header'> ค้นหาสินค้าของคุณได้เลยคะ^^</div>
@@ -12,7 +10,8 @@ const Searchbox = () => {
                 <input type="text" name="" placeholder="Serach" class="text" id='searchText'
                     onKeyPress={event => {
                     if (event.key === 'Enter') {
-                        enterSearch(event.key)
+                        props.isOnSearch(true)
+                        props.showSearchResult(event.target.value)
                     }
                 }}
                 />

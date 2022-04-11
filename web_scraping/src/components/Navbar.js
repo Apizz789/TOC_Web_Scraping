@@ -1,6 +1,6 @@
 import React from 'react'
 import '../css/navbar.style.css'
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping,faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from '../resources/icon.png'
 
@@ -10,11 +10,11 @@ export default function Navbar(props) {
       <div class="hor-center">
         <div class="category-toggle">
           <div>{props.header}</div>
-          <div class="toggle-icon">V</div>
-          </div>
+            <FontAwesomeIcon icon={faCaretDown} class="toggle-icon"/>
+        </div>
         <img src={logo} class="logo"/>
         <div class="header">azala</div>
-        <FontAwesomeIcon icon={faCartShopping} class="cartIcon"/>
+        <div class="cartlogo-box"  onClick={(e) => props.showSearch(!props.search)}><FontAwesomeIcon icon={faCartShopping} class="cartIcon"/></div>
       </div>
     </div>
   )

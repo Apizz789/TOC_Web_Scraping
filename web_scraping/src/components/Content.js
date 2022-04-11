@@ -1,12 +1,13 @@
 import React from 'react'
 import CardSearch from './CardSearch'
 import '../css/content.style.css'
+import HomePage from './HomePage'
 
-export default function Content() {
+export default function Content(props) {
   return (
     <div class='Content'>Content
-        <CardSearch/>
-        <div className="bg-dark text-white">card bootstrap</div>
+        {!props.onSearch && <HomePage/>}
+        {props.onSearch && <CardSearch/>}
     </div>
 
   )
