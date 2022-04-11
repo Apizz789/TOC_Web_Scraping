@@ -8,9 +8,13 @@ class Lazada:
         self.web_data = None
         self.soup = None
         self.soup2 = None
+        self.soup3 = None
         self.find_word = None
         self.price = None
         self.img = None
+        self.tag = None
+        self.all_tag = []
+        self.stri= []
         self.requests()
 
     def requests(self):
@@ -20,15 +24,23 @@ class Lazada:
     def pull(self):
         self.soup = b4(self.web_data.text,'html.parser')
         self.soup2 = b4(self.web_data.text,'lxml',parse_only=s4('img'))
+        self.soup3 = b4(self.web_data.text,'html.parser')
         self.findtag()
 
     def findtag(self):
         self.find_word = self.soup.find_all('h1',{'class','pdp-mod-product-badge-title'})
         self.price = self.soup.find_all('span',{'class':'pdp-price pdp-price_type_normal pdp-price_color_orange pdp-price_size_xl'})
         self.img = self.soup2.find_all('img',{'class':'pdp-mod-common-image gallery-preview-panel__image'})
-
+        self.tag = self.soup3.find_all("a",{'class':'breadcrumb_item_anchor'})
+        
     def getData(self):
-        return self.find_word[0].get_text(strip=True),self.price[0].get_text(strip=True),self.img[0]['src']
+        for i in self.tag:
+            self.all_tag.append(i.get_text(strip=True))
+        self.stri.append(self.find_word[0].get_text(strip=True))
+        self.stri.append(self.price[0].get_text(strip=True))
+        self.stri.append(self.img[0]['src'])
+        self.stri.append(self.all_tag[:])
+        return self.stri
 
 
 class Ebay:
@@ -37,12 +49,16 @@ class Ebay:
         self.web_data = None
         self.soup = None
         self.soup2 = None
+        self.soup3 = None
         self.find_word = None
         self.price = None
         self.register = None
         self.img = None
         self.price_tag = ''
         self.real_price = ''
+        self.all_tag = []
+        self.stri= []
+        self.tag = None
         self.requests()
     
     def requests(self):
@@ -52,21 +68,29 @@ class Ebay:
     def pull(self):
         self.soup = b4(self.web_data.text,'html.parser')
         self.soup2 = b4(self.web_data.text,'lxml',parse_only=s4('img'))
+        self.soup3 = b4(self.web_data.text,'html.parser')
         self.findtag()
 
     def findtag(self):
         self.find_word = self.soup.find_all('span',{'class','u-dspn'})
         self.price = self.soup.find_all('div',{'class':'mainPrice'})[0]
         self.img = self.soup2.find_all('img',{'class':'img img300'})
+        self.tag = self.soup3.find_all("a",{"class":"scnd"})
         
     def getData(self):
         # print(find_word[0].get_text(strip=True))
         self.register = b4(self.price.text,'html.parser')   
         for i in self.register:
             self.price_tag += i
+        for j in self.tag:
+            self.all_tag.append(j.get_text(strip=True))
         self.price_tag = self.price_tag.split('\n')
         self.real_price = self.price_tag[8].replace('Approximately ','').replace('(including shipping)','')
-        return self.find_word[0].get_text(strip=True),self.real_price,self.img[0]['src']
+        self.stri.append(self.find_word[0].get_text(strip=True))
+        self.stri.append(self.real_price)
+        self.stri.append(self.img[0]['src'])
+        self.stri.append(self.all_tag)
+        return self.stri
 
 
 class Weloveshop:
@@ -78,6 +102,8 @@ class Weloveshop:
         self.find_word = None
         self.price = None
         self.img = None
+        self.all_tag = []
+        self.stri= []
         self.requests()
 
     def requests(self):
@@ -87,15 +113,23 @@ class Weloveshop:
     def pull(self):
         self.soup = b4(self.web_data.text,'html.parser')
         self.soup2 = b4(self.web_data.text,'lxml',parse_only=s4('img'))
+        self.soup3 = b4(self.web_data.text,'html.parser')
         self.findtag()
 
     def findtag(self):
         self.find_word = self.soup.find('h1')
         self.price = self.soup.find_all('strong',{'class':'font-34px color-main'})
         self.img = self.soup2.find_all('img',{'class':'active'})
+        self.tag = self.soup3.find_all("a",{"class":"active"})
     
     def getData(self):
-        return self.find_word.get_text(strip=True),self.price[0].get_text(strip=True)+' บาท',self.img[0]['src']
+        for j in self.tag:
+            self.all_tag.append(j.get_text(strip=True))
+        self.stri.append(self.find_word.get_text(strip=True))
+        self.stri.append(self.price[0].get_text(strip=True)+' บาท')
+        self.stri.append(self.img[0]['src'])
+        self.stri.append(self.all_tag)
+        return self.stri
 
 '''gt730 2GB'''
 url = "https://www.lazada.co.th/products/gt730-2gb-i3301291452-s12230721553.html?spm=a2o4m.searchlist.list.3.127aef4ewYv5U6&search=1"
@@ -112,7 +146,13 @@ url7 = "https://portal.weloveshopping.com/product/L90702790"
 url8 ="https://portal.weloveshopping.com/product/L90302979"
 
 
-l = Lazada(url2)
+l = Weloveshop(url8)
 print(l.getData())
+
+# url_lazada = [
+#     'https://www.lazada.co.th/products/gt730-2gb-i3301291452-s12230721553.html?spm=a2o4m.searchlist.list.3.127aef4ewYv5U6&search=1',
+#     'https://www.lazada.co.th/products/vga-gigabyte-gt-630-2gb-128-bit-i3280164978-s12174436215.html?spm=a2o4m.searchlist.list.5.127aef4ewjOF21&search=1',
+#     'https://www.lazada.co.th/products/asus-rtx-3050-phoenix-8gb-vga-geforce-graphic-card-i3371254754-s12481155971.html?spm=a2o4m.searchlist.list.79.127aef4ejtLQbd&search=1'
+# ]
 
 
