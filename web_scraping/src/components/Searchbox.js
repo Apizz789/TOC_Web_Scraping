@@ -9,8 +9,8 @@ const Searchbox = () => {
     }
     return (
         <div class="search">
-            <input type="text" name="" placeholder="Serach" class="text" id='searchText' onkeypress="enterSearch" />
-            <a href="#" class="btn"><i class="fa fa-search "></i></a>
+            <input type="text" name="" placeholder="Serach" class="text" id='searchText'/>
+            <a href="#" class="btn" ><i class="fa fa-search " ></i></a>
         </div>
     )
 }
