@@ -3,13 +3,17 @@ import '../css/searchbox.style.css'
 
 const Searchbox = () => {
     const enterSearch = (input) => {
-        if (input.key === "Enter") {
-            alert("Enter was just pressed.");
-        }
+        alert(input);
     }
     return (
         <div class="search">
-            <input type="text" name="" placeholder="Serach" class="text" id='searchText'/>
+            <input type="text" name="" placeholder="Serach" class="text" id='searchText'
+                onKeyPress={event => {
+                if (event.key === 'Enter') {
+                    enterSearch(event.key)
+                }
+              }}
+            />
             <a href="#" class="btn" ><i class="fa fa-search " ></i></a>
         </div>
     )
