@@ -35,7 +35,7 @@ function Card(props) {
                 width:"34px",
                 height:"34px"
             }}
-            onClick={{}}>+</button>
+            onClick={(e) => props.Clickfunction}>+</button>
         </div>
         
     </div>)
