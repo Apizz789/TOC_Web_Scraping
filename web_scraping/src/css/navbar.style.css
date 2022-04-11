@@ -1,0 +1,33 @@
+.Navbar {
+    height: 6vh;
+    width: 100vw;
+    background-color: #454255;
+    border-radius: 75px 75px;
+}
+
+.category-toggle{
+    color: #00C6B6;
+    position: absolute;
+    top: 1vh;
+    left:3vh;
+    font-size: 24px;
+    font-weight: bold;
+    flex-direction: row;
+    display: flex;
+}
+
+.toggle-icon{
+    padding: 3px;
+}
+
+.hor-center{
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    color: #00C6B6;
+    font-weight: bold;
+    font-size: 32px;
+    padding-top: 1.5vh;
+}
