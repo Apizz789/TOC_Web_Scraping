@@ -74,3 +74,49 @@
     font-size: 32px;
     padding-top: 1.5vh;
 }
+
+.navbar-login-button-pink{
+    border-radius: 42px;
+    background-color: #FD7676;
+    height: 4vh;
+    width: 6vw;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.navbar-login-button-blue{
+    border-radius: 42px;
+    background-color: #00DBE9;
+    height: 4vh;
+    width: 6vw;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.login-btn-pad{
+    top: 1vh;
+    position: absolute;
+    margin-left: 90vw;
+}
+
+.btn-center {
+    position: absolute;
+    font-size: 2.2vh;
+    color: white;
+    font-weight: 600;
+    top: -10%;
+    transform: translate(0, -50%);
+}
+
+.navbar-user-name-pad{
+    top: 2vh;
+    position: absolute;
+    margin-left: 60vw;
+}
+
+.navbar-name-header{
+    font-size: 2vh;
+    color: white;
+    font-weight: bold;
+}
