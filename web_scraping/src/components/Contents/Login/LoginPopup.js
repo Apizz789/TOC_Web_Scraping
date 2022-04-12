@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import '../../../css/LoginPopup.style.css'
 function LoginPopup(props) {
+  
   const Passvalue = () => {
+    props.setPopupBackground(false)
     // document.getElelementByID("Data_ID").value=Data_ID;
     // document.getElelementByID("Data_Type").value=Data_Type;
     let username = document.getElementById("username-element").value
     document.getElementById("username-element").innerHTML = username
     let password = document.getElementById("password-element").value
     document.getElementById("password-element").innerHTML = password
-    // alert(username+password)
+    alert(username+password)
     props.isLoggedIn(username, password)
   }
 

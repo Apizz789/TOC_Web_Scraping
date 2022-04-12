@@ -100,12 +100,12 @@ function App() {
                             toggle={toggle} logout={logout}
                             toggleHandle ={toggleHandle} selectCategory={selectCategory} lastClick={lastClick}
                             />}
-        {showLoginPopup && <LoginPopup isLoggedIn={isLoggedIn} setLoggedin = {setLoggedin} />}
-        {!showLoginPopup && (page=="Home" || page=="Search") && <Searchbox pageHandle={pageHandle} searchResultHandle={searchResultHandle}/>}
+        {showLoginPopup && <LoginPopup setPopupBackground = {setPopupBackground} isLoggedIn={isLoggedIn} setLoggedin = {setLoggedin} />}
+        {(page=="Home" || page=="Search") && <Searchbox pageHandle={pageHandle} searchResultHandle={searchResultHandle}/>}
         {page==="Search" &&<Content content={{type:page,result: searchResult}}/>}
         {page==="Cart" && <Cart showSearch={showSearch}/>}
         {page==="Home" && <Homepage/>}
-        
+        ddd
     </div>
   );
 }
