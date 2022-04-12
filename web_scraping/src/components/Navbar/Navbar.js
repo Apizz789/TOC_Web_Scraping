@@ -7,19 +7,32 @@ import CategoryDropdown from './CategoryDropdown';
 
 export default function Navbar(props) {
   const [toggle,setToggle] = useState(false)
-
+  
   const toggleHandle = () =>{
     setToggle(!toggle)
   }
 
+  const selectCategory =(destination)=>{
+    alert(destination+ " is selected")
+    props.pageHandle("Search")
+    props.showSearchResult(destination)
+  }
+
   return (
     <div class='Navbar'>
-      <div class="hor-center">
+        <div class="hor-center">
+
+        <div>
+          <a onClick={props.pageHandle("Home")}>Home</a>
+        </div>
         <div class="category-toggle">
-          <div>{props.header}</div>
+          <div>Category</div>
             {!toggle && <FontAwesomeIcon icon={faCaretDown} class="toggle-icon" onClick={(e) => toggleHandle()}/>}
             {toggle && <FontAwesomeIcon icon={faCaretUp} class="toggle-icon" onClick={(e) => toggleHandle()}/>}
-            {toggle && <CategoryDropdown/>}
+            {toggle && <CategoryDropdown selectCategory={selectCategory}/>}
+        </div>
+        <div>
+            {props.header}
         </div>
         <img src={logo} class="logo"/>
         <div class="header">azala</div>

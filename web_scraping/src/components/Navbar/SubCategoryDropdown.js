@@ -8,7 +8,7 @@ function SubCategoryDropdown(props) {
             <div class="dropdown-pad-sub">
               {props.subCategory.map((each) => 
                 <div>
-                    <div class='category-list'>{each.title}</div>
+                    <div class='category-list' onClick={(e) => props.selectCategory(each.title)}>{each.title}</div>
                 </div>
               )}
             </div>

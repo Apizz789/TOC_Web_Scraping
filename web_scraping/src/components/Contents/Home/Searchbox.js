@@ -10,9 +10,8 @@ const Searchbox = (props) => {
                 <input type="text" name="" placeholder="Serach" class="text" id='searchText'
                     onKeyPress={event => {
                     if (event.key === 'Enter') {
-                        props.isOnSearch(true)
                         props.showSearchResult(event.target.value)
-                        
+                        props.isOnSearch(true)
                     }
                 }}
                 />

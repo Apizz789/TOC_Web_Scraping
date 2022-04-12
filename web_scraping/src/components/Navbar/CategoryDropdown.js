@@ -22,10 +22,10 @@ function CategoryDropdown(props) {
         <div class="dropdown-pad sub">
           {toggle.map((each) =>
             <div class="main-category-row">
-              <div class='category-list'>{each.title}</div>
+              <div class='category-list' onClick={(e) => props.selectCategory(each.title)}>{each.title}</div>
               {!each.toggle && <FontAwesomeIcon icon={faCaretRight} class="toggle-icon-sub" onClick={(e) => toggleHandle(each.title,true)} />}
               {each.toggle && <FontAwesomeIcon icon={faCaretLeft} class="toggle-icon-sub" onClick={(e) => toggleHandle(each.title,false)} />}
-              {each.toggle && <SubCategoryDropdown subCategory={each.subCategory} />}
+              {each.toggle && <SubCategoryDropdown selectCategory={props.selectCategory} subCategory={each.subCategory} />}
             </div>
           )}
         </div>

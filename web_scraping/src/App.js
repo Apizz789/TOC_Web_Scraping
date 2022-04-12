@@ -5,13 +5,20 @@ import Content from './components/Contents/Home/Content';
 import Cart from './components/Contents/Products/Cart';
 import Navbar from './components/Navbar/Navbar';
 import React, { useState, useEffect } from 'react'
+import users from './resources/user.dummy'
+import Homepage from './components/Contents/Home/HomePage';
 
 function App() {
-  const [navbarHeader,setNavbarHeader] = useState("category")
-  const [search,serSearch] = useState(true);
-  const [searchResult,setSearchResult] = useState("");
-  const [onSearch,setOnSearch] = useState(false);
-
+  const [navbarHeader,setNavbarHeader] = useState("")
+  const [search,serSearch] = useState(true)
+  const [searchResult,setSearchResult] = useState("")
+  const [onSearch,setOnSearch] = useState(false)
+  const [loggedin,setLoggedin] = useState(false)
+  const [user,setUser] = useState({ username: "anonymous",
+                                    password: "123",
+                                    name: "Guest",
+                                    cart: null})
+  const [page,setPage] = useState("Home")
   const changePage =(name)=>{
     setNavbarHeader(name)
   }
@@ -21,7 +28,6 @@ function App() {
   }
 
   const showSearchResult =(val)=>{
-    alert(val)
     setSearchResult(val)
   }
   
@@ -29,13 +35,24 @@ function App() {
     setOnSearch(val)
   }
 
+  const isLoggedIn =(username,password)=>{  
+    const status = users.find(user => [user.username,user.password] == [username,password])
+    {status? setUser(status) :alert("Wrong username or password!")}
+    {status? setLoggedin(true) : setLoggedin(false)}
+
+  }
+
+  const pageHandle =(page)=>{
+    setPage(page)
+  }
+
   return (
     <div className="App">
-        <Navbar header ={navbarHeader} search={search} showSearch={showSearch} selectCategory={showSearchResult}/>
-        {search && <Searchbox isOnSearch={isOnSearch} setSearchResult={showSearchResult}/>}
-        show{showSearchResult}
-        {search &&<Content onSearch={onSearch} content={searchResult}/>}
-        {!search && <Cart showSearch={showSearch}/>}
+        <Navbar loggedin = {loggedin} isLoggedIn={isLoggedIn} pageHandle = {pageHandle} header ={navbarHeader} search={search} showSearch={showSearch} selectCategory={showSearchResult}/>
+        {(page=="Home" || page=="Search") && <Searchbox isOnSearch={isOnSearch} showSearchResult={showSearchResult}/>}
+        {page=="Search" &&<Content onSearch={onSearch} content={{type:page,result: searchResult}}/>}
+        {page=="Cart" && <Cart showSearch={showSearch}/>}
+        {page=="Home" && <Homepage/>}
         
     </div>
   );
