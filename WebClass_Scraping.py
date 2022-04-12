@@ -15,6 +15,7 @@ class Lazada:
         self.tag = None
         self.all_tag = []
         self.stri= []
+        self.seller = None
         self.requests()
 
     def requests(self):
@@ -32,10 +33,12 @@ class Lazada:
         self.price = self.soup.find_all('span',{'class':'pdp-price pdp-price_type_normal pdp-price_color_orange pdp-price_size_xl'})
         self.img = self.soup2.find_all('img',{'class':'pdp-mod-common-image gallery-preview-panel__image'})
         self.tag = self.soup3.find_all("a",{'class':'breadcrumb_item_anchor'})
+        self.seller = self.soup.find_all("a",{"class":"pdp-link pdp-link_size_l pdp-link_theme_black seller-name__detail-name"})
         
     def getData(self):
         for i in self.tag:
             self.all_tag.append(i.get_text(strip=True))
+        self.stri.append(self.seller[0].get_text(strip=True))
         self.stri.append(self.find_word[0].get_text(strip=True))
         self.stri.append(self.price[0].get_text(strip=True))
         self.stri.append(self.img[0]['src'])
@@ -58,6 +61,7 @@ class Ebay:
         self.real_price = ''
         self.all_tag = []
         self.stri= []
+        self.seller = None
         self.tag = None
         self.requests()
     
@@ -76,6 +80,7 @@ class Ebay:
         self.price = self.soup.find_all('div',{'class':'mainPrice'})[0]
         self.img = self.soup2.find_all('img',{'class':'img img300'})
         self.tag = self.soup3.find_all("a",{"class":"scnd"})
+        self.seller = self.soup.find_all("span",{"class":"ux-textspans ux-textspans--PSEUDOLINK ux-textspans--BOLD"})
         
     def getData(self):
         # print(find_word[0].get_text(strip=True))
@@ -86,6 +91,7 @@ class Ebay:
             self.all_tag.append(j.get_text(strip=True))
         self.price_tag = self.price_tag.split('\n')
         self.real_price = self.price_tag[8].replace('Approximately ','').replace('(including shipping)','')
+        self.stri.append(self.seller[0].get_text(strip=True))
         self.stri.append(self.find_word[0].get_text(strip=True))
         self.stri.append(self.real_price)
         self.stri.append(self.img[0]['src'])
@@ -104,6 +110,7 @@ class Weloveshop:
         self.img = None
         self.all_tag = []
         self.stri= []
+        self.seller = None
         self.requests()
 
     def requests(self):
@@ -121,10 +128,12 @@ class Weloveshop:
         self.price = self.soup.find_all('strong',{'class':'font-34px color-main'})
         self.img = self.soup2.find_all('img',{'class':'active'})
         self.tag = self.soup3.find_all("a",{"class":"active"})
+        self.seller = self.soup.find_all("div",{"class":"shop-detail"})[0].span.get_text(strip=True)
     
     def getData(self):
         for j in self.tag:
             self.all_tag.append(j.get_text(strip=True))
+        self.stri.append(self.seller)
         self.stri.append(self.find_word.get_text(strip=True))
         self.stri.append(self.price[0].get_text(strip=True)+' บาท')
         self.stri.append(self.img[0]['src'])
@@ -146,7 +155,7 @@ url7 = "https://portal.weloveshopping.com/product/L90702790"
 url8 ="https://portal.weloveshopping.com/product/L90302979"
 
 
-l = Weloveshop(url8)
+l = Weloveshop(url7)
 print(l.getData())
 
 # url_lazada = [
