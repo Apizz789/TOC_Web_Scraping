@@ -18,8 +18,18 @@ function App() {
   const [page,setPage] = useState("Home")
   const [showLoginPopup,setShowLoginPopup] = useState(false)
   const [background,setBackground] = useState(false)
+  const [toggle, setToggle] = useState(false)
+  const [lastClick, setLastClick] = useState(false)
+
   const updateHeader =(name)=>{
     setNavbarHeader(name)
+  }
+
+  const toggleHandle = () => {
+    if (toggle == false) {
+      setLastClick(true)
+    }
+    setToggle(!toggle)
   }
 
   const showSearch =(val)=>{
@@ -31,6 +41,20 @@ function App() {
     setSearchResult(val)
   }
   
+  const selectCategory = (destination) => {
+
+    if (destination !== "Home") {
+      toggle?toggleHandle():pageHandle("Search")
+      pageHandle("Search")
+    }
+    else if (destination === "Home") {
+      toggle?toggleHandle():pageHandle("Home")
+      pageHandle("Home")
+      setLastClick(false)
+    }
+    // alert(toggle)
+    searchResultHandle(destination)
+  }
 
   const isLoggedIn =(username,password)=>{  
     const matched_username = users.find(user => user.username == username)
@@ -41,6 +65,10 @@ function App() {
     {status? setShowLoginPopup(false): setShowLoginPopup(true)}
     {status? setPopupBackground(false): setPopupBackground(true)}
     
+  }
+  const logout =()=>{
+    setLoggedin(false)
+    setUser(users[0])
   }
 
   const pageHandle =(page)=>{
@@ -69,12 +97,14 @@ function App() {
                             loggedin = {loggedin} isLoggedIn={isLoggedIn} 
                             page={page} pageHandle = {pageHandle} header ={navbarHeader} 
                             search={search} showSearch={showSearch} searchResultHandle={searchResultHandle}
+                            toggle={toggle} logout={logout}
+                            toggleHandle ={toggleHandle} selectCategory={selectCategory} lastClick={lastClick}
                             />}
         {showLoginPopup && <LoginPopup isLoggedIn={isLoggedIn} setLoggedin = {setLoggedin} />}
         {!showLoginPopup && (page=="Home" || page=="Search") && <Searchbox pageHandle={pageHandle} searchResultHandle={searchResultHandle}/>}
-        {page=="Search" &&<Content content={{type:page,result: searchResult}}/>}
-        {page=="Cart" && <Cart showSearch={showSearch}/>}
-        {page=="Home" && <Homepage/>}
+        {page==="Search" &&<Content content={{type:page,result: searchResult}}/>}
+        {page==="Cart" && <Cart showSearch={showSearch}/>}
+        {page==="Home" && <Homepage/>}
         
     </div>
   );

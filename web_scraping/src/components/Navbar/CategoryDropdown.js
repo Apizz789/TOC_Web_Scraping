@@ -10,9 +10,9 @@ function CategoryDropdown(props) {
   const [toggle, setToggle] = useState(categoryList)
 
   const toggleHandle = (name,val) => {
-    const newToggle = toggle.map(obj =>
-      obj.title == name ? { ...obj, toggle: val } : { ...obj, toggle: false }
-  )
+    const newToggle = toggle.map(
+      obj => obj.title == name ? { ...obj, toggle: val } : { ...obj, toggle: false }
+      )
     setToggle(newToggle)
   }
 
@@ -22,9 +22,11 @@ function CategoryDropdown(props) {
         <div class="dropdown-pad sub">
           {toggle.map((each) =>
             <div class="main-category-row">
-              <div class='category-list' onClick={(e) => props.selectCategory(each.title)}>{each.title}</div>
+              <div class='category-list' onClick={(e) => {props.selectCategory(each.title)}}>{each.title}</div>
+              <div class='right-dropdown-icon'>
               {!each.toggle && <FontAwesomeIcon icon={faCaretRight} class="toggle-icon-sub" onClick={(e) => toggleHandle(each.title,true)} />}
               {each.toggle && <FontAwesomeIcon icon={faCaretLeft} class="toggle-icon-sub" onClick={(e) => toggleHandle(each.title,false)} />}
+              </div>
               {each.toggle && <SubCategoryDropdown selectCategory={props.selectCategory} subCategory={each.subCategory} />}
             </div>
           )}

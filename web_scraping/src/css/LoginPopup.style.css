@@ -73,6 +73,11 @@
     border-radius: 50px;
 
 }
+.login-btn:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    background-color: rgb(43, 43, 43);
+}
 
 .login-btn p {
     line-height: 1;

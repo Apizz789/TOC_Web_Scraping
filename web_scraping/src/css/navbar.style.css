@@ -23,6 +23,12 @@
     padding-top: 1vh;
 }
 
+.cartlogo-box:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+
 .cartIcon{
     color: #00DBE9;
     width: 4vh;
@@ -38,6 +44,7 @@
 }
 .category-toggle{
     position: absolute;
+    /* border: 2px solid firebrick; */
     top: 1vh;
     left:15vh;
     flex-direction: row;
@@ -48,6 +55,15 @@
     font-weight: bold;
     font-size: 24px;
 }
+.nav-text-white:hover{
+    cursor: pointer;
+    color: aquamarine;
+    opacity: 0.8;
+}
+  .nav-text-blue:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
 
 .nav-text-blue{
     color: #00C6B6;
@@ -57,10 +73,16 @@
 
 .toggle-icon{
     margin-left: 10px;
-    color: #2d8977;
+    color: #ffffff;
     margin-top: 2px;
     width: 3vh;
     height: 3vh;
+}
+
+.toggle-icon:hover{
+    cursor: pointer;
+    color: #00C6B6;
+    opacity: 0.8;
 }
 
 .hor-center{
@@ -75,6 +97,7 @@
     padding-top: 1.5vh;
 }
 
+
 .navbar-login-button-pink{
     border-radius: 42px;
     background-color: #FD7676;
@@ -84,7 +107,10 @@
     justify-content: center;
     position: relative;
 }
-
+.navbar-login-button-pink:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
 .navbar-login-button-blue{
     border-radius: 42px;
     background-color: #00DBE9;
@@ -93,6 +119,11 @@
     display: flex;
     justify-content: center;
     position: relative;
+}
+
+.navbar-login-button-blue:hover{
+    cursor: pointer;
+    opacity: 0.8;
 }
 .login-btn-pad{
     top: 1vh;
@@ -108,6 +139,11 @@
     top: -10%;
     transform: translate(0, -50%);
 }
+.btn-center:hover{
+    cursor: pointer;
+    color: #454255;
+}
+
 
 .navbar-user-name-pad{
     top: 2vh;
@@ -119,4 +155,9 @@
     font-size: 2vh;
     color: white;
     font-weight: bold;
+}
+
+.navbar-name-header:hover{
+    cursor: pointer;
+    opacity: 0.8;
 }
