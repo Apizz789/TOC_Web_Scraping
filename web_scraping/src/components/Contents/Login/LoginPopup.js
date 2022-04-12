@@ -8,6 +8,7 @@ function LoginPopup(props) {
     document.getElementById("username-element").innerHTML = username
     let password = document.getElementById("password-element").value
     document.getElementById("password-element").innerHTML = password
+    // alert(username+password)
     props.isLoggedIn(username,password)
   }
 

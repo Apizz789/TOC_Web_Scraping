@@ -37,11 +37,12 @@ function App() {
   }
 
   const isLoggedIn =(username,password)=>{  
-    const status = users.find(user => [user.username,user.password] == [username,password])
-    {status? setUser(status) :alert("Wrong username or password!")}
+    const matched_username = users.find(user => user.username == username)
+    const matched_password = users.find(user => user.password == password)
+    const status = matched_username===matched_password
+    {status? setUser(matched_username) : alert("Wrong username or password!")}
     {status? setLoggedin(true) : setLoggedin(false)}
-    alert(username+" "+password)
-
+    {status? setShowLoginPopup(false): setShowLoginPopup(true)}
   }
 
   const pageHandle =(page)=>{
