@@ -57,7 +57,7 @@ export default function Navbar(props) {
         <div class="header">azala</div>
 
         <div class="cartlogo-box"  onClick={(e) => props.pageHandle("Cart")}><FontAwesomeIcon icon={faCartShopping} class="cartIcon"/></div>
-        {!props.loggedin && <div class="login-button" onClick={(e) => props.setShowLoginPopup(true)}>Login</div>}
+        {!props.loggedin && <div class="login-button" onClick={(e) => props.setPopupBackground(true,"login")}>Login</div>}
         {props.loggedin && <div class="login-button" onClick={(e) => props.setLoggedIn(false)}>Logout</div>}
       </div>
     </div>

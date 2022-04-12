@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import '../../../css/LoginPopup.style.css'
 function LoginPopup(props) {
   const Passvalue = () => {
     // document.getElelementByID("Data_ID").value=Data_ID;
@@ -9,21 +9,39 @@ function LoginPopup(props) {
     let password = document.getElementById("password-element").value
     document.getElementById("password-element").innerHTML = password
     // alert(username+password)
-    props.isLoggedIn(username,password)
+    props.isLoggedIn(username, password)
   }
 
   return (
-    <div>
-        <h3>Login</h3>
-        <div className="form-group" >
-          <label>Username</label>
-          <input id="username-element" type="username" className="form-control" placeholder="Enter username" />
+
+    <div class="LoginPopup">
+      <div class="center-containter">
+        <div class="center-child loginpopup-content">
+
+          <div class="loginpopup-header-pad">
+            <h3>Login</h3>
+          </div>
+
+          {/* <label class="login-input-header">Username</label> */}
+          <div class="center-containter login-main-input-padding">
+            <div class="center-child">
+              <div class="login-input-padding">
+                <input id="username-element" type="username" className="login-input-box" placeholder="Enter username" />
+              </div>
+              {/* <label  class="login-input-header">Password</label> */}
+              <div class="login-input-padding">
+                <input id="password-element" type="password" className="login-input-box" placeholder="Enter password" />
+              </div>
+              <div class="login-btn-padding">
+                <div className="login-btn" onClick={(e) => Passvalue()}><p>Login</p></div>
+
+              </div>
+
+            </div>
+
+          </div>
         </div>
-        <div className="form-group">
-          <label>Password</label>
-          <input  id="password-element"  type="password" className="form-control" placeholder="Enter password" />
-        </div>
-        <div className="login-btn" onClick={(e) => Passvalue()}>Submit</div>
+      </div>
     </div>
 
   )
