@@ -55,14 +55,9 @@
   .CategoryCard{
     position: absolute;
     margin-top: 5vh;
-    width: 15vw;
+    width: 10vw;
     font-size:1vw ;
     background-color: #2d2b39;
-  }
-  .right-dropdown-icon{
-    width: 100%;
-    display: flex;
-    flex-direction: row-reverse;
   }
 
   .main-category-row{
@@ -73,26 +68,20 @@
   .SubCategoryCard{
     position: absolute;
     margin-top: 0px;
-    margin-left: 15vw;
+    margin-left: 10vw;
     background-color: #252330;
-    width: 17vw;
+    width: 10vw;
   }
 
   .toggle-icon-sub {
     color: white;
+
     width: 2vw;
     height: 2vh;
   }
 
-  .category-list{
-    color: #00C6B6;
-    width: 70vw;
-  }
-  .category-list:hover{
-    color: #e2e2e2;
-    cursor: pointer;
-    background-color: #373353;
-    width: 70vw;
-  }
+    .category-list{
+      color: #00C6B6;
+    }
 
 
