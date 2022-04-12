@@ -74,9 +74,14 @@
   }
 
   .toggle-icon-sub {
+    color: white;
+
     width: 2vw;
     height: 2vh;
   }
 
+    .category-list{
+      color: #00C6B6;
+    }
 
 

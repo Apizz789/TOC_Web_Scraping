@@ -19,7 +19,8 @@ function App() {
                                     name: "Guest",
                                     cart: null})
   const [page,setPage] = useState("Home")
-  const changePage =(name)=>{
+  
+  const updateHeader =(name)=>{
     setNavbarHeader(name)
   }
 
@@ -48,7 +49,7 @@ function App() {
 
   return (
     <div className="App">
-        <Navbar loggedin = {loggedin} isLoggedIn={isLoggedIn} pageHandle = {pageHandle} header ={navbarHeader} search={search} showSearch={showSearch} selectCategory={showSearchResult}/>
+        <Navbar user={user} loggedin = {loggedin} isLoggedIn={isLoggedIn} page={page} pageHandle = {pageHandle} header ={navbarHeader} search={search} showSearch={showSearch} selectCategory={showSearchResult}/>
         {(page=="Home" || page=="Search") && <Searchbox isOnSearch={isOnSearch} showSearchResult={showSearchResult}/>}
         {page=="Search" &&<Content onSearch={onSearch} content={{type:page,result: searchResult}}/>}
         {page=="Cart" && <Cart showSearch={showSearch}/>}

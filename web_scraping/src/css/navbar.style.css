@@ -5,6 +5,12 @@
     border-radius: 75px 75px;
 }
 
+.test{
+    border: 2px solid darkblue;
+    height: 50px;
+    width: 50px;
+}
+
 .logo{
     padding-top: 1vh;
     height: 5vh;
@@ -23,15 +29,30 @@
     height: 4vh;
 }
 
-.category-toggle{
-    color: #00C6B6;
+.home-navbar{
     position: absolute;
     top: 1vh;
     left:3vh;
-    font-size: 24px;
-    font-weight: bold;
     flex-direction: row;
     display: flex;
+}
+.category-toggle{
+    position: absolute;
+    top: 1vh;
+    left:15vh;
+    flex-direction: row;
+    display: flex;
+}
+.nav-text-white{
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.nav-text-blue{
+    color: #00C6B6;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .toggle-icon{
