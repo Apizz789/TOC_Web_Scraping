@@ -6,8 +6,7 @@ import HomePage from './HomePage'
 export default function Content(props) {
   return (
     <div class='Content'>Content 
-        {!props.onSearch && <HomePage/>}
-        {props.onSearch && <CardSearch searchResult ={props.content.searchResult}/>}
+        <CardSearch searchResult ={props.content.searchResult}/>
     </div>
 
   )

@@ -1,6 +1,12 @@
-import cart from './cart.dummy' 
+import cart from './cart.dummy'
 
 const users = [
+    {
+        username: "anonymous",
+        password: "123",
+        name: "Guest",
+        cart: null
+    },
     {
         username: "admin1",
         password: "12345",

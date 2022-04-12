@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import React, { useState, useEffect } from 'react'
 import users from './resources/user.dummy'
 import Homepage from './components/Contents/Home/HomePage';
+import LoginPopup from './components/Contents/Login/LoginPopup';
 
 function App() {
   const [navbarHeader,setNavbarHeader] = useState("")
@@ -14,12 +15,10 @@ function App() {
   const [searchResult,setSearchResult] = useState("")
   const [onSearch,setOnSearch] = useState(false)
   const [loggedin,setLoggedin] = useState(false)
-  const [user,setUser] = useState({ username: "anonymous",
-                                    password: "123",
-                                    name: "Guest",
-                                    cart: null})
+  const [user,setUser] = useState(users[0])
   const [page,setPage] = useState("Home")
-  
+  const [showLoginPopup,setShowLoginPopup] = useState(false)
+
   const updateHeader =(name)=>{
     setNavbarHeader(name)
   }
@@ -28,7 +27,8 @@ function App() {
     serSearch(val)
   }
 
-  const showSearchResult =(val)=>{
+  const searchResultHandle =(val)=>{
+    // alert(val)
     setSearchResult(val)
   }
   
@@ -40,6 +40,7 @@ function App() {
     const status = users.find(user => [user.username,user.password] == [username,password])
     {status? setUser(status) :alert("Wrong username or password!")}
     {status? setLoggedin(true) : setLoggedin(false)}
+    alert(username+" "+password)
 
   }
 
@@ -49,8 +50,12 @@ function App() {
 
   return (
     <div className="App">
-        <Navbar user={user} loggedin = {loggedin} isLoggedIn={isLoggedIn} page={page} pageHandle = {pageHandle} header ={navbarHeader} search={search} showSearch={showSearch} selectCategory={showSearchResult}/>
-        {(page=="Home" || page=="Search") && <Searchbox isOnSearch={isOnSearch} showSearchResult={showSearchResult}/>}
+        <Navbar user={user} showLoginPopup={showLoginPopup} setShowLoginPopup={setShowLoginPopup} 
+                            loggedin = {loggedin} isLoggedIn={isLoggedIn} 
+                            page={page} pageHandle = {pageHandle} header ={navbarHeader} 
+                            search={search} showSearch={showSearch} searchResultHandle={searchResultHandle}/>
+        {showLoginPopup && <LoginPopup isLoggedIn={isLoggedIn} setLoggedin = {setLoggedin} />}
+        {(page=="Home" || page=="Search") && <Searchbox pageHandle={pageHandle} searchResultHandle={searchResultHandle}/>}
         {page=="Search" &&<Content onSearch={onSearch} content={{type:page,result: searchResult}}/>}
         {page=="Cart" && <Cart showSearch={showSearch}/>}
         {page=="Home" && <Homepage/>}

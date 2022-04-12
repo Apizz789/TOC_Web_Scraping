@@ -7,15 +7,24 @@ import CategoryDropdown from './CategoryDropdown';
 
 export default function Navbar(props) {
   const [toggle,setToggle] = useState(false)
+  const [lastClick,setLastClick] = useState(false)
   
   const toggleHandle = () =>{
+    if(toggle == false){
+      setLastClick(true)
+    }
     setToggle(!toggle)
-    alert("set to "+!toggle)
   }
 
   const selectCategory =(destination)=>{
-    props.pageHandle("Search")
-    props.showSearchResult(destination)
+    if(destination !=="Home"){
+      props.pageHandle("Search")
+    }
+    else if(destination ==="Home"){
+       props.pageHandle("Home")
+       setLastClick(false)
+    }
+    props.searchResultHandle(destination)
     toggleHandle()
   }
 
@@ -23,18 +32,18 @@ export default function Navbar(props) {
     <div class='Navbar'>
         <div class="hor-center">
 
-        {props.page == "Home" && !toggle && 
+        {props.page == "Home" && !lastClick  &&
         <div class="home-navbar nav-text-blue">
-          <div class="test" onClick={(e) => selectCategory("Home")}>Home</div>
+          <div onClick={(e) => selectCategory("Home")}>Home</div>
         </div>}
-        {(props.page == "Search"  ||(props.page =="Home" && toggle==true)) &&
+        {(lastClick==true || props.page=="Search" || props.page =="Cart")&& 
         <div class="home-navbar nav-text-white">
           <div onClick={(e) => selectCategory("Home")}>Home</div>
         </div>}
 
         <div class="category-toggle">
-          {toggle && <div class= "nav-text-blue">Category</div>}
-          {!toggle && <div class= "nav-text-white">Category</div>}
+          {lastClick   && <div class= "nav-text-blue">Category</div>}
+          {!lastClick && <div class= "nav-text-white">Category</div>}
             {!toggle && <FontAwesomeIcon icon={faCaretDown} class="toggle-icon" onClick={(e) => toggleHandle()}/>}
             {toggle && <FontAwesomeIcon icon={faCaretUp} class="toggle-icon" onClick={(e) => toggleHandle()}/>}
             {toggle && <CategoryDropdown selectCategory={selectCategory}/>}
@@ -47,7 +56,9 @@ export default function Navbar(props) {
         <img src={logo} class="logo"/>
         <div class="header">azala</div>
 
-        <div class="cartlogo-box"  onClick={(e) => props.showSearch(!props.search)}><FontAwesomeIcon icon={faCartShopping} class="cartIcon"/></div>
+        <div class="cartlogo-box"  onClick={(e) => props.pageHandle("Cart")}><FontAwesomeIcon icon={faCartShopping} class="cartIcon"/></div>
+        {!props.loggedIn && <div class="login-button" onClick={(e) => props.setShowLoginPopup(true)}>Login</div>}
+        {props.loggedIn && <div class="login-button" onClick={(e) => props.setLoggedIn(false)}>Logout</div>}
       </div>
     </div>
   )
