@@ -5,6 +5,7 @@
   
   .Searchbox{
     min-height: 15vh;
+    border: 2px solid pink;
   }
   .search-header{
     position: absolute;
