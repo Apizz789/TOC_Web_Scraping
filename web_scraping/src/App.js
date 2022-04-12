@@ -13,7 +13,6 @@ function App() {
   const [navbarHeader,setNavbarHeader] = useState("")
   const [search,serSearch] = useState(true)
   const [searchResult,setSearchResult] = useState("")
-  const [onSearch,setOnSearch] = useState(false)
   const [loggedin,setLoggedin] = useState(false)
   const [user,setUser] = useState(users[0])
   const [page,setPage] = useState("Home")
@@ -32,9 +31,6 @@ function App() {
     setSearchResult(val)
   }
   
-  const isOnSearch =(val) =>{
-    setOnSearch(val)
-  }
 
   const isLoggedIn =(username,password)=>{  
     const matched_username = users.find(user => user.username == username)
@@ -76,7 +72,7 @@ function App() {
                             />}
         {showLoginPopup && <LoginPopup isLoggedIn={isLoggedIn} setLoggedin = {setLoggedin} />}
         {!showLoginPopup && (page=="Home" || page=="Search") && <Searchbox pageHandle={pageHandle} searchResultHandle={searchResultHandle}/>}
-        {page=="Search" &&<Content onSearch={onSearch} content={{type:page,result: searchResult}}/>}
+        {page=="Search" &&<Content content={{type:page,result: searchResult}}/>}
         {page=="Cart" && <Cart showSearch={showSearch}/>}
         {page=="Home" && <Homepage/>}
         
