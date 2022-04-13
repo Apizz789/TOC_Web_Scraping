@@ -66,11 +66,12 @@ function App() {
   const isLoggedIn =(username,password)=>{  
     const matched_username = users.find(user => user.username == username)
     const matched_password = users.find(user => user.password == password)
-    const status = matched_username===matched_password
+    const status = (matched_username===matched_password)&&(matched_username!==undefined&&matched_password!==undefined)
+
     {status? setUser(matched_username) : alert("Wrong username or password!")}
-    {status? setLoggedin(true) : alert("Pls")}  
-    {status? setShowLoginPopup(false): alert("try")}
-    {status? setPopupBackground(false): alert("again")}
+    {status? setLoggedin(true) : setLoggedin(false)}  
+    {status? setShowLoginPopup(false): setShowLoginPopup(true)}
+    {status? setPopupBackground(false): setPopupBackground(true)}
   
   }
 
