@@ -1,0 +1,101 @@
+
+.login-input-box {
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid rgb(169, 169, 169);
+    padding: 5px; 
+    padding-left: 15px;
+    width: 10vw;
+    height: 2.5vh;    
+    background-color: white;
+    font-size: 1.5vh;
+    color: #454255;
+}
+.login-input-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(127, 127, 127);
+    opacity: 1; /* Firefox */
+  }
+  
+  .login-input-box:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(127, 127, 127);
+  }
+  
+  .login-input-box::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(127, 127, 127);
+
+  }
+.login-main-input-padding{
+    padding-top: 10vh;
+    padding-bottom: 1vh;
+}
+.login-input-padding{
+    padding-top: 2vh;
+    padding-bottom: 1vh;
+}
+
+.login-btn-padding{
+    padding-top: 5vh;
+    padding-bottom: 1vh;
+}
+
+.login-btn:hover{
+    background-color: rgb(105, 246, 244);
+    color: blue;
+    cursor: pointer;
+}   
+
+
+.center-container{
+  margin-top: 20vh;
+  /* Setup */
+  position: relative;
+}
+
+.center-child{
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* border: 5px solid rgb(255, 247, 0); */
+
+}
+
+.loginpopup-content{
+    /* background-color: #454255; */
+    background-color: white;
+    /* background-color: #15008a; */
+    height: 40vh;
+    width: 20vw;
+    justify-content: center;    
+}
+
+.loginpopup-header-pad{
+    position: absolute;
+    background-color: #454255;
+    height: 5vh;
+    width: 20vw;
+    text-align: center;
+    color: white;
+    margin-bottom: 5vh;
+}
+
+
+.center-row{
+    text-align: center;
+}
+
+.login-btn{
+    background-color: black;
+    height: 5vh;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-radius: 50px;
+
+}
+
+.login-btn p {
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+  }

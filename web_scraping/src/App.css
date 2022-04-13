@@ -1,0 +1,8 @@
+.black-bg-popup{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    opacity: 0.5;
+    background-color: rgb(0, 0, 0);
+}
+

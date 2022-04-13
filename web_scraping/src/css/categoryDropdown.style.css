@@ -1,0 +1,95 @@
+@media (min-width: 992px) {
+    .dropdown-menu {
+      animation-duration: 0.4s;
+      -webkit-animation-duration: 0.4s;
+      animation-fill-mode: both;
+      -webkit-animation-fill-mode: both;
+      -webkit-animation-name: slideIn;
+      animation-name: slideIn;
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0rem);
+      opacity: 1;
+    }
+
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes slideIn {
+    0% {
+      -webkit-transform: transform;
+      -webkit-opacity: 0;
+    }
+
+    100% {
+      -webkit-transform: translateY(0);
+      -webkit-opacity: 1;
+    }
+
+    0% {
+      -webkit-transform: translateY(1rem);
+      -webkit-opacity: 0;
+    }
+  }
+
+  .dropdown-pad{
+    background-color: #454255;
+    margin-top: 0.2vh;
+  }
+  .dropdown-pad-sub{
+    background-color: #2a2834;
+    margin-top: 0.2vh;
+  }
+
+  .CategoryCard{
+    position: absolute;
+    margin-top: 5vh;
+    width: 20vw;
+    font-size:1vw ;
+    background-color: #2d2b39;
+  }
+
+  .main-category-row{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .SubCategoryCard{
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 20vw;
+    width: 15vw;
+  }
+
+  .toggle-icon-sub {
+    color: white;
+    width: 2vw;
+    height: 2vh;
+  }
+    .category-list{
+      color: #00C6B6;
+      width: 30vw;
+    }
+    .category-list:hover{
+      color: #47fff0;
+    }
+    .toggle-icon-sub:hover{
+      color: #47fff0;
+    }
+
+    .main-category-row:hover{ 
+      background-color: #252330;
+    }
+
+

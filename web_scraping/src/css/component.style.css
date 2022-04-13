@@ -1,0 +1,14 @@
+.component-btn{
+    width: 10vw;
+    height: 4vh;
+    background-color: brown;
+    color: white;
+    margin: 10px;
+    text-align: center;
+    border-radius: 25;
+}
+
+.component-btn:hover{
+    background-color: red;
+    cursor: pointer;
+}
