@@ -5,8 +5,7 @@ function Cart(props) {
   return (
     <div>
       <div >Cart</div>
-      <div class="component-btn" onClick={(e) => props.pageHandle("Home")}> go Home</div>
-      <div class="component-btn" onClick={(e) => props.pageHandle("Demo")}> go Demo</div>
+      <div class="component-btn" onClick={(e) => props.pageHandle("Cart","Order")}> go Order</div>
     </div>
   )
 }

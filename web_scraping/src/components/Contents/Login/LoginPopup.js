@@ -21,7 +21,7 @@ function LoginPopup(props) {
           <div class="loginpopup-header-pad">
             <h3 class="login-header-text">Login</h3>
           </div>
-          <div class ="login-exit-btn">x</div>
+          <div class ="login-exit-btn" onClick={(e) => props.setPopupBackground(false)}>x</div>
 
           {/* <label class="login-input-header">Username</label> */}
           <div class="center-containter login-main-input-padding">

@@ -20,7 +20,7 @@ let s;
 function App() {
   const [navbarHeader,setNavbarHeader] = useState("")
   const [search,serSearch] = useState(true)
-  const [searchResult,setSearchResult] = useState("")
+  const [searchResult,setSearchResult] = useState("Home")
   const [loggedin,setLoggedin] = useState(false)
   const [user,setUser] = useState(users[0])
   const [page,setPage] = useState("Home")
@@ -38,14 +38,8 @@ function App() {
   
 
   const selectCategory = (destination) => {
-    if (destination !== "Home") {
-      pageHandle("Search")
-    }
-    else if (destination === "Home") {
-      pageHandle("Home")
-      setLastClick(false)
-    }
-    searchResultHandle(destination)
+    setSearchResult(destination)
+    pageHandle("Home","Search")
     if(toggle) toggleHandle()
   }
   const updateHeader =(name)=>{
@@ -75,15 +69,38 @@ function App() {
   
   }
 
-  const pageHandle =(page)=>{
-    page=="Home"?setNavbarHeader(""):setNavbarHeader(navbarHeader)
-    setPage(page)
+  const pageHandle = (prev="Home",input_page)=>{
+    // alert(prev)
+    // alert(input_page)
+    // alert(page)
+    input_page=="Home"?setNavbarHeader(""):setNavbarHeader(navbarHeader)
+    input_page=="Home"?setLastClick(false):setLastClick(true)
+    if(input_page=="Search") setPrevPage("Home")
+    if(input_page=="Home") setPrevPage("Home")
+    if(input_page=="Cart" && page=="Home"){
+      setPrevPage("Home")
+    } 
+    if(input_page=="Cart" && page=="Search"){
+      setPrevPage("Search")
+    } 
+    if(input_page=="Order") setPrevPage("Cart")
+    if(input_page=="Reciept") setPrevPage("Order")
+    if(input_page=="Payment") setPrevPage("Reciept")
+    if(input_page=="Compare" && page=="Home"){
+      setPrevPage("Home")
+    } 
+    if(input_page=="Compare" && page=="Search"){
+      setPrevPage("Search")
+    } 
+    setPage(input_page)
   }
 
   const Logout =() =>{
     setUser(users[0])
     setLoggedin(false)
   }
+
+  const [prevPage,setPrevPage] =useState("")
 
   
   const setPopupBackground = (val,type ="closed") => {
@@ -107,15 +124,15 @@ function App() {
         {!background && <Navbar user={user} showLoginPopup={showLoginPopup} setPopupBackground={setPopupBackground} 
                             loggedin = {loggedin} isLoggedIn={isLoggedIn} Logout={Logout} updateHeader ={updateHeader}
                             page={page} pageHandle = {pageHandle} header ={navbarHeader} selectCategory={selectCategory}
-                            toggleHandle={toggleHandle} lastClick={lastClick} toggle={toggle}
+                            toggleHandle={toggleHandle} lastClick={lastClick} toggle={toggle} prevPage={prevPage}
                             search={search} showSearch={showSearch} searchResultHandle={searchResultHandle}
                             />}
         <div onClick={(r) => setToggle()}>
-        {showLoginPopup && <LoginPopup isLoggedIn={isLoggedIn} setLoggedin = {setLoggedin} />}
-        {!showLoginPopup && (page=="Home" || page=="Search") && <Searchbox pageHandle={pageHandle} searchResultHandle={searchResultHandle} onClick={(e)=>setToggle(false)}/>}
+        {showLoginPopup && <LoginPopup isLoggedIn={isLoggedIn} setLoggedin = {setLoggedin} setPopupBackground={setPopupBackground}/>}
+        {!showLoginPopup && (page=="Home" || page=="Search") && <Searchbox searchResult={searchResult} pageHandle={pageHandle} searchResultHandle={searchResultHandle} onClick={(e)=>setToggle(false)}/>}
         {page=="Search" &&<Content content={{type:page,result: searchResult}} />}
         {page=="Cart" && <Cart user={user} showSearch={showSearch} pageHandle={pageHandle}/>}
-        {page=="Demo" && <Demo  header={navbarHeader}  user={user} showSearch={showSearch} pageHandle={pageHandle}/>}
+        {page=="Compare" && <Demo  header={searchResult}  user={user} showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Order" && <Order  user={user} showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Reciept" && <Reciept user={user}  showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Payment" && <Payment onClick={(e)=>setLastClick(false)} user={user} showSearch={showSearch} pageHandle={pageHandle}/>}

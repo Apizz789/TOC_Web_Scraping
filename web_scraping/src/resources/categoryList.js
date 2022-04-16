@@ -43,7 +43,7 @@ const categoryList = [
                        ],
                        toggle: false
     },
-    {   title: "หัHealth & Beauty",
+    {   title: "Health & Beauty",
         keyword: "main category 1",
         subCategory : [ { title: "Skincare", keyword: "sub category 1"},
                         { title: "Make-Up", keyword: "sub category 2"},

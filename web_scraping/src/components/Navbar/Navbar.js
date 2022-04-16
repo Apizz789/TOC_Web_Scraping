@@ -10,18 +10,19 @@ export default function Navbar(props) {
   return (
     <div class='Navbar'>
       <div class="hor-center">
-        {props.page !== "Home" && <div class="navbar-back-icon-container">
-          <FontAwesomeIcon icon={faCaretLeft} class="navbar-back-icon" onClick={(e) => props.pageHandle("Home")} />
+        {props.page !== "Home"  && props.page !== "Search" && <div class="navbar-back-icon-container">
+          <FontAwesomeIcon icon={faCaretLeft} class="navbar-back-icon" onClick={(e) => props.pageHandle("Home",props.prevPage)} />
         </div>}
-        {props.page == "Home" && !props.lastClick &&
+  
+        {(props.page == "Home" || props.page == "Search")  && !props.lastClick &&
           <div class="home-navbar nav-text-blue">
-            <div onClick={(e) => props.selectCategory("Home")}>Home</div>
+            <div onClick={(e) => props.pageHandle("Home","Home")}>Home</div>
           </div>}
-        {(props.page == "Home" && ( props.lastClick == true || props.page == "Search")) &&
+        {(props.page == "Home" || props.page == "Search") && props.lastClick &&
           <div class="home-navbar nav-text-white">
-            <div onClick={(e) => props.selectCategory("Home")}>Home</div>
+            <div onClick={(e) => props.pageHandle("Home","Home")}>Home</div>
           </div>}
-          {props.page === "Home"&&
+          {(props.page === "Home" || props.page == "Search")&&
         <div class="category-toggle">
           {props.lastClick && <div class="nav-text-blue" onClick={(e) => props.toggleHandle()}>Category</div>}
           {!props.lastClick && <div class="nav-text-white" onClick={(e) => props.toggleHandle()}>Category</div>}
@@ -29,24 +30,18 @@ export default function Navbar(props) {
           {!props.lastClick && props.toggle && <FontAwesomeIcon icon={faCaretUp} class="toggle-icon" onClick={(e) => props.toggleHandle()} />}
           {props.lastClick &&!props.toggle && <FontAwesomeIcon icon={faCaretDown} class="toggle-icon-selected" onClick={(e) => props.toggleHandle()} />}
           {props.lastClick &&props.toggle && <FontAwesomeIcon icon={faCaretUp} class="toggle-icon-selected" onClick={(e) => props.toggleHandle()} />}
-          {props.toggle && <CategoryDropdown selectCategory={props.selectCategory} />}
+          {props.toggle && <CategoryDropdown toggleHandle={props.toggleHandle} selectCategory={props.selectCategory} />}
+        </div>
+        }
+        {(props.page === "Home" || props.page == "Search") && 
+        <div class="navbar-compare-container white" onClick={(e) => props.pageHandle("Home","Compare")}>
+          Compare
         </div>}
-        { props.page=="Search" &&
-          <div class='navbar-header-pad'> 
-            <div class='navbar-header-text'>
-              / {props.header}
-            </div>
-          </div>
-        }
         { props.page!=="Search" && props.page!=="Home" &&
-          <div class='navbar-header-pad'> 
-            <div classe='navbar-header-text'>
+          <div class='navbar-header-container'> 
                {props.page}
-            </div>
           </div>
         }
-
-
 
         <img src={logo} class="navbar-logo" onClick={(e) => props.pageHandle("Home")}/>
         <div class="navbar-header" onClick={(e) => props.pageHandle("Home")}>azala</div>

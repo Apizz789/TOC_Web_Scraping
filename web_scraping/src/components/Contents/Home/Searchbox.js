@@ -8,7 +8,7 @@ const Searchbox = (props) => {
         let searchInput = document.getElementById("searchText").value
         document.getElementById("username-element").innerHTML = searchInput        
         props.searchResultHandle(searchInput)
-        props.pageHandle("Search")
+        props.pageHandle(props.searchResult,"Search")
     }
     return (
         <div class="Searchbox">
@@ -22,7 +22,7 @@ const Searchbox = (props) => {
                     onKeyPress={event => {
                     if (event.key === 'Enter') {
                         props.searchResultHandle(event.target.value)
-                        props.pageHandle("Search")
+                        props.pageHandle("Search","Search")
                     }
                 }}
                 />
@@ -30,7 +30,7 @@ const Searchbox = (props) => {
             {/* </div> */}
             </div>
             
-            <FontAwesomeIcon icon={faCartShopping} class="cart-icon" onClick={(e) => props.pageHandle("Cart")}/>
+            <FontAwesomeIcon icon={faCartShopping} class="cart-icon" onClick={(e) => props.pageHandle("Search","Cart")}/>
             </div>
 
         </div>

@@ -1,11 +1,11 @@
 import React from 'react'
 import './../../../css/home.style.css'
 import Card from '../Products/Card'
-
+import Banner from '../Home/Banner'
 export default function Homepage(props) {
   return (
     <div class="Homepage">
-    <div class="homepage-banner-container">banner</div>
+      <Banner/>
       <div class="homepage-center-container">
         <div class="homepage-header">FLASH SALES</div>
         {!props.showLoginPopup && <div class="homepage-header-line"></div>}

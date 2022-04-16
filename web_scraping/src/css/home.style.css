@@ -6,11 +6,7 @@
     align-items: center;
 }
 
-.homepage-banner-container{
-    border: 2px solid darkblue;
-    height: 30vh;
-    width: 95%;
-}
+
 
 .homepage-center-container{
     /* border: 2px solid rgb(0, 140, 205); */

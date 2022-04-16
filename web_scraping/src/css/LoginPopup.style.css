@@ -106,10 +106,14 @@
   .login-exit-btn{
     color: white;
     position: absolute;
-    margin-left: 30vh;
+    margin-left: 22vw;
     font-size: 3vh;
     width: 20%;
     margin-top: 2%;
+  }
+  .login-exit-btn:hover{
+    cursor: pointer;
+    color: aqua;
   }
   .login-header-text{
     width: 80%;
