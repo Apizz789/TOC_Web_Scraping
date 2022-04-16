@@ -24,11 +24,10 @@
 
   }
 .login-main-input-padding{
-    padding-top: 10vh;
-    padding-bottom: 1vh;
+    margin-top: 15vh;
 }
 .login-input-padding{
-    padding-top: 2vh;
+    margin-top: 2vh;
     padding-bottom: 1vh;
 }
 
@@ -48,6 +47,7 @@
   margin-top: 20vh;
   /* Setup */
   position: relative;
+
 }
 
 .center-child{
@@ -65,18 +65,21 @@
     background-color: white;
     /* background-color: #15008a; */
     height: 40vh;
-    width: 20vw;
+    width: 25vw;
     justify-content: center;    
+    border-radius: 15px;
+    position: absolute;
 }
 
 .loginpopup-header-pad{
     position: absolute;
     background-color: #454255;
-    height: 5vh;
-    width: 20vw;
+    height: 6vh;
+    width: 25vw;
     text-align: center;
     color: white;
     margin-bottom: 5vh;
+    border-radius: 15px 15px 0px 0px;
 }
 
 
@@ -85,7 +88,7 @@
 }
 
 .login-btn{
-    background-color: black;
+    background-color: rgb(50, 50, 50);
     height: 5vh;
     align-items: center;
     text-align: center;
@@ -98,4 +101,19 @@
     line-height: 1;
     display: inline-block;
     vertical-align: middle;
+  }
+
+  .login-exit-btn{
+    color: white;
+    position: absolute;
+    margin-left: 30vh;
+    font-size: 3vh;
+    width: 20%;
+    margin-top: 2%;
+  }
+  .login-header-text{
+    width: 80%;
+    padding-left: 2.5vw;
+    font-size: 2vh;
+    margin-top: 5%;
   }

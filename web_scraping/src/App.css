@@ -6,3 +6,8 @@
     background-color: rgb(0, 0, 0);
 }
 
+.app-background{
+    background: rgb(185,185,185);
+    background: linear-gradient(180deg, rgb(125, 136, 154) 4%, rgb(161, 184, 201) 15%, rgb(255, 255, 255) 45%);
+}
+

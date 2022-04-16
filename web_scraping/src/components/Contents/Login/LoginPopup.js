@@ -19,8 +19,9 @@ function LoginPopup(props) {
         <div class="center-child loginpopup-content">
 
           <div class="loginpopup-header-pad">
-            <h3>Login</h3>
+            <h3 class="login-header-text">Login</h3>
           </div>
+          <div class ="login-exit-btn">x</div>
 
           {/* <label class="login-input-header">Username</label> */}
           <div class="center-containter login-main-input-padding">
@@ -34,6 +35,7 @@ function LoginPopup(props) {
               </div>
               <div class="login-btn-padding">
                 <div className="login-btn" onClick={(e) => Passvalue()}><p>Login</p></div>
+
 
               </div>
 

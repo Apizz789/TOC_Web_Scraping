@@ -53,7 +53,6 @@ export default function Navbar(props) {
         {props.user.username !== "anonymous" && <div class="navbar-user-name-pad">
           <div class="navbar-name-header">Hi! : {props.user.name}</div>
         </div>}
-        <div class="cartlogo-box" onClick={(e) => props.pageHandle("Cart")}><FontAwesomeIcon icon={faCartShopping} class="cart-icon" /></div>
         <div class="login-btn-pad">
           {!props.loggedin && <div class="navbar-login-button-blue" onClick={(e) => props.setPopupBackground(true, "login")}><p class="btn-center ">Log in</p></div>}
           {props.loggedin && <div class="navbar-login-button-pink" onClick={(e) => props.Logout()}><p class="btn-center ">Log out</p></div>}

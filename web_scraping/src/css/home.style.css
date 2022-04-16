@@ -1,0 +1,44 @@
+.Homepage {
+    /* border: 2px solid firebrick; */
+    height: 180vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homepage-banner-container{
+    border: 2px solid darkblue;
+    height: 30vh;
+    width: 95%;
+}
+
+.homepage-center-container{
+    /* border: 2px solid rgb(0, 140, 205); */
+    width: 70%;
+    margin-top: 5vh;
+}
+
+.homepage-card-container{
+    display: flex;
+}
+
+.homepage-card-child{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.homepage-header{
+    font-size: 3vh;
+    font-weight: 600;
+}
+
+.homepage-header-line{
+    background-color: black;
+    opacity: 0.2;
+    width: 200vw;
+    height: 1px;
+    position: absolute;
+    left: 0;
+}

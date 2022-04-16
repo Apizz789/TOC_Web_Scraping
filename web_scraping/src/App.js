@@ -101,7 +101,7 @@ function App() {
   }
 
   return (
-    <div >
+    <div class="app-background">
         {background && <div onClick={(e) => setPopupBackground(false)} class="black-bg-popup"/>}
         
         {!background && <Navbar user={user} showLoginPopup={showLoginPopup} setPopupBackground={setPopupBackground} 
@@ -112,14 +112,14 @@ function App() {
                             />}
         <div onClick={(r) => setToggle()}>
         {showLoginPopup && <LoginPopup isLoggedIn={isLoggedIn} setLoggedin = {setLoggedin} />}
-        {!showLoginPopup && (page=="Home" || page=="Search") && <Searchbox pageHandle={pageHandle}searchResultHandle={searchResultHandle} onClick={(e)=>setToggle(false)}/>}
+        {!showLoginPopup && (page=="Home" || page=="Search") && <Searchbox pageHandle={pageHandle} searchResultHandle={searchResultHandle} onClick={(e)=>setToggle(false)}/>}
         {page=="Search" &&<Content content={{type:page,result: searchResult}} />}
         {page=="Cart" && <Cart user={user} showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Demo" && <Demo  header={navbarHeader}  user={user} showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Order" && <Order  user={user} showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Reciept" && <Reciept user={user}  showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Payment" && <Payment onClick={(e)=>setLastClick(false)} user={user} showSearch={showSearch} pageHandle={pageHandle}/>}
-        {page=="Home" && <Homepage/>}
+        {page=="Home" && <Homepage showLoginPopup={showLoginPopup}/>}
         </div>
         {!showLoginPopup && <Footer/>}
     </div>
