@@ -8,6 +8,7 @@ export default function CardPopup(props) {
     qauntity: 1,
     category: ["null", "null"]
   });
+  const[countProduct,setCountProduct] = useState(0);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -114,11 +115,11 @@ export default function CardPopup(props) {
             display: "flex", justifyContent: "space-around",
             alignItems: "center"
           }}>
-            <button className='PopupCardButtonQn'>-</button>
-            <p>จำนวนชิ้นที่ต้องการซื้อ</p>
-            <button className='PopupCardButtonQn'>+</button>
+            <button className='PopupCardButtonQn' onClick={()=> {if(countProduct>0){setCountProduct(countProduct-1)}}}>-</button>
+            <p style={{width:"100px",textAlign:"center"}}>{countProduct}</p>
+            <button className='PopupCardButtonQn'onClick={()=> {if(countProduct<productData.qauntity){setCountProduct(countProduct+1)}}}>+</button>
           </div>
-          <button className='PopupCardButtonCart' onClick={() => props.doFunc()}><p>พิมพ์ใส่ตะกร้า</p></button>
+          <button className='PopupCardButtonCart' onClick={() => {props.doFunc();props.closePopup(false)}}><p>พิมพ์ใส่ตะกร้า</p></button>
         </div>
       </div>
 
