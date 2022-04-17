@@ -11,7 +11,7 @@ const products = [
     },
     {
         name: "สินค้า A2",
-        price: 10,
+        price: null,
         img: [  "https://inside-basketball.com/wp-content/uploads/2021/04/1-4.png",
                 "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4432816.png&w=350&h=254",
                 "https://cdn.vox-cdn.com/thumbor/SIjsYBzGlm9qlRrghog6SVK4lCE=/0x0:5520x3680/1200x800/filters:focal(1742x508:2624x1390)/cdn.vox-cdn.com/uploads/chorus_image/image/70679204/usa_today_17977880.0.jpg"],
@@ -20,7 +20,7 @@ const products = [
 
     },
     {
-        name: "สินค้า B1",
+        name: "สินค้า B1 คุณภาพชั้นดีรับประกันจากศูนย์ 10 ล้านปีด้วยกันและแสดงให้เห็นถึงความใส่ใจของพนักงาน",
         price: 20,
         img: [  "https://inside-basketball.com/wp-content/uploads/2021/04/1-4.png",
                 "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4432816.png&w=350&h=254",
