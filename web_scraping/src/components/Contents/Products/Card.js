@@ -7,9 +7,9 @@ function Card(props) {
     const [productData, setProductData] = useState({
         name: null,
         price: null,
-        img: ["null", "null", "null"],
-        qauntity: 1,
-        category: ["null", "null"]
+        img: [null, null, null],
+        qauntity: null,
+        category: [null, null]
     });
     useEffect(() => {
         const fetchProduct = async() =>{

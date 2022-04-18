@@ -4,16 +4,30 @@ export default function CardPopup(props) {
   const [productData, setProductData] = useState({
     name: null,
     price: null,
-    img: ["null", "null", "null"],
-    qauntity: 1,
-    category: ["null", "null"]
+    img: [null, null, null],
+    qauntity: null,
+    category: [null, null]
   });
   const[countProduct,setCountProduct] = useState(0);
+  const[showImgPic, setShowImgPic] = useState(null)
 
+  const[img0select,setImg0select] = useState({filter:"grayscale(0%)",bordColor:"#424242"});
+  const[img1select,setImg1select] = useState({filter:"grayscale(100%)",bordColor:"white"});
+  const[img2select,setImg2select] = useState({filter:"grayscale(100%)",bordColor:"white"});
+
+  const selectImg = {
+    filter:"grayscale(0%)",
+    bordColor:"#424242"
+  }
+  const unSelectImg = {
+    filter:"grayscale(100%)",
+    bordColor:"white"
+  }
   useEffect(() => {
     const fetchProduct = async () => {
       if (props.product != null) {
         setProductData(props.product);
+        setShowImgPic(props.product.img[0])
       }
     }
     fetchProduct();
@@ -59,7 +73,7 @@ export default function CardPopup(props) {
     }}>
 
       <div>
-        <img src={productData.img[0]}
+        <img src={showImgPic}
           style={{
             width: "201px", height: "278px",
             objectFit: "cover", borderRadius: "10px",
@@ -71,21 +85,25 @@ export default function CardPopup(props) {
             style={{
               width: "50px", height: "50px",
               objectFit: "cover", borderRadius: "10px",
-              margin: "4px"
-            }}></img>
+              margin: "4px",filter:img0select.filter,borderStyle: 'solid',borderColor: img0select.bordColor
+            }} onClick={()=>{setShowImgPic(productData.img[0]);setImg0select(selectImg);
+              setImg1select(unSelectImg);setImg2select(unSelectImg)}}></img>
 
           <img src={productData.img[1]}
             style={{
               width: "50px", height: "50px",
               objectFit: "cover", borderRadius: "10px",
-              margin: "4px"
-            }}></img>
+              margin: "4px",filter:img1select.filter,borderStyle: 'solid',borderColor: img1select.bordColor
+            }} onClick={()=>{setShowImgPic(productData.img[1]);setImg1select(selectImg);
+              setImg0select(unSelectImg);setImg2select(unSelectImg)}}></img>
 
           <img src={productData.img[2]}
             style={{
               width: "50px", height: "50px",
-              objectFit: "cover", borderRadius: "10px", margin: "4px"
-            }}></img>
+              objectFit: "cover", borderRadius: "10px", margin: "4px",
+              filter:img2select.filter,borderStyle: 'solid',borderColor: img2select.bordColor
+            }} onClick={()=>{setShowImgPic(productData.img[2]);setImg2select(selectImg);
+              setImg0select(unSelectImg);setImg1select(unSelectImg)}}></img>
         </div>
       </div>
 
