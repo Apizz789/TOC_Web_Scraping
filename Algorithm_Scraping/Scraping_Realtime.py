@@ -10,8 +10,10 @@ from asyncore import write
 import csv
 from itertools import count
 from WebClass_Scraping import Lazada
+import re
 
-
+pattern = re.compile('⚡|🚚|❗|🔥|🥇|✅|🧀|❥|⭐')
+pattern2 = re.compile('💯')
 
 def Get_data_realtime(url):
 
@@ -34,7 +36,9 @@ def Get_data_realtime(url):
         fw.writerow(['ชื่อสินค้า','ราคา','รูปภาพ','หมวดหมู่'])
         for j in range(0,6):
             try:
-                fw.writerow([find_name[j].a.get_text(strip=True),find_price[j].span.get_text(strip=True),find_img[j].img['src'],'มาแรง'])
+                clean_name = re.sub(pattern,' ',find_name[j].a.get_text(strip=True))
+                clean_name = re.sub(pattern2,'100',clean_name)
+                fw.writerow([clean_name,find_price[j].span.get_text(strip=True),find_img[j].img['src'],'มาแรง'])
             except:
                 pass
 
