@@ -1,39 +1,39 @@
 import cart from './cart.dummy'
 
 const users = [
-    {
-        username: "anonymous",
-        password: "123",
-        name: "Guest",
-        cart: null
-    },
+    // {
+    //     username: "anonymous",
+    //     password: "123456",
+    //     name: "Guest",
+    //     cart: null
+    // },
     {
         username: "admin0",
-        password: "12345",
+        password: "123456",
         name: "คุณมาโนช",
         cart: cart[0]
     },
     {
-        username: "admin1",
-        password: "12345",
+        username: "admina",
+        password: "123456",
         name: "คุณเค",
         cart: cart[0]
     },
     {
-        username: "admin2",
-        password: "12345",
+        username: "adminb",
+        password: "123456",
         name: "คุณมานะ",
         cart: cart[0]
     },
     {
-        username: "admin3",
-        password: "12345",
+        username: "adminc",
+        password: "123456",
         name: "คุณมานี",
         cart: cart[0]
     },
     {
-        username: "admin2",
-        password: "12345",
+        username: "admin4",
+        password: "123456",
         name: "คุณพี",
         cart: cart[1]
     }

@@ -6,6 +6,7 @@
     background-color: #424242;
     color: white;
     border-style: none;
+    z-index: 10px;
 }
 .PopupCardButtonQn:hover{
     background-color: #242424;

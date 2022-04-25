@@ -8,7 +8,7 @@ function Footer(props) {
     return (
         <div class="footer">
             <div class="footer-container box1">
-                <div class="footer-container-child">Dazala© 2022</div>
+                <div class="footer-container-child">Dazala © 2022</div>
             </div>
             <div class="footer-container box2">
                 <div class="footer-container-child url">Contact Us</div>

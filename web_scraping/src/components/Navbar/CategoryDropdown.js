@@ -23,7 +23,7 @@ function CategoryDropdown(props) {
 
   return (
     <div class="CategoryCard"  >
-      <div class="dropdown-menu" onMouseEnter={(e) => props.toggleHandle(true)} onMouseLeave={(e) =>  props.toggleHandle(false)}>
+      <div class="dropdown-menu" onMouseEnter={(e) => props.toggleHandle(true)} onMouseLeave={(e) =>  props.toggleHandle(false)} >
         <div class="dropdown-pad sub">
           {toggle.map((each) =>
             <div class="main-category-row" onMouseEnter={(e)=> toggleHandle(each.title, true)}>

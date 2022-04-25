@@ -9,6 +9,7 @@
     background-color: white;
     font-size: 1.5vh;
     color: #454255;
+    
 }
 .login-input-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgb(127, 127, 127);
@@ -68,7 +69,9 @@
     width: 25vw;
     justify-content: center;    
     border-radius: 15px;
-    position: absolute;
+    position: relative;
+    z-index: 150px;
+    
 }
 
 .loginpopup-header-pad{
