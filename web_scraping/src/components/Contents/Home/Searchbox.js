@@ -2,6 +2,10 @@ import React from 'react'
 import '../../../css/searchbox.style.css'
 import { faCartShopping, faCaretDown, faCaretUp,faCaretLeft,faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import products from '../../../resources/products.dummy';
+import products_match from '../../../resources/products.match';
+import { text } from '@fortawesome/fontawesome-svg-core';
+
 const Searchbox = (props) => {
 
     const searchHandle= () => {
@@ -21,8 +25,31 @@ const Searchbox = (props) => {
                 <input type="text" name="" placeholder="ค้นหาสินค้าของคุณที่นี่" class="search-input-container" id='searchText'
                     onKeyPress={event => {
                     if (event.key === 'Enter') {
-                        props.searchResultHandle(event.target.value)
-                        props.pageHandle("Search","Search")
+                        let index = 0
+                        let text_search = event.target.value
+                        // window.location.reload(true)
+                        for (const key in products_match) {
+                            delete products_match[key];
+                        }
+                        for (let i = 0 ; i < Object.keys(products).length; i++ ){
+                            //  console.log(i);
+                            let category = String(products[i].category)
+                            let name = String(products[i].name)
+                            //console.log(category);
+                              //console.log(text_search);
+                            if (category.toLocaleLowerCase().includes(text_search.toLocaleLowerCase()) ||
+                                name.toLocaleLowerCase().includes(text_search.toLocaleLowerCase())
+                            ) {
+                              //console.log("Match!!")
+                              
+                              products_match[index] = products[i]
+                              index += 1;
+                            }
+                            
+                          }
+                          //console.log(products_match)
+                          props.searchResultHandle(event.target.value)
+                          props.pageHandle("Search","Search")
                     }
                 }}
                 />
