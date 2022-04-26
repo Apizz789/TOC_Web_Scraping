@@ -1,8 +1,3 @@
-const CSVtoJSon = require("csvtojson");
-// CSVtoJSon().fromFile("../../../EBAY.csv").then(source => {
-//   console.log(source);
-// });
-
 const products = [
   {
     name: 'Hisense 50AE7000F, Smart TV LED Ultra HD 4K 50", HDR 10+, Dolby DTS, con Alexa',
