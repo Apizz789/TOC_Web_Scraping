@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card';
 import '../../../css/cardSearch.style.css'
-import products from '../../../resources/products.dummy';
+import products from '../../../resources/products.match';
 export default function CardSearch(props) {
   const shoot = () => {
     alert("Great Shot!");
