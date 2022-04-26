@@ -1,60 +1,1406 @@
+const CSVtoJSon = require("csvtojson");
+// CSVtoJSon().fromFile("../../../EBAY.csv").then(source => {
+//   console.log(source);
+// });
 
 const products = [
-    {
-        name: "สินค้า A1",
-        price: 10,
-        img: [  "https://inside-basketball.com/wp-content/uploads/2021/04/1-4.png",
-                "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4432816.png&w=350&h=254",
-                "https://cdn.vox-cdn.com/thumbor/SIjsYBzGlm9qlRrghog6SVK4lCE=/0x0:5520x3680/1200x800/filters:focal(1742x508:2624x1390)/cdn.vox-cdn.com/uploads/chorus_image/image/70679204/usa_today_17977880.0.jpg"],
-        qauntity: 1,
-        category : ["หัวข้อหลัก1","หัวข้อย่อย1"]
-    },
-    {
-        name: "สินค้า A2",
-        price: null,
-        img: [  "https://inside-basketball.com/wp-content/uploads/2021/04/1-4.png",
-                "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4432816.png&w=350&h=254",
-                "https://cdn.vox-cdn.com/thumbor/SIjsYBzGlm9qlRrghog6SVK4lCE=/0x0:5520x3680/1200x800/filters:focal(1742x508:2624x1390)/cdn.vox-cdn.com/uploads/chorus_image/image/70679204/usa_today_17977880.0.jpg"],
-        qauntity: 1,
-        category : ["หัวข้อหลัก1","หัวข้อย่อย1"]
+  {
+    name: 'Hisense 50AE7000F, Smart TV LED Ultra HD 4K 50", HDR 10+, Dolby DTS, con Alexa',
+    price: "THB15,583.37",
+    img: ["https://i.ebayimg.com/images/g/JXsAAOSwGuViUwPT/s-l300.png"],
+    category: ['TVs'],
+  },
+  {
+    name: '7" - 24" Digital TV 12v 240v for Motorhome Caravan Boat DVB-T2 Freeview PVR',
+    price: "THB395.32",
+    img: ["https://i.ebayimg.com/images/g/V0oAAOSwapdbveOc/s-l300.jpg"],
+    category: ['TVs'],
+  },
+  {
+    name: "Hisense 55AE7000F - Smart TV LED Ultra HD 4K, HDR 10+, Dolby DTS, con Alexa",
+    price: "THB17,036.37",
+    img: ["https://i.ebayimg.com/images/g/XbsAAOSw2m1iUwSW/s-l300.jpg"],
+    category: ['TVs'],
+  },
+  {
+    name: 'LOGIK L24HE21 24" HD Ready LED TV',
+    price: "THB3,957.14",
+    img: ["https://i.ebayimg.com/images/g/ZfEAAOSwfqJgzpT-/s-l300.jpg"],
+    category: ['TVs'],
+  },
+  {
+    name: "Telefunken 12000 BTU easy-fit DC Inverter Wall Split Air Conditioner  TF-12000CH",
+    price: "THB16,708.46",
+    img: ["https://i.ebayimg.com/images/g/qewAAOSwGQJg8enY/s-l300.jpg"],
+    category: ['Central Air Conditioners'],
+  },
+  {
+    name: "HOMCOM 7000BTU Portable Air Conditioner 4 Modes LED Display Timer Home Office",
+    price: "THB10,553.10",
+    img: ["https://i.ebayimg.com/images/g/3UEAAOSwQB5iPn2c/s-l300.jpg"],
+    category: ['Portable Air Conditioners'],
+  },
+  {
+    name: "12,000 BTU DUCTLESS AIR CONDITIONER HEAT PUMP, MINI SPLIT 220V 1 TON WITH KIT",
+    price: "THB23,258.17",
+    img: ["https://i.ebayimg.com/images/g/pu4AAOSwZ3teHf0A/s-l300.jpg"],
+    category: ['Central Air Conditioners'],
+  },
+  {
+    name: "DAIKIN AIR CONDITIONER, HEAT, COOLING 10.8 KW INCLUDES INSTALLATION, INVERTER",
+    price: "THB98,939.48",
+    img: ["https://i.ebayimg.com/images/g/034AAMXQRPRTIx9T/s-l300.jpg"],
+    category: ['Central Air Conditioners'],
+  },
+  {
+    name: 'Apple iPhone 13 Pro 6.1" A2639 REAL Dual Sim 128GB Phone By FedEx',
+    price: "THB47,919.57",
+    img: ["https://i.ebayimg.com/images/g/KLMAAOSwpbFhQtkr/s-l300.jpg"],
+    category: ['Cell Phones & Smartphones'],
+  },
+  {
+    name: 'Huawei P50 Pro Dual SIM 12GB /512GB 6.6" HarmonyOS 50MP Leica Phone By FedEx',
+    price: "THB57,458.77",
+    img: ["https://i.ebayimg.com/images/g/z54AAOSwz59hm2z9/s-l300.jpg"],
+    category: ['Cell Phones & Smartphones'],
+  },
+  {
+    name: "2022 Black M3Pro 5G Unlocked Smartphone 12GB+512GB Android 10.0 Dual SIM 6800mAh",
+    price: "THB2,684.80",
+    img: ["https://i.ebayimg.com/images/g/xw4AAOSw3xViBGwL/s-l300.jpg"],
+    category: ['Cell Phones & Smartphones'],
+  },
+  {
+    name: 'Apple iPad 5th Gen 9.7" 32GB 128GB Gray Gold Silver WiFi or Cellular - Good',
+    price: "THB5,055.79",
+    img: ["https://i.ebayimg.com/images/g/U5EAAOSwgz9iOJBM/s-l300.jpg"],
+    category: ['Tablets & eBook Readers'],
+  },
+  {
+    name: "Microsoft Surface Pro 4 Tablet Core i5 6th Gen 2.4GHz 128GB SSD Windows 10",
+    price: "THB6,595.97",
+    img: ["https://i.ebayimg.com/images/g/UOsAAOSwTwJh5sYr/s-l300.jpg"],
+    category: ['Tablets & eBook Readers'],
+  },
+  {
+    name: '2022 Android 11 Pad 8.1" Tablet PC Triple Cameras 128GB ROM 8GB RAM Double SIM',
+    price: "THB1,978.35",
+    img: ["https://i.ebayimg.com/images/g/me0AAOSw8IFh34p1/s-l300.jpg"],
+    category: ['Tablets & eBook Readers'],
+  },
+  {
+    name: "Samsung Galaxy Tab S7 / S7+ (2020) 128-512GB Wi-Fi Tablet T870/T970 | MINT 10/10",
+    price: "THB10,919.88",
+    img: ["https://i.ebayimg.com/images/g/ueIAAOSw1uNhgVoz/s-l300.png"],
+    category: ['Tablets & eBook Readers'],
+  },
+  {
+    name: "Apple iPad Air 2nd 16 32 64 128GB, WiFi, Cellular Unlocked, Gray Silver Gold",
+    price: "THB4,039.84",
+    img: ["https://i.ebayimg.com/images/g/aQIAAOSwaeJiNm0A/s-l300.jpg"],
+    category: ['Tablets & eBook Readers'],
+  },
+  {
+    name: "Dell Latitude Business Light Gaming Laptop Win 10 Intel Core i5 16GB RAM 256 SSD",
+    price: "THB13,448.95",
+    img: ["https://i.ebayimg.com/images/g/G2MAAOSwdU5iUZvJ/s-l300.png"],
+    category: "['PC Laptops & Netbooks']",
+  },
+  {
+    name: "Apple MacBook Pro (2012) i5 4GB RAM 500GB SSD Silver Good Condition",
+    price: "THB5,897.12",
+    img: ["https://i.ebayimg.com/images/g/9pUAAOSwDhRh-ppd/s-l300.jpg"],
+    category: ['Apple Laptops'],
+  },
+  {
+    name: 'HP Laptop ProBook 4430s 14" Computer Celeron 4GB Ram 500GB WiFi HDMI Windows 10',
+    price: "THB5,485.22",
+    img: ["https://i.ebayimg.com/images/g/xvMAAOSwbdpiMgXN/s-l300.jpg"],
+    category: "['PC Laptops & Netbooks']",
+  },
+  {
+    name: "Was £1603 - Now only £799 - HP i7 Laptop 2TB (2000GB) SSD 16GB RAM Touch Screen",
+    price: "THB35,134.51",
+    img: ["https://i.ebayimg.com/images/g/f7oAAOSw5dhbs5te/s-l300.png"],
+    category: ['PC Laptops & Netbooks'],
+  },
+  {
+    name: 'ASUS ZenBook 15.6" Laptop FHD i7-10510U 16GB 512GB Royal Blue UX534FAC-A8148T',
+    price: "THB30,780.73",
+    img: ["https://i.ebayimg.com/images/g/K64AAOSwEM1hw0vM/s-l300.jpg"],
+    category: ['PC Laptops & Netbooks'],
+  },
+  {
+    name: "NEW Apple AirPods Pro - Noise-Cancelling - Bluetooth Wireless Headphones",
+    price: "THB6,404.09",
+    img: ["https://i.ebayimg.com/images/g/hJgAAOSwuAlhlCGW/s-l300.jpg"],
+    category: ['Headphones'],
+  },
+  {
+    name: "Microsoft Surface Headphones 2 Noise Cancellation, Bluetooth Wireless Light Gray",
+    price: "THB6,707.79",
+    img: ["https://i.ebayimg.com/images/g/ohcAAOSwLjtiUxvp/s-l300.jpg"],
+    category: ['Headphones'],
+  },
+  {
+    name: "Deci-Diamond Bamboo Speaker Total Wireless Digital Bluetooth Speaker",
+    price: "THB3,370.41",
+    img: ["https://i.ebayimg.com/images/g/N2MAAOSwjXtfsTAu/s-l300.jpg"],
+    category: ['Audio Docks & Mini Speakers'],
+  },
+  {
+    name: "JBL Boombox Portable Wireless Bluetooth Outdoor Stereo Speaker - Black",
+    price: "THB5,258.03",
+    img: ["https://i.ebayimg.com/images/g/p04AAOSwi~1iCRAE/s-l300.jpg"],
+    category: ['Portable Stereos & Boomboxes'],
+  },
+  {
+    name: "Xiaomi Mi Bluetooth Speaker 16W Black, Altoparlante Bluetooth portatile Xiaomi c",
+    price: "THB1,307.70",
+    img: ["https://i.ebayimg.com/images/g/nvEAAOSwxxpiOH15/s-l300.jpg"],
+    category: ['Portable Stereos & Boomboxes'],
+  },
+  {
+    name: "Apple Watch - Series 7 - GPS - 41mm Alum. Case - All Colors - Factory Sealed!",
+    price: "THB12,134.70",
+    img: ["https://i.ebayimg.com/images/g/21MAAOSwV~xhivp7/s-l300.png"],
+    category: ['Smart Watches'],
+  },
+  {
+    name: "Samsung Galaxy Watch 4 44mm Aluminum Smartwatch SM-R870 Black - Mint",
+    price: "THB5,055.79",
+    img: ["https://i.ebayimg.com/images/g/r9IAAOSwwTph5bST/s-l300.jpg"],
+    category: ['Smart Watches'],
+  },
+  {
+    name: "SMARTWATCH OROLOGIO M6 FITNESS TRACKER SPORT CARDIOFREQUENZIMETRO BLUETOOTH BAND",
+    price: "THB417.74",
+    img: ["https://i.ebayimg.com/images/g/oBUAAOSw-jBhnhhv/s-l300.png"],
+    category: ['Smart Watches'],
+  },
+  {
+    name: "Valve Index VR Controller 2 Pack - BRAND NEW READY TO SHIP",
+    price: "THB16,742.66",
+    img: ["https://i.ebayimg.com/images/g/6GcAAOSwy3tiVh13/s-l300.jpg"],
+    category: ['PC & Console VR Headsets'],
+  },
+  {
+    name: "SMART GLASSES BLUETOOTH. LENOVO",
+    price: "THB2,649.09",
+    img: ["https://i.ebayimg.com/images/g/uHwAAOSwIwZiMMJy/s-l300.jpg"],
+    category: ['Smart Glasses'],
+  },
+  {
+    name: "Philips Model BDP3502/F7  Blu-Ray DVD Player HDMI AVCHD WITH REMOTE",
+    price: "THB1,887.28",
+    img: ["https://i.ebayimg.com/images/g/oNIAAOSwbMBiWgZX/s-l300.jpg"],
+    category: ['DVD & Blu-ray Players'],
+  },
+  {
+    name: "FTA DVB-S2/S2X Satellite Receiver Decoder 1080P HD TV BOX Youtube PVR + USB WIFI",
+    price: "THB1,010.89",
+    img: ["https://i.ebayimg.com/images/g/uHEAAOSwqANiE2bt/s-l300.jpg"],
+    category: ['Satellite TV Receivers'],
+  },
+  {
+    name: "LED Smart Projector 4K Android 6.0 HD Native 1080P 10000:1 Office Movie Full HD",
+    price: "THB13,443.22",
+    img: ["https://i.ebayimg.com/images/g/yFQAAOSwSJ9iGHVI/s-l300.jpg"],
+    category: ['Home Theater Projectors'],
+  },
+  {
+    name: "White Anker Nebula Astro  Projector Small",
+    price: "THB16,099.71",
+    img: ["https://i.ebayimg.com/images/g/kOUAAOSwrXRiWXqX/s-l300.jpg"],
+    category: ['Home Theater Projectors'],
+  },
+  {
+    name: "Insignia 24-inch N10 TV with Remote ~ Brand New in Box",
+    price: "THB5,055.79",
+    img: ["https://i.ebayimg.com/images/g/PwEAAOSwrZtiWNAw/s-l300.jpg"],
+    category: ['TVs'],
+  },
+  {
+    name: "Aigostar Friggitrice ad Aria 5-in-1, 1900W, 7L, Pannello touch a led, 20-Ricette",
+    price: "THB3,268.88",
+    img: ["https://i.ebayimg.com/images/g/YksAAOSwUHlgr4Uh/s-l300.jpg"],
+    category: ['Fryers'],
+  },
+  {
+    name: "Philips Pastamaker HR2381/05 (vollautomatische Nudelmaschine, mit Wiegefunktion)",
+    price: "THB5,303.07",
+    img: ["https://i.ebayimg.com/images/g/mDwAAOSw2m1iVT7C/s-l300.jpg"],
+    category: ['Electric Pasta Makers'],
+  },
+  {
+    name: "Macchina da Caffè Espresso LAVAZZA Tiny Rossa per Capsule a Modo Mio LM800 Nera",
+    price: "THB2,584.51",
+    img: ["https://i.ebayimg.com/images/g/h6UAAOSw8zJe8g2O/s-l300.jpg"],
+    category: ['Pod & Capsule Coffee Machines'],
+  },
+  {
+    name: "Bomann TSG 5701 Mini-Geschirrspüler 5L 240V 50 Hz Tischgeschirrspüler",
+    price: "THB5,732.06",
+    img: ["https://i.ebayimg.com/images/g/ROkAAOSwTR1iV-oH/s-l300.jpg"],
+    category: ['Dishwashers'],
+  },
+  {
+    name: "Protinex Health And Nutritional Drink Mix For Adults with High protein",
+    price: "THB434.45",
+    img: ["https://i.ebayimg.com/images/g/K8gAAOSw9i5huHer/s-l300.jpg"],
+    category: ['Endurance & Energy Bars, Drinks & Pills'],
+  },
+  {
+    name: "SiS Go Electrolyte, Carbohydrate Energy drink powder 1.6kg Blackcurrant",
+    price: "THB747.54",
+    img: ["https://i.ebayimg.com/images/g/qkgAAOSwjv5iLIJt/s-l300.jpg"],
+    category: ['Endurance & Energy Bars, Drinks & Pills'],
+  },
+  {
+    name: "Rockstar Punched Energy Drink Fruit Punch 16oz Cans 12 Pack Packaging May Vary",
+    price: "THB1,011.22",
+    img: ["https://i.ebayimg.com/images/g/AGIAAOSwC-RiWV4N/s-l300.jpg"],
+    category: ['Energy Drinks'],
+  },
+  {
+    name: "Souvenaid 24 x 125ml Strawberry (Buy in confidence from a registered pharmacy)",
+    price: "THB3,957.14",
+    img: ["https://i.ebayimg.com/images/g/lfMAAOSwsaZa1iYw/s-l300.jpg"],
+    category: ['Endurance & Energy Bars, Drinks & Pills'],
+  },
+  {
+    name: "12x 42ml. Brands Essence Of Chicken Original Drink Beverage DHL",
+    price: "THB2,321.77",
+    img: ["https://i.ebayimg.com/images/g/8v8AAOSw8K1hMN~K/s-l300.jpg"],
+    category: ['Endurance & Energy Bars, Drinks & Pills'],
+  },
+  {
+    name: "100g Matcha Powder Green Tea Pure Organic Certified Quality Natural Loose",
+    price: "THB264.81",
+    img: ["https://i.ebayimg.com/images/g/1j4AAOSwKpph2AV8/s-l300.jpg"],
+    category: ['Tea & Infusions'],
+  },
+  {
+    name: "Kellogg's Croccante Dado Cereale Dorato Flakes Di Mais 500g",
+    price: "THB831.48",
+    img: ["https://i.ebayimg.com/images/g/fu4AAOSwKT1iEMvu/s-l300.jpg"],
+    category: ['Breakfast Cereals, Muesli & Oats'],
+  },
+  {
+    name: "Chocolate Peanut Butter Cheerios, Cereal with Oats, 20.3 oz",
+    price: "THB872.16",
+    img: ["https://i.ebayimg.com/images/g/P0sAAOSwJnxgqxXX/s-l300.png"],
+    category: ['Breakfast Cereals, Muesli & Oats'],
+  },
+  {
+    name: "Nutella Chocolate Hazelnut Spread, Perfect for Easter Breakfast, 33.5 oz",
+    price: "THB692.01",
+    img: ["https://i.ebayimg.com/images/g/MEgAAOSwsPtgVndr/s-l300.jpg"],
+    category: ['Other Health & Beauty'],
+  },
+  {
+    name: "General Mills Kisses Cereal 10.9 oz",
+    price: "THB606.26",
+    img: ["https://i.ebayimg.com/images/g/CvcAAOSw8vtfdGnh/s-l300.jpg"],
+    category: ['Breakfast Cereals, Muesli & Oats'],
+  },
+  {
+    name: "JIF Extra Crunch Peanut Butter 16 oz",
+    price: "THB736.67",
+    img: ["https://i.ebayimg.com/images/g/OAkAAOSwN~VegkwW/s-l300.jpg"],
+    category: ['Jams & Preserves'],
+  },
+  {
+    name: "Smucker's Natural Orange Marmalade Fruit Spread 17.25oz",
+    price: "THB956.80",
+    img: ["https://i.ebayimg.com/images/g/7dQAAOSwA~JfmsLw/s-l300.png"],
+    category: ['Jams & Preserves'],
+  },
+  {
+    name: "Kori America Women's Knit Top Size S Long Sleeve  Mauve",
+    price: "THB332.36",
+    img: ["https://i.ebayimg.com/images/g/IDkAAOSwAQJhhWDH/s-l300.jpg"],
+    category: ['Tops'],
+  },
+  {
+    name: "Marina Women's Belted Lace Sweetheart Strapless Dress",
+    price: "THB1,684.70",
+    img: ["https://i.ebayimg.com/images/g/4PgAAOSwGsFiFTwE/s-l300.jpg"],
+    category: ['Dresses'],
+  },
+  {
+    name: "M&S sage green trench UK14",
+    price: "THB1,319.19",
+    img: ["https://i.ebayimg.com/images/g/QaUAAOSwR99iWZDt/s-l300.jpg"],
+    category: ['Coats, Jackets & Vests'],
+  },
+  {
+    name: "Femme Rivet Jeans Culotte Short A Ligne Taille Haute Jupe Déchiré Punk Noir",
+    price: "THB958.98",
+    img: ["https://i.ebayimg.com/images/g/tHEAAOSwC2tfoQyB/s-l300.jpg"],
+    category: ['Skirts'],
+  },
+  {
+    name: "Burberry Mini Skirt Beige Nova Print Y2K Check Leather Buckle Pleated Size UK 6",
+    price: "THB5,496.64",
+    img: ["https://i.ebayimg.com/images/g/gKUAAOSwuAdiWhtJ/s-l300.jpg"],
+    category: ['Skirts'],
+  },
+  {
+    name: "2Pcs Sets Womens Off Shoulder Formal Dress Suits Trousers Blazer Coat Outfits &",
+    price: "THB1,411.98",
+    img: ["https://i.ebayimg.com/images/g/HYMAAOSwMzhhKIDs/s-l300.jpg"],
+    category: ['Outfits & Sets'],
+  },
+  {
+    name: "PUMA Men's Serve Pro Sneakers",
+    price: "THB1,010.89",
+    img: ["https://i.ebayimg.com/images/g/chAAAOSwLm9iHk5d/s-l300.jpg"],
+    category: ['Athletic Shoes', "Men's Shoes"],
+  },
+  {
+    name: "Luxury Men's Leather Belt Automatic Ratchet Strap Replace Strap Without Buckle-",
+    price: "THB248.01",
+    img: ["https://i.ebayimg.com/images/g/WloAAOSwIV9iQrVN/s-l300.jpg"],
+    category: ['Belts'],
+  },
+  {
+    name: ["Men Japanese Kimono Yukata Bathrobe Pajamas Cotton Robe Clothing Long Summer"],
+    price: "THB571.21",
+    img: ["https://i.ebayimg.com/images/g/HgwAAOSwx6pYqWeA/s-l300.jpg"],
+    category: ['Sleepwear & Robes'],
+  },
+  {
+    name: "Wally World funny christmas vacation vintage movie walley griswold T-SHIRT",
+    price: "THB436.51",
+    img: ["https://i.ebayimg.com/images/g/a7kAAOSwIWVY9-Iz/s-l300.jpg"],
+    category: "['T-Shirts']",
+  },
+  {
+    name: "Abito uomo Confitalia, marrone a righe DROP 0, conformato, calibrato, sconto 70%",
+    price: "THB2,539.11",
+    img: ["https://i.ebayimg.com/images/g/WO0AAOSwBjJgpkmQ/s-l300.jpg"],
+    category: ['Suits & Suit Separates'],
+  },
+  {
+    name: "Multifunctional Training Stick Fitness Exercise Elastic Vibrate Rod Yoga",
+    price: "THB1,035.05",
+    img: ["https://i.ebayimg.com/images/g/u~UAAOSwADRhAnyi/s-l300.jpg"],
+    category: ['Resistance Trainers'],
+  },
+  {
+    name: "Resistance Elastic Training Rubber Band Stretch Exercise Fitness Yoga Pilate JT",
+    price: "THB57.18",
+    img: ["https://i.ebayimg.com/images/g/7HkAAOSwldlcqqp2/s-l300.jpg"],
+    category: ['Resistance Trainers'],
+  },
+  {
+    name: "4pcs Home Exercise Kit Yoga Mat Pilates Ball Ankle Puller Jump Rope Fitness P7C1",
+    price: "THB1,367.15",
+    img: ["https://i.ebayimg.com/images/g/vDkAAOSws2Jhm0pH/s-l300.jpg"],
+    category: ['Resistance Trainers'],
+  },
+  {
+    name: "Elastic Yoga Fitness Equipment Pedal Resistance Band Workout Pull Rope Expander",
+    price: "THB712.19",
+    img: ["https://i.ebayimg.com/images/g/poAAAOSwv2NiWghz/s-l300.jpg"],
+    category: ['Resistance Trainers'],
+  },
+  {
+    name: "PAIR of Rogue Fitness 1 inch Monster Hitchpins hitch pin",
+    price: "THB2,022.11",
+    img: ["https://i.ebayimg.com/images/g/nowAAOSwUuhiUxhK/s-l300.jpg"],
+    category: ['Equipment Parts'],
+  },
+  {
+    name: "POWER BATTLE ROPE GYM FITNESS BATTLING 38/50mm HEAVY DUTY exercise training",
+    price: "THB1,314.36",
+    img: ["https://i.ebayimg.com/images/g/3gwAAOSw0eJiHlpj/s-l300.jpg"],
+    category: ['Equipment Parts'],
+  },
+  {
+    name: "Waist Bag Running Hiking Bum Bag Sports Fanny Packs Water Bottle Holder Pouch",
+    price: "THB439.81",
+    img: ["https://i.ebayimg.com/images/g/uGMAAOSwcP5gyciy/s-l300.jpg"],
+    category: ['Bags'],
+  },
+  {
+    name: "Waist-Bag Hydration-Belt Pack Running Marathon Sport Fitness Water Bottle Pouch",
+    price: "THB458.80",
+    img: ["https://i.ebayimg.com/images/g/Z2cAAOSw9KZiVZQj/s-l300.jpg"],
+    category: ['Bags'],
+  },
+  {
+    name: "Waterproof Small Chest Bag Gym Travel Shoulder Sling Backpack Cross Body Outdoor",
+    price: "THB439.29",
+    img: ["https://i.ebayimg.com/images/g/kL4AAOSwR9JfJ--X/s-l300.jpg"],
+    category: ['Bags', "Women's Bags & Handbags"],
+  },
+  {
+    name: "Brand New Duffle Bag Sports Duffel Bag in Red and Black Gym Bag",
+    price: "THB842.35",
+    img: ["https://i.ebayimg.com/images/g/8ucAAOSwc0FUqs8X/s-l300.jpg"],
+    category: ['Bags'],
+  },
+  {
+    name: "Nike Sling Crossbody Waist Hip Mini Unisex Bag New - Free Shipping",
+    price: "THB808.98",
+    img: ["https://i.ebayimg.com/images/g/rIsAAOSwh0dhGuXe/s-l300.jpg"],
+    category: ['Bags'],
+  },
+  {
+    name: "BAG Sports Clothing Gym School Drawstring Formula One Red Bull Racing Team 1 BE",
+    price: "THB835.11",
+    img: ["https://i.ebayimg.com/images/g/xNcAAOSw4OFiWhGf/s-l300.jpg"],
+    category: ['Bags'],
+  },
+  {
+    name: '[ผ่อน 0%] OPPO A16 (4GB+64GB) โทรศัพท์หน้าจอ 6.52" HD+ ถนอมสายตา แบตฯอึด 5,000 mAh กล้องหลัง 3 ตัว คมชัดสูงสุด 13 MP ประกันศูนย์ 1 ปี',
+    price: "฿5,183.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/98060881f23737160b7106301f158937.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'Smartphones'],
+  },
+  {
+    name: "Redmi Note 11 (6+128GB) หน้าจอ 6.43 นิ้ว AMOLED Full HD+ พร้อม Android 11 แบต5000mAh ชาร์จไว33W ประกันศูนย์ไทย 15 เดือน ประกันร้าน 7 วัน เคลมใหม่ได้เลย",
+    price: "฿6,699.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/47f2fc412f3d757d1bf6bde7f3cad5c2.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'Smartphones'],
+  },
+  {
+    name: "Oppo A83 แท้100% RAM 4GB  ROM 64GB  เครื่องใหม่เอี่ยม มือ 1 อุปกรณ์ครบกล่อง ของแถมฟรีมากมาย!! สายชาร์+หูฟัง+เคสโทรศัพท์+ฟิล์มหน้าจอโทรศัพท์",
+    price: "฿1,857.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/a3e7d52193e33af029616b376e1caedc.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'Smartphones'],
+  },
+  {
+    name: "realme C35 4+64 แบต 5000 mAh กล้อง 50MP Ai 3 Lens ประกันศูนย์ไทย 1 ปี ขนส่ง รับ-ส่ง ซ่อมถึงบ้าน",
+    price: "฿5,550.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/9021f9a4ca9aa7969fa26c3d0f320293.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'Smartphones'],
+  },
+  {
+    name: "Samsung Galaxy A03  ***เครื่องแท้ รับประกันศูนย์ 1 ปี***",
+    price: "฿3,440.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/a8f85f625cb488d8609e9be40d54a545.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'Smartphones'],
+  },
+  {
+    name: "Vivo Y31 เต็มร้าน Netcom 4G รับประกัน 1 ปี จอ 4.7 นิ้ว สมาทโฟนนักเรียน แถมฟรี เคสซิลิโคนใสและฟิล์มกระจกนิรภัย",
+    price: "฿1,118.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/0c0e139a9910cfd064e001f7ce4c8341.png_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'Smartphones'],
+  },
+  {
+    name: 'พร้อมส่งจากไทย รับประกัน1ปี ❗ Alldocube iPlay 40H แท็บเล็ต 8GB RAM 128GB ROM Android 11 2000X1200 FHD หน้าจอ 10.4" Unisoc T618แบบ Dual 4G LTE Dual-band Wi-Fi แบต 6200mAh',
+    price: "฿6,499.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/b006b5c8ce89940d388c34fc00acc55f.png_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'แท็บเล็ต'],
+  },
+  {
+    name: "Tablet 7'' (WIFI,32GB) LENOVO TAB-M7 (TB-7306F) Iron Gray",
+    price: "฿2,771.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/1852f6852f5e7adda567dd349c8b3644.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'แท็บเล็ต'],
+  },
+  {
+    name: "ศูนย์ไทยพร้อมส่ง  Xiaomi Pad 5 Mi Pad 5  หน้าจอ11นิ้วWQHD+ 120Hz  Snapdragon 860  แบตเตอรี่8720mAh  รับประกันศูนย์ 15 เดือน",
+    price: "฿10,790.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/40df16b1f08911335b87e95125d64fb7.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'แท็บเล็ต'],
+  },
+  {
+    name: "Samsung Galaxy Tab S6 Lite Wifi / LTE เครื่องศูนย์ไทย ประกันศูนย์ ทั่วประเทศ",
+    price: "฿9,270.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/b8ee3751e7bdcca2677cc793be5344ee.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'แท็บเล็ต'],
+  },
+  {
+    name: "แถมฟรี!!เคส รับประกันของแท้100% tablet Tab 8 แท็บเล็ต สามารถใช้โทรเข้า-ออกได้ 4GB RAM  64GB ROM  Android10.0 แบตเตอรี่ หน้าจอ 10.1 นิ้ว  6580mAh ใส่ได้สองซิม Blackview",
+    price: "฿4,490.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/6bb2becf30c3f9d453a26b6d08c1d290.png_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'แท็บเล็ต'],
+  },
+  {
+    name: "[ผ่อน 0% 10 ด.]HUAWEI-MATEBOOK-D15-BOHRB-WAI9AQ/INTEL CORE i3-10110U/ประกัน 1 Y/ BY TOP COMPUTER",
+    price: "฿14,880.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/0dfc121e264e8f73614ab8823698a204.jpg_720x720q80.jpg_.webp"],
+    category: ['คอมพิวเตอร์และแล็ปท็อป', 'แล็ปท็อป', 'แล็ปท็อป'],
+  },
+  {
+    name: 'HP Pavilion  R5-5500U/16GB/512GB/AMD Radeon/15.6"FHD/W10+MS Office/2Y Onsite | 15-eh1082AU (4D2D4PA#AKL) Notebook',
+    price: "฿23,990.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/57e49bf95b6622a9ec92625f341af12b.jpg_720x720q80.jpg_.webp"],
+    category: ['คอมพิวเตอร์และแล็ปท็อป', 'แล็ปท็อป', 'แล็ปท็อป'],
+  },
+  {
+    name: "BMAX MaxBook Y13 2-in-1 laptop หมุน 360 Yoga องศา จอ 13.3 นิ้ว Multi-touch Ultrabook Windows 10 Pro ลิขสิทธิ์แท้ Intel Celeron Quad-Core 8GB RAM 256GB SSD โน๊คบุ๊ค",
+    price: "฿13,290.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/671fad516bb66882c0eeb2a841a258ca.jpg_720x720q80.jpg_.webp"],
+    category: ['คอมพิวเตอร์และแล็ปท็อป', 'แล็ปท็อป', 'แล็ปท็อป 2-in-1'],
+  },
+  {
+    name: "คอมพิวเตอร์โน้ตบุ๊กบางเฉียบรุ่นใหม่ คอมพิวเตอร์ i7/J4125 15.6 นิ้ว i7-6560U 3.0GHz DDR4 RAM: 16G SSD: 512G  14'J3455 คอมพิวเตอร์โน้ตบุ๊ก Windows10 รับประกันหนึ่งปี",
+    price: "฿11,999.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/e33d704ecf5324fe1565ac60240b51f4.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['คอมพิวเตอร์และแล็ปท็อป', 'แล็ปท็อป', 'แล็ปท็อปสำหรับเล่นเกมส์'],
+  },
+  {
+    name: 'Dell Inspiron 3511  i3 1115G4/4GB/256GB/Intel UHD/15.6"FHD/W10+MS Office+McAfee12m/2Y Premium Support | W56625401SPPTHW10-3511-PS/CB/MB-W Notebook',
+    price: "฿17,490.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/96115a6b5b0cbfb3ba89700b151a1b4a.jpg_720x720q80.jpg_.webp"],
+    category: ['คอมพิวเตอร์และแล็ปท็อป', 'แล็ปท็อป', 'แล็ปท็อป'],
+  },
+  {
+    name: "[ผ่อน 0% 10 ด.]DELL INSPIRON 3511-W56625401THW10 (CARBON BLACK)/I3-1115G4/ประกัน2yOnsite/BY TOP COMPUTER",
+    price: "฿16,280.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/04dedaf9f870f11061651cb6c90e05a7.jpg_720x720q80.jpg_.webp"],
+    category: ['คอมพิวเตอร์และแล็ปท็อป', 'แล็ปท็อป', 'แล็ปท็อป'],
+  },
+  {
+    name: "คอมพิวเตอร์เล่นเกมส์ ครบชุดพร้อมใช้งาน fifa4 pubg hon pb sf freefire",
+    price: "฿5,800.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/62b772a26bab76a3a1d3fc3d2664a910.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['คอมพิวเตอร์และแล็ปท็อป', 'คอมพิวเตอร์แบบตั้งโต๊ะ', 'คอมประกอบ'],
+  },
+  {
+    name: "COMPUTER SET A6-5400K + HD 7540D, D3 1600 8G AMD เล่น CSGO,Deus Ex,Dota2,Garena Games,Five M,Free Fire อัพเดท 20-3-2022 CPU2DAY",
+    price: "฿5,145.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/c2ada530baf9224f7c8f44c55978f870.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['คอมพิวเตอร์และแล็ปท็อป', 'คอมพิวเตอร์แบบตั้งโต๊ะ', 'เดสก์ท็อปสำหรับเกมส์'],
+  },
+  {
+    name: "Intel Core i7 ออล - อิน - วัน PC ขนาด 24 นิ้ว คอมพิวเตอร์ เดสก์ท็อปพีซี แรม 8G 256G SSD เมาส์ไร้สายและคีย์บอร์ดไร้สายฟรี computer all in one ส่งเมาส์ไร้สาย ASUS",
+    price: "฿13,600.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/b24f6f8cdb9c3d08df400ab9cac44684.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['คอมพิวเตอร์และแล็ปท็อป', 'คอมพิวเตอร์แบบตั้งโต๊ะ', 'ออลอินวัน'],
+  },
+  {
+    name: "คอมพิวเตอร์ครบชุด เล่นเกมส์ ตัดต่อ ทำคลิป ทำงาน แถมฟรีตัวรับไวไฟ",
+    price: "฿9,980.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/c8ce41f0cda0b6d5caa8b8e56b6730a6.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['คอมพิวเตอร์และแล็ปท็อป', 'คอมพิวเตอร์แบบตั้งโต๊ะ', 'คอมประกอบ'],
+  },
+  {
+    name: 'CORE-i3 เจน 2 Ram8 จอ 19"Y (ครบชุด) ฟรีเมาส์ คีย์บอร์ด ลำโพง ไวไฟ ประกัน 1 เดือน ถูกสุดๆไปเลยจ้า',
+    price: "฿4,690.00",
+    img: ["https://lzd-img-global.slatic.net/g/ff/kf/S2dfba1cef45a4577829f07ac2824eba40.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['คอมพิวเตอร์และแล็ปท็อป', 'คอมพิวเตอร์แบบตั้งโต๊ะ', 'คอมประกอบ'],
+  },
+  {
+    name: "ที่วางโทรศัพท์ ขาตั้งโทรศัพท์ ขาจับโทรศัพท์ ปรับสูงต่ำได้",
+    price: "฿8.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/80dc675ec1112498687e55e5147f3707.png_720x720q80.jpg_.webp"],
+    category:
+      ['Electronics Accessories', 'อุปกรณ์เสริมโทรศัพท์มือถือ', 'แท่นวางมือถือ'],
+  },
+  {
+    name: "สายชาร์จ หัวเหว่ย Type-C 5A/6A Data Cable ของแท้ Huawei SuperCharger ของแท้ รองรับ Mate9/Mate9pro/P10/P10plus/P20/P20Pro/P30/P30Pro/Mate20/Mate 20Pro ความยาว 1 เมตร มีการรับประกัน 1 ปี",
+    price: "฿35.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/eb13fb27f36388a70bbbe0e722e33157.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['Electronics Accessories', 'อุปกรณ์เสริมโทรศัพท์มือถือ', 'สายชาร์จ'],
+  },
+  {
+    name: "6# Caravan Crew Type C to USB Adapter OTG อะแดปเตอร์แปลง USB-C Male Type C to USB Adapter 2.0 A Female Data ขนาดเล็กพกพาง่ายสะดวกสบาย",
+    price: "฿33.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/edc4b759cc938559cff9a9e26027969c.png_720x720q80.jpg_.webp"],
+    category:
+      ['Electronics Accessories', 'อุปกรณ์เสริมโทรศัพท์มือถือ', 'สายชาร์จ & อุปกรณ์ชาร์จไฟ'],
+  },
+  {
+    name: "ฟิล์มกระจก เต็มจอ Focus Samsung Galaxy A23 A22 5G / A33 A32 4G 5G / A42 5G / A53 A52s A52 5G / A73 A72 A03 A03s A02s A02 A12 A11 A21 A31 A01 A71 A51 A13 โฟกัน กระจก กันรอย นิรภัย มือถือ ซัมซุง ของแท้",
+    price: "฿85.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/9b6a4689dcdae6b790c0b09549bd5768.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['Electronics Accessories', 'อุปกรณ์เสริมโทรศัพท์มือถือ', 'ฟิล์มกันรอย'],
+  },
+  {
+    name: "ฟิล์มกระจกเต็มจอ 9D For OPPO Reno7 Reno6 6Z A16 A54 A76 A16K A94 A95 Reno5 A15 A74 A93 Reno4 A53 A92 A31 A5S A3S A52020 F11Pro F5 F7 F9 R9s Reno2F Realme9i C35 C21Y C25 C11 ฟิล์มกันกระแทก ใสเคสได้",
+    price: "฿19.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/a5e6616a806ebbe5abd0d5687d3c32b3.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['Electronics Accessories', 'อุปกรณ์เสริมโทรศัพท์มือถือ', 'ฟิล์มกันรอย'],
+  },
+  {
+    name: "[Preorder สีเทาจัดส่ง 15-20 วันทำการ]ลำโพงบลูทูธ Harman Kardon Onyx Studio 5 (ลำโพงบลูทูธ , เครื่องเสียง , Bluetooth , ลำโพงกลางแจ้ง , บลูทูธไร้สาย)",
+    price: "฿4,990.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/034b008d64ddf1a9b9ad6f3917c4338f.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'ลำโพงแบบพกพา', 'ลำโพงไร้สายและบลูทูธ'],
+  },
+  {
+    name: "Xiaomi Redmi AirDots [ของแท้ 100%] หูฟังบลูทูธ True Wireless 5.0 TWS หูฟังไร้สาย",
+    price: "฿9.90",
+    img: ["https://lzd-img-global.slatic.net/g/p/ac0aa0dce5e0aa7823553040a9cc5ef2.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'หูฟัง', 'หูฟังแบบสอดหู'],
+  },
+  {
+    name: "ลำโพงบลูทูธ ดอกลำโพงคู่ เสียงดี เบสแน่น USB/TF Card วางโทรศัพท์ได้ รุ่น MN013 ( แถม สายAUX + สายชาร์จ )",
+    price: "฿209.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/634f1ca9e4109a1f79981260019275c2.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'ลำโพงแบบพกพา', 'ลำโพงไร้สายและบลูทูธ'],
+  },
+  {
+    name: "Apple AirPods with Charging Case (2nd generation)",
+    price: "฿4,490.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/21a2a9131050d3467e0fa44b460b7ba8.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'หูฟัง', 'หูฟังเอียบัด'],
+  },
+  {
+    name: "YT ลำโพง บลูทูธ/bluetoothเครื่องขยายเสียง โฮมเธียเตอร์ลำโพงซับวูฟเฟอร์ครับเครื่องขยายเสียงบลูทูธห้องนั่งเล่นร้องเพลงกล่อง",
+    price: "฿1,448.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/45f5f1ab332488195a3b2fc26a241f33.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'ระบบเสียงในบ้าน', 'ซับวูฟเฟอร์'],
+  },
+  {
+    name: "OnePlus Nord 2 5G(8-128GB)  สมาร์ทโฟน A.I. Lite Flagship | MediaTek Dim",
+    price: "฿16,990.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/04e348601d626437bc935e67c3ed6feb.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'Smartphones'],
+  },
+  {
+    name: "[New] Xiaomi  Mi 11T | Mi11T Pro  Snapdragon™ 888 จอ 6.67” AMOLED | กล้อง108MP เครื่องศูนย์ไทย MobileStation",
+    price: "฿12,880.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/14f24fe9d54bb0727a99608fec783fc8.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'Smartphones'],
+  },
+  {
+    name: "ใหม่ Mobile TCL 20r 5G RAM 4GB ROM 128GB หน้าจอ 6.5 นิ้ว กล้อง 13MP เครื่องศูนย์รับประกัน 1ปี By WPN Mobile ส่งฟรี",
+    price: "฿4,350.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/cb1b213e563a9cbc8e60dd3d3c4826af.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'Smartphones'],
+  },
+  {
+    name: "(ผ่อนชำระ 0% สูงสุด 10 เดือน) Nubia Redmagic Red Magic 6/6Pro (12+128/16+256) Global version แถมฟรี เคสใส+หูฟัง รับประกันศูนย์ไทย 1 ปี",
+    price: "฿19,990.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/4da2b3cf5dcf9a51d7e445e8d3cf92be.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'Smartphones'],
+  },
+  {
+    name: "Elow 3 In 1ที่ชาร์จเร็ว540องศา3A โทรศัพท์มือถือ,สายชาร์จแม่เหล็ก Micro USB Type C สายชาร์จสายไลท์นิ่งเข้ากันได้กับ iPhone",
+    price: "฿143.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/39ba44cb998cf002a7ff0ec43650c453.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['Electronics Accessories', 'อุปกรณ์เสริมโทรศัพท์มือถือ', 'สายชาร์จ & อุปกรณ์ชาร์จไฟ'],
+  },
+  {
+    name: "Huawei MediaPad M6 (Ram4/128gb)เครื่องใหม่มือ1 ศูนย์ไทย เคลียสตอค ประกันร้าน จอใหญ่ 10.8 นิ้ว คมชัด 2K จัดเต็มด้วยลำโพง 4 ตัว",
+    price: "฿9,180.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/4f5aa8810e3e1f6476c6eb6ba3260539.png_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'แท็บเล็ต'],
+  },
+  {
+    name: "ศูนย์ไทยพร้อมส่ง  Xiaomi Pad 5 Mi Pad 5  หน้าจอ11นิ้วWQHD+ 120Hz  Snapdragon 860  แบตเตอรี่8720mAh  รับประกันศูนย์ 15 เดือน",
+    price: "฿10,790.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/40df16b1f08911335b87e95125d64fb7.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'แท็บเล็ต'],
+  },
+  {
+    name: "!Pad Gen 9 พร้อมส่งเลย‼️ ใหม่-มือ1-ซีลแท้-ประกันศูนย์ TH",
+    price: "฿16,890.00",
+    img: ["https://lzd-img-global.slatic.net/g/ff/kf/Sc3f5b1afc07f4f078a9121a64938120ew.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรศัพท์มือถือและแท็บเล็ต', 'แท็บเล็ต'],
+  },
+  {
+    name: 'Dell Inspiron 3511  i3 1115G4/4GB/256GB/Intel UHD/15.6"FHD/W10+MS Office+McAfee12m/2Y Premium Support | W56625401SPPTHW10-3511-PS/CB/MB-W Notebook',
+    price: "฿18,490.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/2c6956531b02a304cd897150906f7f54.jpg_720x720q80.jpg_.webp"],
+    category: ['คอมพิวเตอร์และแล็ปท็อป', 'แล็ปท็อป', 'แล็ปท็อป'],
+  },
+  {
+    name: 'Lenovo Ideapad D330 /Intel Celeron N4020/4GB/64GB/10.1"HD/W10 Pro/1Y |10IGL (82H0000LTA) Notebook 2 in 1',
+    price: "฿8,490.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/cb98a5793f0ffa77d3a81d83234e24b2.jpg_720x720q80.jpg_.webp"],
+    category: ['คอมพิวเตอร์และแล็ปท็อป', 'แล็ปท็อป', 'แล็ปท็อป 2-in-1'],
+  },
+  {
+    name: "​[ผ่อน 0% 10 ด.]ASUS TUF GAMING F15 FX506LH-HN002T/i5-10300H/ประกัน2y+อุบัติเหตุ1y/BYNOTEBOOKSTORE",
+    price: "฿25,990.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/a6c7f8d39ed3066f54b28a3033dc0301.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['คอมพิวเตอร์และแล็ปท็อป', 'แล็ปท็อป', 'แล็ปท็อปสำหรับเล่นเกมส์'],
+  },
+  {
+    name: "[ผ่อน 0% 10 ด.]HP 15S-DU1534TU/i3-10110U/ประกัน2y+Onsite/BY NOTEBOOK STORE",
+    price: "฿15,990.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/5c2feaf4e64fbe27790f264e7cac141c.jpg_720x720q80.jpg_.webp"],
+    category: ['คอมพิวเตอร์และแล็ปท็อป', 'แล็ปท็อป', 'แล็ปท็อป'],
+  },
+  {
+    name: "✅โปร4.4🔥 Onyx Studio 5 ลำโพงไร้สายรุ่นใหม่ในดีไซน์พรีเมียม พกพาด้วยหูจับอะลูมิเนียม พร้อมคุณภาพเสียงดี ประกันศูนย์ไทยมหาจัก1ปีking goods shop",
+    price: "฿4,590.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/5d7a9386ce4d3974e8999f0eb2ff1efc.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'ลำโพงแบบพกพา', 'ลำโพงไร้สายและบลูทูธ'],
+  },
+  {
+    name: "【การันตีของแท้ 100%】ฺBlue Yeti Nano USB Microphone คุณภาพสูง 24-bit ให้เสียงคำชัดสำหรับการพูด สตรีมมิ่งเกม พากย์เสียง แถมฟรี Pop Filter",
+    price: "฿5,600.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/mdc/fee9e4d726e405c0d5efe4ce69f98021.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'อุปกรณ์บันทึกเสียงมืออาชีพ', 'ไมโครโฟน'],
+  },
+  {
+    name: "Sony WF-1000X หูฟังแบบสอดหู หูฟังออกกำลังกาย TWS-5บลูทูธไร้สายพร้อมไมโครโฟน Mini Wireless Earbuds Earphones Bluetooth 5.0 Headsets",
+    price: "฿569.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/00b4feea117293c9a78b2fca68be657c.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'หูฟัง', 'หูฟังแบบสอดหู'],
+  },
+  {
+    name: "[Pre-Order สีโรสโกลด์ จัดส่ง 22 เม.ย. 65] AIWA Enigma Bluetooth Speaker ลำโพงบลูทูธพกพา SUPER BASS",
+    price: "฿9,990.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/e490e744cc4603ef67086d0ea03403be.png_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'ลำโพงแบบพกพา', 'ลำโพงไร้สายและบลูทูธ'],
+  },
+  {
+    name: "หูฟังบลูทูธแบบครอบหู JBL Tune 700 BT  Wireless Over-Ear Headphones",
+    price: "฿2,691.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/9df66306719e8e8a49921091f2e9138b.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'หูฟัง', 'หูฟังแบบครอบหู'],
+  },
+  {
+    name: "ลำโพงบลูทูธJBL Charge 5 Bluetooth Speaker ลำโพงไร้สายแบบพกพา ลำโพงบรูทูธกันน้ำ ลำโพงกลางแจ้ง รับประกัน 1 ปี",
+    price: "฿1,388.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/e6b3bb4d3d0648187702e71963064d52.png_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'ลำโพงแบบพกพา', 'ลำโพงไร้สายและบลูทูธ'],
+  },
+  {
+    name: "Aftershokz Aeropex หูฟังออกกำลังกายแบบไร้สาย รับประกัน 2 ปี",
+    price: "฿4,690.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/a54b6221ec464ca0548d19ebdd973421.png_720x720q80.jpg_.webp"],
+    category: ['เครื่องเสียง', 'หูฟัง', 'หูฟังแบบทับหู'],
+  },
+  {
+    name: "[ทักแชทรับคูปอง] Xiaomi Mi Band 6 สมาร์ทวอทช์ (ศูนย์ไทย) smart watch วัดออกซิเจนในเลือด หน้าจอใหญ่ 1.56 นิ้ว ฟังก์ชันครบ -1Y",
+    price: "฿1,190.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/2be4b597652faf45d5cf700aed5f4cd4.png_720x720q80.jpg_.webp"],
+    category: ['สมาร์ทดีไวซ์', 'สมาร์ทวอทช์&อุปกรณ์เสริม', 'สมาร์ทวอทช์'],
+  },
+  {
+    name: "Suunto Smartwatch นาฬิกาออกกำลังกาย รุ่น Suunto3 รุ่นใหม่ 2020 - Made in Finland รับประกันศูนย์ไทย 2 ปี",
+    price: "฿6,990.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/a3ca0ee3faa52cb5cc46cf847580285e.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['สมาร์ทดีไวซ์', 'อุปกรณ์เสริมสายรัดข้อมือเพื่อสุขภาพ', 'ฟิตเนสแทรคเกอร์'],
+  },
+  {
+    name: "แอร์แทก 4 Pack / 2 Pack / 1 Pack ของใหม่ ของแท้ รับประกันศูนย์ / Namkangmobile / ร้าน Namkangmobile",
+    price: "฿1,689.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/317474c47e24ce5246b8e873a42cdafb.jpg_720x720q80.jpg_.webp"],
+    category: ['สมาร์ทดีไวซ์', 'แทรคเกอร์ติดตามของหาย'],
+  },
+  {
+    name: "Mini A8 GPS Tracker Locator Car Kid Global Tracking Device Anti-theft Outdoor Safety Equipment",
+    price: "฿269.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/1def8421b8cde638891a00efbb3511cd.jpg_720x720q80.jpg_.webp"],
+    category: ['สมาร์ทดีไวซ์', 'แทรคเกอร์ติดตามของหาย'],
+  },
+  {
+    name: "Oculus Quest 2 — Advanced All-In-One VR Gaming",
+    price: "฿16,949.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/be9d02ef25b14b33a4f89aa3488238aa.png_720x720q80.jpg_.webp"],
+    category: ['สมาร์ทดีไวซ์', 'แว่น VR', 'แว่น VR สำหรับอุปกรณ์เคลื่อนที่'],
+  },
+  {
+    name: "🥇【ผลิตภัณฑ์ใหม่】 นาฬิกาสมาทวอช SAMSUNG S7 Pro smart watch 1.7 HD นาฬิกาผู้ชาย นาฬิกาผู้หญิงTouch smartwatches สมาร์ทวอทช์ บันทึกการบริโภคแคลอรี่ นาฬิกาสมา",
+    price: "฿799.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/d48405c7440612e716bd2f1f4cd03b4a.jpg_720x720q80.jpg_.webp"],
+    category: ['สมาร์ทดีไวซ์', 'สมาร์ทวอทช์&อุปกรณ์เสริม', 'สมาร์ทวอทช์'],
+  },
+  {
+    name: 'Samsung SMART TV 55" AU7700 UHD 4K (2021) รุ่น UA55AU7700KXXT',
+    price: "฿14,590.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/b154517d7e4369407c98e081b4117d9e.png_720x720q80.jpg_.webp"],
+    category: ['โทรทัศน์และวิดีโอ', 'สมาร์ททีวี'],
+  },
+  {
+    name: "Aconatic LED Netflix TV Smart TV สมาร์ททีวี (Netflix License) 4K UHD ขนาด 55 นิ้ว รุ่น 55US534AN (รับประกัน 3 ปี)",
+    price: "฿17,900.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/6764a44ae5e30686f08ca3c126fcc16a.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรทัศน์และวิดีโอ', 'สมาร์ททีวี'],
+  },
+  {
+    name: "**PSI รุ่นใหม่ล่าสุด คมชัดกว่าเดิม**ชุดสุดคุ้ม PSI S2X+จานดาวเทียม PSI OKD 35 CM.+ฟรีสาย 10 เมตร",
+    price: "฿828.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/3e842f7776598b0bc6b70eb8a64df8b0.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรทัศน์และวิดีโอ', 'อุปกรณ์ทีวี', 'กล่องทีวี'],
+  },
+  {
+    name: "Worldtech ทีวี 32 นิ้ว Android Smart TV แอนดรอย สมาร์ททีวี HD Ready YouTube/Internet/Wifi ฟรีสาย HDMI (2xUSB, 3xHDMI) ราคาถูกๆ ราคาพิเศษ (ผ่อนชำระ 0%)",
+    price: "฿4,390.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/1f0447c4175c146d704d91739ba13e42.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรทัศน์และวิดีโอ', 'สมาร์ททีวี'],
+  },
+  {
+    name: "โปรเจคเตอร์ Rigal  RD828 Full HD Android9.0  WIFI And  Multiscreen  (2in1)1920x1080 เเท้ๆ สว่างสุด 4500 Lumens รุ่นใหม่ล่าสุด 2021 หลอด LED  50000 ชั่วโมงต่อโทรศัพท์ iosเเละ android",
+    price: "฿5,949.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/5e5712515cc6822121951dad1dc3026f.jpg_720x720q80.jpg_.webp"],
+    category: ['โทรทัศน์และวิดีโอ', 'วิดีโอ', 'โปรเจคเตอร์'],
+  },
+  {
+    name: "Electrolux เตาแม่เหล็กไฟฟ้า รุ่น ETD29KC",
+    price: "฿1,469.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/cfe371d45e96968b8b1b5e279ecc8884.png_720x720q80.jpg_.webp"],
+    category: ['เครื่องใช้ไฟฟ้าขนาดใหญ่', 'เตาแม่เหล็กและเตาแก๊สไฟฟ้า'],
+  },
+  {
+    name: "CANDY เครื่องปรับอากาศติดผนัง ขนาด 12000 BTU รุ่น CWP12EA03T (ไม่รวมติดตั้ง)",
+    price: "฿9,490.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/6e8a66c30a56bbd4a62b2724494644ee.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องใช้ไฟฟ้าขนาดใหญ่', 'แอร์'],
+  },
+  {
+    name: "[ทักแชทรับส่วนลด]Xiaomi Water Purifier เครื่องกรองน้ำรุ่นตั้งพื้น อัจฉริยะ ควบคุมผ่าน App Mi Home",
+    price: "฿7,890.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/6ba2be3833d328b66590704e441c52e5.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องใช้ไฟฟ้าขนาดใหญ่', 'เครื่องกรองน้ำ'],
+  },
+  {
+    name: "พร้อมส่ง!! Hisense ตู้เย็นมินิบาร์ 1 ประตู Mini Bar 46 ลิตร 1.6Q รุ่น RR60D4AD รับประกันศูนย์ 3 ปี",
+    price: "฿2,349.00",
+    img: ["https://lzd-img-global.slatic.net/g/ff/kf/S69c83b0283d247dd8ce1f3dc3b35b872v.jpg_720x720q80.jpg_.webp"],
+    category: ['เครื่องใช้ไฟฟ้าขนาดใหญ่', 'ตู้เย็น'],
+  },
+  {
+    name: "MACHER COFFEE กาแฟมาเชอร์ กาแฟเพื่อสุขภาพ หอมอร่อย หุ่นดี ด้วยสารสกัดจากธรรมชาติ",
+    price: "฿199.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/083eb21b5c7257f9ca7ba4fdc4c43998.jpg_720x720q80.jpg_.webp"],
+    category: ['สินค้าอุปโภคบริโภค', 'เครื่องดื่ม', 'กาแฟ', 'กาแฟสำเร็จรูป'],
+  },
+  {
+    name: "ผงชาเขียวมัทฉะ 100% เกรดพรีเมี่ยม 50 กรัม",
+    price: "฿75.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/590c0c5aa5928fa8fbaf2f52792b3ace.jpg_720x720q80.jpg_.webp"],
+    category: ['สินค้าอุปโภคบริโภค', 'เครื่องดื่ม', 'ชา', 'ชาเขียว'],
+  },
+  {
+    name: "เครื่องดื่มสมุนไพรสกัดเย็น GINGERLIC กระเทียม + ขิง + มะนาว + น้ำแอปเปิ้ลไซเดอร์ น้ำสมุนไพร น้ำสกัด ธรรมชาติ 100% (มี อย.)",
+    price: "฿199.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/8b20441bb716378be99ad99bb14f8d63.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['สินค้าอุปโภคบริโภค', 'เครื่องดื่ม', 'น้ำผลไม้', 'น้ำผลไม้รวม'],
+  },
+  {
+    name: "Cocoa Dutch โกโก้แท้100%ตราโกโก้ดัทช์ เครื่องดื่มโกโก้ชนิดผง แบบถุงเติมและแบบกระป๋อง จากเนเธอร์แลนด์ โกโก้ลดน้ำหนัก โกโก้ดัทช์ ผงโกโก้",
+    price: "฿339.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/92699be0f253fff28b63084dfaa0abf7.jpg_720x720q80.jpg_.webp"],
+    category: ['สินค้าอุปโภคบริโภค', 'เครื่องดื่ม', 'เครื่องดื่มผงสำเร็จรูป'],
+  },
+  {
+    name: "ชามะลิ ใบชามะลิ ชา มะลิ ใบชาเขียวมะลิ ชามะลิ ซอง ชาคีโต ชาเขียว ชาเขียวมะลิ ชาลดน้ำหนัก ชาเขียวลดไขมัน ใบชาจีนอย่างดี ชาเขียวมะลิใส",
+    price: "฿34.49",
+    img: ["https://lzd-img-global.slatic.net/g/p/bcb676c1f241690927805d63e41255fd.png_720x720q80.jpg_.webp"],
+    category: ['สินค้าอุปโภคบริโภค', 'เครื่องดื่ม', 'ชา', 'ชาเขียว'],
+  },
+  {
+    name: "นมแพะ ไฮโก๊ต รสจืดแบบกล่อง  ตรา HiGOAT (21 กรัมX 15 ซอง)",
+    price: "฿144.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/d61c365efa4142c2324e317229c25fbe.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['สินค้าอุปโภคบริโภค', 'เครื่องดื่ม', 'นมยูเอชที  นมผง', 'นมผง'],
+  },
+  {
+    name: "TRUFFLE MAYO (มายองเนสผสมเห็ดทรัฟเฟิล)  (HEARTYSPOON BRAND)",
+    price: "฿85.00",
+    img: ["https://lzd-img-global.slatic.net/g/ff/kf/Sbb9407e9fe6842d389e7a6bef320b6e9z.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['สินค้าอุปโภคบริโภค', 'ซีเรียลและอาหารเช้า', 'แยม น้ำผึ้ง สเปรดขนมปัง', 'สเปรดขนมปัง'],
+  },
+  {
+    name: "Diamond Grains prebiotic กราโนล่า ไดมอนส์เกรนส์ พรีไบโอติกส์  [ถุงใหญ่] 400 กรัม",
+    price: "฿224.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/9ea72473afe352c6561e84c11de54bd2.jpg_720x720q80.jpg_.webp"],
+    category: ['สินค้าอุปโภคบริโภค', 'ซีเรียลและอาหารเช้า', 'กราโนล่า'],
+  },
+  {
+    name: "(พร้อมส่ง)🧀 เนยทาขนมปังชีสกรอบ 🍞 Chubby Cheeks",
+    price: "฿200.00",
+    img: ["https://lzd-img-global.slatic.net/g/ff/kf/Seb79d42f64314218a4ccdf9fdaebb8c4A.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['สินค้าอุปโภคบริโภค', 'ซีเรียลและอาหารเช้า', 'แยม น้ำผึ้ง สเปรดขนมปัง', 'เนยถั่วและสเปรตถั่ว'],
+  },
+  {
+    name: "เนยถั่วสูตรคลีน Dark Chocolate รสชอกโกแลตเข้มข้น เนื้อเนียนละเอียด 200g.  เจทานได้ ดีต่อสุขภาพ",
+    price: "฿79.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/819240e3899bd245cb18694a7bcdb526.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['สินค้าอุปโภคบริโภค', 'ซีเรียลและอาหารเช้า', 'แยม น้ำผึ้ง สเปรดขนมปัง', 'เนยถั่วและสเปรตถั่ว'],
+  },
+  {
+    name: "( ชุด 3 ถุง ) คอปป สกาย  อาหารเช้าซีเรียล 70 กรัม รสน้ำผึ้ง (สีน้ำเงิน) ถุงซิปล๊อค",
+    price: "฿57.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/af0473c9664eabeca96a4b12aab5156d.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['สินค้าอุปโภคบริโภค', 'ซีเรียลและอาหารเช้า', 'ธัญพืชสำเร็จรูป', 'ธัญพืชสำหรับเด็ก'],
+  },
+  {
+    name: "[สินค้าล็อตใหม่] Diamond Grains Aurora กราโนล่า ออโรร่า พรีไบโอติก ครันชี่ รสน้ำผึ้ง ช็อกโกแลต ขนาด 400 กรัม Granola",
+    price: "฿212.43",
+    img: ["https://lzd-img-global.slatic.net/g/p/8938b3ba3e2e27daf0b45c00ee84c078.jpg_720x720q80.jpg_.webp"],
+    category: ['สินค้าอุปโภคบริโภค', 'ซีเรียลและอาหารเช้า', 'กราโนล่า'],
+  },
+  {
+    name: "(พร้อมส่งจากไทย) 🚚เดรสแฟชั่นสวยๆ เดรสชีฟอง กระโปรงมินิดอกไม้ แฟชั่นเกาหลี เสื้อผ้าผู้หญิงอวบ ชุดเดรสสาวอวบ K71",
+    price: "฿144.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/91039b82a8697ccac95fd8be39697124.jpg_720x720q80.jpg_.webp"],
+    category: ['เสื้อผ้าและรองเท้าผู้หญิง', 'เสื้อผ้าผู้หญิง', 'ชุดเดรส'],
+  },
+  {
+    name: "GSM【รับของภายใน3-5วัน 】 เดรสแฟชั่นผญ เดรสแขนสั้น เดรส2ชิ้นปลอม เดรสไซล์ใหญ่ เดรสสไตล์เกาหลี ผ้านุ่ม ใส่สบาย",
+    price: "฿119.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/13d29c86cb18a5d9af39c11900cba519.jpg_720x720q80.jpg_.webp"],
+    category: ['เสื้อผ้าและรองเท้าผู้หญิง', 'เสื้อผ้าผู้หญิง', 'ชุดเดรส'],
+  },
+  {
+    name: "Zoey ลองเท้า รองเท้า ผู้หญิง รองเท้าแก้ว รองเท้าส้นสูง รองเท้าส้นแก้ว 2021 ใหม่ 100722",
+    price: "฿239.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/fc5d5e3fa896f42ac4e55c2265706496.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['เสื้อผ้าและรองเท้าผู้หญิง', 'รองเท้าผู้หญิง', 'รองเท้าส้นสูง', 'รองเท้าแตะส้นสูง'],
+  },
+  {
+    name: "SALOME กางเกง กางเกงขาสั้น กางเกงขาสั้น ผญ กางเกง ขาสั้น ผญ กางเกงขาสั้นผญ กางเกงยีนขาสั้นผญ ธรรมดา กางเกง ขาสั้นผญ 032808",
+    price: "฿79.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/74069214ed85a8a3447e7f71d7d2d992.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['เสื้อผ้าและรองเท้าผู้หญิง', 'เสื้อผ้าผู้หญิง', 'กางเกงขาสั้นผู้หญิง', 'กางเกงขาสั้นลำลอง'],
+  },
+  {
+    name: "ชุดเซ็ตแฟชั่นสีพื้น Set3ชิ้น สูท+สายเดี่ยว+ขาสั้น ชุดเซตสไตล์น่ารักเซ็กซี่ โอเว่อไซส์ ไหล่ตก Set 3pcs 002",
+    price: "฿298.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/41517c4c7a83c70eec00208bd66c537d.jpg_720x720q80.jpg_.webp"],
+    category: ['เสื้อผ้าและรองเท้าผู้หญิง', 'เสื้อผ้าผู้หญิง', 'ชุดเข้าเซท'],
+  },
+  {
+    name: "EF กางเกง ผู้ชาย กางงเกงยีนส์ กางเกงยีนส์ชาย ยีนส์ขาสั้น ผ้ายืดฟอกนิ่ม 040201",
+    price: "฿159.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/7eeb0c1ddad4263cc65aa887ab7089a1.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['รองเท้าและเสื้อผ้าสำหรับผู้ชาย', 'เสื้อผ้าผู้ชาย', 'กางเกงขาสั้น', 'กางเกงขาสั้นลำลอง'],
+  },
+  {
+    name: "เสื้อเชิ้ตลำลองผู้ชายฤดูใบไม้ร่วงสลิมฟิตลำลองธุรกิจสวมใส่อย่างเป็นทางการมืออาชีพหลวมแต่งงานผู้ชายที่ดีที่สุดเสื้อเชิ้ตทั้งหมด",
+    price: "฿129.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/9140999619b99e12b3adcf659736b029.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['รองเท้าและเสื้อผ้าสำหรับผู้ชาย', 'เสื้อผ้าผู้ชาย', 'เสื้อยืดและเสื้อกล้าม', 'เสื้อยืดคอกลม'],
+  },
+  {
+    name: "EF กางเกง กางเกง ผู้ชาย กางเกงขายาว กางเกงขายาว ชาย กางเกง ชาย กางเกงสแล็คชาย กางเกงขายาวผู้ชาย 040704",
+    price: "฿139.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/b032216601a1a2e3479bc41c75bd3883.jpg_720x720q80.jpg_.webp]"],
+    category:
+      ['รองเท้าและเสื้อผ้าสำหรับผู้ชาย', 'เสื้อผ้าผู้ชาย', 'กางเกงขายาว', 'กางเกงชิโน'],
+  },
+  {
+    name: "【จัดส่งทันที】รองเท้า KEEN UNEEK ยอดนิยม (เบอร์36-45) *จัดส่งฟรี เก็บเงินปลายทาง รับประกันเปลี่ยนSizeฟรี *",
+    price: "฿1,238.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/416ccc5b494fd21ea9892ca6a01ded48.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['รองเท้าและเสื้อผ้าสำหรับผู้ชาย', 'รองเท้าผู้ชาย', 'รองเท้าผ้าใบผู้ชาย'],
+  },
+  {
+    name: "Zeus Sports ชุดเชตผู้ชาย ชุดเซ็ตผู้ชาย ชุดผู้ชาย1เซ็ต เสื้อยืด Set 2 ชิ้น แนวโน้ม",
+    price: "฿139.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/03e5e241450735ad55169c0687371adb.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['รองเท้าและเสื้อผ้าสำหรับผู้ชาย', 'เสื้อผ้าผู้ชาย', 'เสื้อยืดและเสื้อกล้าม', 'เสื้อยืดคอกลม'],
+  },
+  {
+    name: "MJ เสื้อโปโลผู้ชายแขนสั้นธุรกิจ เสื้อเข้ารูปพอดีตัวระบายอากาศได้ดีราคาถูกและใส่สบาย",
+    price: "฿95.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/21ce4f44d633cc476ab956cb663c9dc5.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['รองเท้าและเสื้อผ้าสำหรับผู้ชาย', 'เสื้อผ้าผู้ชาย', 'เสื้อโปโล'],
+  },
+  {
+    name: "หมวก อผศ ทหารผ่านศึก",
+    price: "฿153.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/74417339f1fa1faf7efecd8877b2bfa7.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['รองเท้าและเสื้อผ้าสำหรับผู้ชาย', 'เสื้อผ้าผู้ชาย', 'เครื่องตกแต่งผู้ชาย', 'หมวก'],
+  },
+  {
+    name: "Zeed จานทวิสต์ปุ่มแม่เหล็ก จานทวิสต์ จานหมุนลดเอว จานทวิต กระชับเอว ต้นขา สะโพก จานหมุนสวิง 360 องศา  ** รับประกันสินค้า**(มีสาย/ไม่มีสาย)",
+    price: "฿128.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/e2c2d3ccce5f0235df00cd8acc740233.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['กีฬาและกิจกรรมกลางแจ้ง', 'อุปกรณ์ออกกำลังกายและฟิตเนส', 'อุปกรณ์ฟิตเนส', 'จานทวิส'],
+  },
+  {
+    name: "กระชับต้นขาและก้น #ยางยืดผ้าหนาออกกำลังกาย ยางยืดสะโพก ยางยืดวงแหวน ฟิตเนส โยคะ กระชับสัดส่วน",
+    price: "฿66.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/77f86433458a2e5f949b13d08e5d0e5a.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['กีฬาและกิจกรรมกลางแจ้ง', 'อุปกรณ์ออกกำลังกายและฟิตเนส', 'อุปกรณ์ฟิตเนส', 'ยางยืดออกกำลังกาย'],
+  },
+  {
+    name: "PLYO BOX กล่องสำหรับกระโดดเพื่อการฝึกแบบ PLYOMETRICS ,plyo workout  JUMP BOX, PLYO BOX ,PLYOMETRICS BOX",
+    price: "฿3,400.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/7ca5c79b8d40b9bcb285622473a6f07e.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['กีฬาและกิจกรรมกลางแจ้ง', 'อุปกรณ์ออกกำลังกายและฟิตเนส', 'อุปกรณ์ฟิตเนส', 'อุปกรณ์ฝึกการกระโดด'],
+  },
+  {
+    name: "พร้อมส่ง AOLIKES ของแท้ (RB-3603) Size M ยางยืดออกกำลังกาย ยางยืดสะโพก ผ้าหนาออกกำลังกาย กระชับต้นขาและก้น มี 8 สี",
+    price: "฿79.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/862b1445fa19cc5332d111f071015100.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['กีฬาและกิจกรรมกลางแจ้ง', 'อุปกรณ์ออกกำลังกายและฟิตเนส', 'อุปกรณ์ฟิตเนส', 'ยางยืดออกกำลังกาย'],
+  },
+  {
+    name: "MY-HI แผ่นยางปูพื้น แผ่นโฟมจิ๊กซอว์ปูพื้น EVA💯% แผ่นยางจิ๊กซอว์ปูพื้น  แผ่นยางฟิตเนส แผ่นรองโยคะ แผ่นโฟมกันกระแทก หนา 2.5 ซม.",
+    price: "฿329.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/98a523ac352b2de0cbd61a04505fcbb5.png_720x720q80.jpg_.webp"],
+    category:
+      ['กีฬาและกิจกรรมกลางแจ้ง', 'อุปกรณ์ออกกำลังกายและฟิตเนส', 'อุปกรณ์ฟิตเนส', 'แผ่นรองออกกำลังกาย'],
+  },
+  {
+    name: "บอลโยคะ ลูกบอลโยคะขนาด 65 CM หรือ 20 นิ้ว (แถมฟรีอุปกรณ์สูบลม)",
+    price: "฿107.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/656aa26ecef52d14f3d2b6889b0a97bd.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['กีฬาและกิจกรรมกลางแจ้ง', 'อุปกรณ์ออกกำลังกายและฟิตเนส', 'อุปกรณ์ฟิตเนส', 'ลูกบอลออกกำลังกาย'],
+  },
+  {
+    name: "AOLIKESยางยืดวงแหวนเซ็ต 3ชิ้น ผ้าหนาออกกำลังกาย กระซับก้นและขา ยางยืดแบบผ้าหนา(แถมถุงตาข่ายใส่ยางยืด)",
+    price: "฿169.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/638eda4a3d5949d0d69f91e0a6bfc50e.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['กีฬาและกิจกรรมกลางแจ้ง', 'อุปกรณ์ออกกำลังกายและฟิตเนส', 'อุปกรณ์ฟิตเนส', 'ยางยืดออกกำลังกาย'],
+  },
+  {
+    name: "Hanaso กระเป๋าเดินทาง กระเป๋าเดินทางแบบถือ gym sport bag กระเป๋าสะพาย กระเป๋าเดินทางสะพาย กระเป๋าใส่เสื้อผ้า ผ้า กระเป๋าเสื้อผ้า travel bag กันน้ำ",
+    price: "฿279.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/18776b02e838e96dbbb7cfa5814db28d.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['กระเป๋าและกระเป๋าเดินทาง', 'การเดินทาง', 'กระเป๋า', 'กระเป๋าทรงหมอนและกระเป๋าสะพายข้าง'],
+  },
+  {
+    name: "Plover⚡จัดส่งฟรี สินค้าพร้อมส่ง⚡กระเป๋าเดินทางแฟชั่นสำหรับผู้ชาย,กระเป๋าฟิตเนสกระเป๋าเดินทางกีฬาสันทนาการ",
+    price: "฿228.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/7c4b2aeb252a1585884638a62b432055.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['กระเป๋าและกระเป๋าเดินทาง', 'การเดินทาง', 'กระเป๋า', 'กระเป๋าทรงหมอนและกระเป๋าสะพายข้าง'],
+  },
+  {
+    name: "PLOVER⚡จัดส่งฟรี สินค้าพร้อมส่ง⚡กระเป๋าเดินทางสไตล์ใหม่,กระเป๋ากีฬาคู่รักสะพายไหล่ข้างเดียวกระเป๋าฟิตเนสว่ายน้ำรองเท้าเปียกและแห้ง",
+    price: "฿272.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/35bc8b0f3482871930e1444833e6a950.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['กระเป๋าและกระเป๋าเดินทาง', 'การเดินทาง', 'กระเป๋า', 'กระเป๋าทรงหมอนและกระเป๋าสะพายข้าง'],
+  },
+  {
+    name: "【Discount】 กระเป๋าสะพายไหล่สำหรับวัยรุ่นชายหญิง,กระเป๋าเป้ไนล่อนกันน้ำสำหรับเดินทางเล่นกีฬาทำกิจกรรมนอกบ้าน",
+    price: "฿99.00",
+    img: ["https://lzd-img-global.slatic.net/g/p/52bf62c01fe9b9a7331a25d238045229.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['กีฬาและกิจกรรมกลางแจ้ง', 'กิจกรรมกลางแจ้งและผจญภัย', 'การตั้งแค้มป์ และการเดินป่า', 'กระเป๋าและเป้สะพายหลัง', 'กระเป๋าเป้สำหรับเดินป่า'],
+  },
+  {
+    name: "ENVTrendy กระเป๋าเดินทางสไตล์ใหม่,กระเป๋าคู่กระเป๋าฟิตเนสว่ายน้ำรองเท้าเปียกและแห้งกระเป๋ากีฬาสะพายไหล่ข้างเดียว",
+    price: "฿284.90",
+    img: ["https://lzd-img-global.slatic.net/g/p/35bc8b0f3482871930e1444833e6a950.jpg_720x720q80.jpg_.webp"],
+    category:
+      ['กระเป๋าและกระเป๋าเดินทาง', 'การเดินทาง', 'กระเป๋า', 'กระเป๋าทรงหมอนและกระเป๋าสะพายข้าง'],
+  },
+  {
+    name: "PREYA ชามะลิเกรด A 200 กรัม จำนวน 5 ห่อ ชาคุณภาพดีจากดอยแม่สลอง",
+    price: "650 บาท",
+    img: ["https://res.weloveshopping.com/943254/w_450,h_450,c_thumb/3b4c1b50217229328285c23d7a96a2fb/img_6981.jpg"],
+    category: ['เครื่องดื่ม'],
+  },
+  {
+    name: "PREYA ชามะลิเกรด A 200 กรัม 2 ห่อ ชาคุณภาพดีจากดอยแม่สลอง",
+    price: "300 บาท",
+    img: ["https://res.weloveshopping.com/943254/w_450,h_450,c_thumb/210a6a4ab53b66cb63dcbb13124524a7/img_7986.jpg"],
+    category: ['เครื่องดื่ม'],
+  },
+  {
+    name: "OTOPกาแฟเขาทะลุ Instant (กาแฟเกล็ด)",
+    price: "160 บาท",
+    img: ["https://res.weloveshopping.com/950769/w_450,h_450,c_thumb/f1f5c2b6cb95098fb9b30d0dbfb7850e/68กลุ่มเกษตรกรทำสวนเขาทะลุ024094.jpg"],
+    category: ['เครื่องดื่ม'],
+  },
+  {
+    name: "กาแฟพี่ยักษ์ กาแฟเพื่อสุขภาพ PEYUK 29 in 1 ลดอาการปวดข้อเข่า",
+    price: "490 บาท",
+    img: ["https://res.weloveshopping.com/954887/w_450,h_450,c_thumb/b079c9e6cf83434513b4060dd242b932/790607.jpg"],
+    category: ['กาแฟ ชา'],
+  },
+  {
+    name: "เครื่องดื่มเกลือแร่ สปอนเซอร์ (SPONSOR) (250 มล.) 1ลัง 24ขวด",
+    price: "295 บาท",
+    img: ["https://res.weloveshopping.com/916881/w_450,h_450,c_thumb/4215f9d9714c38ef0a31af4fc19d2594/sponser.jpg"],
+    category: ['เครื่องดื่มชูกำลัง เครื่องดื่มเกลือแร่'],
+  },
+  {
+    name: "กาแฟ แม็กซิม (MAXIM) โกลด์ เบลนด์ (ทอง) ถุงเติม 135 กรัม",
+    price: "340 บาท",
+    img: ["https://res.weloveshopping.com/926967/w_450,h_450,c_thumb/612b9f356f73ed4128750e8ce81ce94d/maxim_gold_135g_tag_02.jpg"],
+    category: ['กาแฟ ชา'],
+  },
+  {
+    name: "J-Lek (เจ๊เล็ก) น้ำจิ้มอาหารย่าง หรือน้ำจิ้มแจ่ว ขวดแก้ว ขนาด 350 กรัม แพ็ค 3 ขว",
+    price: "126 บาท",
+    img: ["https://res.weloveshopping.com/948150/w_450,h_450,c_thumb/a51fb362e3d3f153fc7044a159049163/น้ำจิ้มแจ่ว.jpg"],
+    category: ['ซอสปรุงรส เครื่องปรุงต่างๆ'],
+  },
+  {
+    name: "pre order กล่องพลาสติก กดขนมปัง ทำเเซนวิช แบบปิดขอบ หลายลาย",
+    price: "69 บาท",
+    img: ["https://res.weloveshopping.com/912459/w_450,h_450,c_thumb/7193a9b69dfbddbbc92712738199c8fc/0.jpg"],
+    category: ['เบเกอรี่ ขนมหวาน ของกินเล่น'],
+  },
+  {
+    name: "ปลาทูหอม ขนาดใหญ่ (L) ตราเชฟเฮ้าส์",
+    price: "190 บาท",
+    img: ["https://res.weloveshopping.com/954412/w_450,h_450,c_thumb/8c5a382bb87071ac7605a8a42418be0b/artboard1-100.jpg"],
+    category: ['อาหารสดและแช่แข็ง'],
+  },
+  {
+    name: "J-Lek (เจ๊เล็ก) ซอสปลาสามรส 550 กรัม",
+    price: "75 บาท",
+    img: ["https://res.weloveshopping.com/948150/w_450,h_450,c_thumb/7c5aa6c1722d44b2c7772b25031cb176/ซอสปลาสามรส.jpg"],
+    category: ['ซอสปรุงรส เครื่องปรุงต่างๆ'],
+  },
+  {
+    name: 'บะหมี่กึ่งสำเร็จรูป "มาม่า" รสต้มยำกุ้ง 55 กรัม (แพ็ค 10 ซอง)',
+    price: "56 บาท",
+    img: ["https://res.weloveshopping.com/926901/w_450,h_450,c_thumb/178bd362fc06419daa3ea058bc057dc1/71155.jpg"],
+    category: ['อาหารกระป๋อง อาหารแห้ง'],
+  },
+  {
+    name: "โอริโอ คุกกี้แซนวิสรสช็อคโกแลตสอดไส้ครีม กลิ่นวานิลลา 28.5 กรัม (แพ็ค 12)",
+    price: "49 บาท",
+    img: ["https://res.weloveshopping.com/926901/w_450,h_450,c_thumb/eaa04e7ae7ab553b13350fce840a8299/68731.jpg"],
+    category: ['เบเกอรี่ ขนมหวาน ของกินเล่น'],
+  },
+  {
+    name: "เสื้อเชิ้ตลายโซ่ชิโน",
+    price: "590 บาท",
+    img: ["https://res.weloveshopping.com/925221/w_450,h_450,c_thumb/b2500131e109ef6f46723441e1080c25/8068bc41-cab1-48a0-bdb3-7055bd545960.jpg"],
+    category: ['เสื้อเชิ้ตผู้หญิง'],
+  },
+  {
+    name: "เสื้อเชิ้ตลายโซ่ชิโน",
+    price: "590 บาท",
+    img: ["https://res.weloveshopping.com/925221/w_450,h_450,c_thumb/b2500131e109ef6f46723441e1080c25/8068bc41-cab1-48a0-bdb3-7055bd545960.jpg"],
+    category: ['เสื้อเชิ้ตผู้หญิง'],
+  },
+  {
+    name: "ชุดเสื้อกระโปรง พร็อพลาย KR004",
+    price: "359 บาท",
+    img: ["https://res.weloveshopping.com/919012/w_450,h_450,c_thumb/3613b737d552b29efeff6f4e875017dc/11.jpg"],
+    category: ['เสื้อยืดผู้หญิง'],
+  },
+  {
+    name: "dressuphouse รหัส 1499wh เสื้อยืดคอกลม แขนยาว แต่งกุหลาบรอบคอ",
+    price: "290 บาท",
+    img: ["https://res.weloveshopping.com/900722/w_450,h_450,c_thumb/9f4026fe7e45d44c68821d051bbc599f/1499wh-4.jpg"],
+    category: ['เสื้อยืดผู้หญิง'],
+  },
+  {
+    name: "ลดราคา รหัส D893wh เสื้อแฟชั่น ผ้ายืด คอกลม แขนสั้น สีขาว",
+    price: "280 บาท",
+    img: ["https://res.weloveshopping.com/900722/w_450,h_450,c_thumb/707efd312f8418c83f86a4ed973dd880/893wh.jpg"],
+    category: ['เสื้อยืดผู้หญิง'],
+  },
+  {
+    name: "เสื้อยืดสีขาวสกินลายสวยขนาดฟรีไซส์",
+    price: "120 บาท",
+    img: ["https://res.weloveshopping.com/931841/w_450,h_450,c_thumb/76afb4a69703ee7f21389224839af7cc/img_0197.jpg"],
+    category: ['เสื้อยืดผู้หญิง'],
+  },
+  {
+    name: "เสื้อเชิ้ตลายโซ่ชิโน",
+    price: "590 บาท",
+    img: ["https://res.weloveshopping.com/925221/w_450,h_450,c_thumb/b2500131e109ef6f46723441e1080c25/8068bc41-cab1-48a0-bdb3-7055bd545960.jpg"],
+    category: ['เสื้อเชิ้ตผู้หญิง'],
+  },
+  {
+    name: "pre order size s-3xl กระโปรงสั้น เอวยางยืด ใส่สบาย ทรงเก๋ มีกระเป๋า เขียว ดำ",
+    price: "640 บาท",
+    img: ["https://res.weloveshopping.com/912459/w_450,h_450,c_thumb/c00a981092288939f31997ab9b7e2155/1.jpg"],
+    category: ['กระโปรงสั้น'],
+  },
+  {
+    name: "เสื้อผ้ามือสอง// กระโปรงวินเทจ ผ้าฝ้ายทอ ลายตาราง โทนขาว-เทา จับจีบน่ารัก",
+    price: "150 บาท",
+    img: ["https://res.weloveshopping.com/929852/w_450,h_450,c_thumb/f0d2b060fbf70cd42726f9d5021f27ee/s1195.jpg"],
+    category: ['กระโปรงคลุมเข่า'],
+  },
+  {
+    name: "เสื้อผ้ามือสอง// ELLE PLANETE กระโปรงผ้าสักหลาดสีครีม ชายปักหวานๆ",
+    price: "150 บาท",
+    img: ["https://res.weloveshopping.com/929852/w_450,h_450,c_thumb/ea8e3000e5648c06528b4dbf5b4e016a/s1197.jpg"],
+    category: ['กระโปรงคลุมเข่า'],
+  },
+  {
+    name: "กระโปรงยีนส์ เนื้อยีนส์แท้ ซิปหน้า ติดกระดุม ดีไซน์ตามแบบ",
+    price: "295 บาท",
+    img: ["https://res.weloveshopping.com/925238/w_450,h_450,c_thumb/2df0a8f5f67ab2e19aa5a8737886a304/0977-1.jpg"],
+    category: ['กระโปรงสั้น'],
+  },
+  {
+    name: "(พร้อมส่ง77039)* กระโปรงสั้นผ้าแก้วเย็บจับจีบช่วงเอว Size XL(สีขาว)",
+    price: "450 บาท",
+    img: ["https://res.weloveshopping.com/922863/w_450,h_450,c_thumb/7bb7f3a78705a7ef48911f8c3687c2cb/59995989.jpg"],
+    category: ['กระโปรงสั้น'],
+  },
+  {
+    name: "กระโปรงหนัง กระโปรงสลิม มีซิปหน้า ใส่ทำงาน ใส่กับเสื้อหนังก็เท่ ๆ ดี สวย ๆ ชอบ ๆ",
+    price: "350 บาท",
+    img: ["https://res.weloveshopping.com/924830/w_450,h_450,c_thumb/57d5fd4dacfe7faf548cce272fc088f3/กระโปรง2.png"],
+    category: ['กระโปรงสั้น'],
+  },
+  {
+    name: "เสื้อกล้ามผู้ชาย - กระชับสัดส่วน slim n lift [1กล่อง/1ชิ้น][สี : เทา]",
+    price: "385 บาท",
+    img: ["https://res.weloveshopping.com/915592/w_450,h_450,c_thumb/ca279838a05b64b075b5505a0242a0b2/slim-n-lift-1-1-color-57c.jpg"],
+    category: ['เสื้อกล้าม'],
+  },
+  {
+    name: "เสื้อกล้ามผู้ชาย - กระชับสัดส่วน slim n lift [1กล่อง/1ชิ้น][สี : น้ำเงิน]",
+    price: "385 บาท",
+    img: ["https://res.weloveshopping.com/915592/w_450,h_450,c_thumb/6d62b32f681d3d755049e090ff4af162/slim-n-lift-1-1-color-3a1.jpg"],
+    category: ['เสื้อกล้าม'],
+  },
+  {
+    name: "เสื้อกั๊กเนื้อผ้าดี ด้านหลังพับลงมาเป็นแบบตาข่ายได้ ซิปหน้า ไซส์ XL",
+    price: "930 บาท",
+    img: ["https://res.weloveshopping.com/925123/w_450,h_450,c_thumb/9b05c8973642a50302444f27023a4990/clothred.jpg"],
+    category: ['เสื้อกั๊ก'],
+  },
+  {
+    name: "เสื้อโปโลสีดำ ผ้า Lycra cotton มีกระเป๋าหน้า สกรีนด้านหลัง ไซต์ S-3XL #POLO05",
+    price: "339 บาท",
+    img: ["https://res.weloveshopping.com/922259/w_450,h_450,c_thumb/6b5ea37e8b101275c690ffaf60cf7423/s__30343176.jpg"],
+    category: ['เสื้อโปโลผู้ชาย'],
+  },
+  {
+    name: "Nanibon (ผ้า Rayon)",
+    price: "110 บาท",
+    img: ["https://res.weloveshopping.com/926503/w_450,h_450,c_thumb/ea446fe2adb6e1f5a7e55cafa67424e0/online1.jpg"],
+    category: ['เสื้อโปโลผู้ชาย'],
+  },
+  {
+    name: "เสื้อเชิ้ตชายเพลย์บอย เสื้อแฟชั่นเกาหลี แขวนยาว PR001",
+    price: "529 บาท",
+    img: ["https://res.weloveshopping.com/919012/w_450,h_450,c_thumb/6fe81d4c0315d0cb5154661003dd2798/4.jpg"],
+    category: ['เชิ้ตทางการ'],
+  },
+  {
+    name: "#กางเกงแบรนด์QuiksilverBoardshort กางเกงขาสั้นBoardshortสวยๆ",
+    price: "470 บาท",
+    img: ["https://res.weloveshopping.com/924830/w_450,h_450,c_thumb/d1499757f6cc2e8d05720afb82075f2e/screenshot12811.png"],
+    category: ['กางเกงขาสั้นชาย'],
+  },
+  {
+    name: "#กางเกงแบรนด์QuiksilverBoardshort กางเกงขาสั้นBoardshortสวยๆ",
+    price: "470 บาท",
+    img: ["https://res.weloveshopping.com/924830/w_450,h_450,c_thumb/b38f52ef95948e96bccf6f68e002d6ab/screenshot12845.png"],
+    category: ['กางเกงขาสั้นชาย'],
+  },
+  {
+    name: "กางเกงแบรนด์QuiksilverBoardshortกางเกงขาสั้นBoardshortสวยๆ",
+    price: "470 บาท",
+    img: ["https://res.weloveshopping.com/924830/w_450,h_450,c_thumb/1361296dfc30e180f711939d011670b3/20.jpg"],
+    category: ['กางเกงขาสั้นชาย'],
+  },
+  {
+    name: "กางเกงแบรนด์QuiksilverBoardshortกางเกงขาสั้นBoardshortสวยๆ",
+    price: "470 บาท",
+    img: ["https://res.weloveshopping.com/924830/w_450,h_450,c_thumb/6c68f3859d34fefabcc7cea52102f577/16.jpg"],
+    category: ['กางเกงขาสั้นชาย'],
+  },
+  {
+    name: "#กางเกงแบรนด์QuiksilverBoardshort กางเกงขาสั้นBoardshortสวยๆ",
+    price: "470 บาท",
+    img: ["https://res.weloveshopping.com/924830/w_450,h_450,c_thumb/ae633743dc0134d30e6bf83693fdec81/screenshot12756.png"],
+    category: ['กางเกงขาสั้นชาย'],
+  },
+  {
+    name: "กางเกงแบรนด์ Quiksilver Boardshort กางเกงขาสั้น Boardshort สวยๆ",
+    price: "470 บาท",
+    img: ["https://res.weloveshopping.com/924830/w_450,h_450,c_thumb/999f9debe81b7ef9cdcaeba66a8db5a8/screenshot13129.png"],
+    category: ['กางเกงขาสั้นชาย'],
+  },
+  {
+    name: "กระเป๋าคาดเอว คาดอก ออกกำลังกาย วิ่ง คล่องตัว สีดำ",
+    price: "100 บาท",
+    img: ["https://res.weloveshopping.com/936200/w_450,h_450,c_thumb/89adacd7f7076fd72b246031075b6b64/img_20191230_074951.jpg"],
+    category: ['กระเป๋ากีฬาผู้หญิง'],
+  },
+  {
+    name: "กระเป๋าเป้ ANMEILU เป้สะพายหลังขี่จักรยาน รุ่น R15 สีฟ้า",
+    price: "1,090 บาท",
+    img: ["https://res.weloveshopping.com/930769/w_450,h_450,c_thumb/0b9b9a06f1e5fbffe512141164e2740e/รูปแรก.jpg"],
+    category: ['กระเป๋ากีฬาผู้ชาย'],
+  },
+  {
+    name: "ANMEILU กระเป๋าเป้สะพายหลังขี่จักรยาน สีม่วง",
+    price: "1,090 บาท",
+    img: ["https://res.weloveshopping.com/930769/w_450,h_450,c_thumb/b304a81d0069467bbada97622c9b3f14/แบบร่างรูปรแรก.jpg"],
+    category: ['กระเป๋ากีฬาผู้ชาย'],
+  },
+  {
+    name: "สายรัดแขนเก็บมือถือ Sport Armband",
+    price: "89 บาท",
+    img: ["https://res.weloveshopping.com/925418/w_450,h_450,c_thumb/d1d574cd0167fb39424fd2b5cc408cb0/sports-armband.jpg"],
+    category: ['กระเป๋ากีฬาผู้ชาย'],
+  },
+  {
+    name: "กระเป๋าคาดเอววิ่ง แบบกันน้ำ",
+    price: "99 บาท",
+    img: ["https://res.weloveshopping.com/925418/w_450,h_450,c_thumb/b29d2cea607bfe939089280bbd9f4beb/3585661716_1694700307.jpg"],
+    category: ['กระเป๋ากีฬาผู้ชาย'],
+  },
+  {
+    name: "Getzhop กระเป๋าใส่เสื่อโยคะ Yoga Mat Bags รุ่น AMYOKA (สีดำ)",
+    price: "599 บาท",
+    img: ["https://res.weloveshopping.com/912207/w_450,h_450,c_thumb/33aa74bd0817b77104e58f64150ad644/กระเป๋าใส่เสื่อโยคะ.jpg"],
+    category: ['กระเป๋ากีฬาผู้หญิง'],
+  },
+  {
+    name: "K-BIKE หมวกจักรยานพร้อมกะบังหมวก รุ่น LW-811 (สีแดง)",
+    price: "399 บาท",
+    img: ["https://res.weloveshopping.com/919688/w_450,h_450,c_thumb/c9c9a87e5b217ebcfbcfdae780c80a75/red.jpg"],
+    category: ['จักรยาน'],
+  },
+  {
+    name: "ไม้คิวสนุ๊กเกอร์ พร้อมกล่องหนังสวยหรู และอุปกรณ์เสริม",
+    price: "2,100 บาท",
+    img: ["https://res.weloveshopping.com/925123/w_450,h_450,c_thumb/25f316cfc586e0265884a36559cb7da7/สีดำ.png"],
+    category: ['ไม้คิว'],
+  },
+  {
+    name: "PK Snorkle",
+    price: "1,800 บาท",
+    img: ["https://res.weloveshopping.com/925123/w_450,h_450,c_thumb/007a3905c76ce2993a046e2baf38affe/หน้ากากดำน้ำ.jpg"],
+    category: ['อุปกรณ์ดำน้ำ'],
+  },
+  {
+    name: "แว่นตาดำน้ำ เลนส์สายตา สั้น",
+    price: "600 บาท",
+    img: ["https://res.weloveshopping.com/927822/w_450,h_450,c_thumb/40fe3185973d300c8306875bb59dae63/0.jpg"],
+    category: ['อุปกรณ์ดำน้ำ'],
+  },
+  {
+    name: "ไม้ปิงปองสไปเดอร์",
+    price: "210 บาท",
+    img: ["https://res.weloveshopping.com/925735/w_450,h_450,c_thumb/40c584491ca14a77be024694302d5885/ไม้ปิงปอง.jpg"],
+    category: ['ไม้ปิงปอง'],
+  },
+  {
+    name: "เครื่องออกกำลังกาย Slide Body Fit",
+    price: "1,990 บาท",
+    img: ["https://res.weloveshopping.com/919688/w_450,h_450,c_thumb/56b581a85dec29b7cec934747710f032/เครื่องออกกำลังกายslidebodyfit2.jpg"],
+    category: ['เครื่องออกกำลังกาย อุปกรณ์ฟิตเนส'],
+  },
+];
 
-    },
-    {
-        name: "สินค้า B1 คุณภาพชั้นดีรับประกันจากศูนย์ 10 ล้านปีด้วยกันและแสดงให้เห็นถึงความใส่ใจของพนักงาน",
-        price: 20,
-        img: [  "https://inside-basketball.com/wp-content/uploads/2021/04/1-4.png",
-                "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4432816.png&w=350&h=254",
-                "https://cdn.vox-cdn.com/thumbor/SIjsYBzGlm9qlRrghog6SVK4lCE=/0x0:5520x3680/1200x800/filters:focal(1742x508:2624x1390)/cdn.vox-cdn.com/uploads/chorus_image/image/70679204/usa_today_17977880.0.jpg"],
-        qauntity: 1,
-        category : ["หัวข้อหลัก2","หัวข้อย่อย2"]
-    
-    },
-    {
-        name: "สินค้า B2",
-        price: 20,
-        img: [  "https://inside-basketball.com/wp-content/uploads/2021/04/1-4.png",
-                "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4432816.png&w=350&h=254",
-                "https://cdn.vox-cdn.com/thumbor/SIjsYBzGlm9qlRrghog6SVK4lCE=/0x0:5520x3680/1200x800/filters:focal(1742x508:2624x1390)/cdn.vox-cdn.com/uploads/chorus_image/image/70679204/usa_today_17977880.0.jpg"],
-        qauntity: 1,
-        category : ["หัวข้อหลัก2","หัวข้อย่อย2"]
-    },
-    {
-        name: "สินค้า C1",
-        price: 30,
-        img: [  "https://inside-basketball.com/wp-content/uploads/2021/04/1-4.png",
-                "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4432816.png&w=350&h=254",
-                "https://cdn.vox-cdn.com/thumbor/SIjsYBzGlm9qlRrghog6SVK4lCE=/0x0:5520x3680/1200x800/filters:focal(1742x508:2624x1390)/cdn.vox-cdn.com/uploads/chorus_image/image/70679204/usa_today_17977880.0.jpg"],
-        qauntity: 1,
-        category : ["หัวข้อหลัก3","หัวข้อย่อย3"]
-    },{
-        name: "สินค้า C2",
-        price: 30,
-        img: [  "https://inside-basketball.com/wp-content/uploads/2021/04/1-4.png",
-                "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4432816.png&w=350&h=254",
-                "https://cdn.vox-cdn.com/thumbor/SIjsYBzGlm9qlRrghog6SVK4lCE=/0x0:5520x3680/1200x800/filters:focal(1742x508:2624x1390)/cdn.vox-cdn.com/uploads/chorus_image/image/70679204/usa_today_17977880.0.jpg"],
-        qauntity: 1,
-        category : ["หัวข้อหลัก3","หัวข้อย่อย3"]
-    },
-]
-
-export default products
+export default products;
