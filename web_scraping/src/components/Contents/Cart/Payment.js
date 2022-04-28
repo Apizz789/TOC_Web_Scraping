@@ -6,9 +6,9 @@ function Payment(props) {
 
 
     <center>
-    <div class="component-btn" onClick={(e) => props.pageHandle("Spinlucky","Reciept")}>
+    <div class="component-btn component-width-btn" onClick={(e) => props.pageHandle("Spinlucky","Reciept")}>
       <center>
-        <h2>Complete(go Home)</h2>
+        <h2>Complete (go Home)</h2>
       </center>
     </div>
   </center>
