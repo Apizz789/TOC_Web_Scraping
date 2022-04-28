@@ -138,19 +138,75 @@ import '../../../css/spinlucky.css'
 // }
 
 
+
+
 function Spinlucky(props) {
     return (
 
-        <center>
-        <div class="component-btn" onClick={(e) => props.setdiscount(15)}><center>
-            <h2>Spin</h2>
-        </center></div>
-        <div class="component-btn" onClick={(e) => props.pageHandle("Order", "Payment")}>
-            <center>
-                <h2>Payment</h2>
-            </center>
+
+
+        <div className="text-center">
+
+
+            <div className="container">
+
+
+                <div class="col box-cart-main">
+
+                    <div class="row ">
+
+
+                        <div class="text-cart-header"><center><h1>Reciept</h1></center></div>
+
+                    </div>
+
+                    {/* <div style="margin-top:50px"> </div>
+                    <div class="text-center">
+                        <h1><strong>คติธรรมประจำวันนี้</strong></h1>
+                    </div><hr></hr>
+                    <div class="spinner">
+                        <div class="row">
+                            <div class="col">
+                                <div id="chart" style="margin-left: 10px;">
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div id="question">
+                                    <h1>กด Spin เพื่อรับคติธรรมประจำวันนี้</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text-center" style="margin-bottom:10px">
+
+                                <button type="button" class="btn btn-outline-primary bttn"><a href="/BubbhaGame/" style="text-decoration:none;">กลับหน้าหลัก</a></button>
+
+                            </div>
+                        </div>
+                        <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+                    </div> */}
+                    <center>
+                        <div class="component-btn" onClick={(e) => props.setdiscount(5)}><center>
+                            <h2>Spin</h2>
+                        </center></div>
+                        <div class="component-btn" onClick={(e) => props.pageHandle("Order", "Payment")}>
+                            <center>
+                                <h2>Payment</h2>
+                            </center>
+                        </div>
+                    </center>
+                </div>
+            </div>
         </div>
-    </center>
+
+        // <div >Reciept
+        //     <div class="component-btn" onClick={(e) => props.pageHandle("Order","Payment")}> go Payment</div>
+        // </div>
+
+
+
+
 
     )
 }

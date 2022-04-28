@@ -1,4 +1,4 @@
-.box-cart.container-4{
+.box-cart.container{
 
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
 }
 
 
-.box-cart-main-4{
+.box-cart-main{
     position: absolute;
     width: 650px;
     height:max-content;
@@ -23,7 +23,7 @@
     padding: 10px;
 }
 
-.box-cart-table-4{
+.box-cart-table{
     text-shadow: 50px;
     width: 550px;
     height: 300px;
@@ -34,18 +34,18 @@
 }
 
 
-.text-cart-header-4{
+.text-cart-header{
     margin-top: 50px;
     text-align: center;
-    background-color: rgb(78, 30, 78);
+    background-color: aqua;
     border-radius: 30px;
     height: 50px;
-    
+    width: auto;
     margin-left: 50px;
     margin-right: 50px;
 }
 
-.component-btn-cart-4{
+.component-btn-cart{
     color: #FFFF00;
     background-color: aqua;
     border-radius: 30px;
