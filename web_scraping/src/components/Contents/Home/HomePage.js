@@ -4,6 +4,7 @@ import Card from '../Products/Card'
 import Banner from '../Home/Banner'
 import { useState, useEffect } from "react";
 import axios from 'axios'
+import productTopic from '../../../resources/productTopic.dummy';
 const data_trend = [
 //   {
 //   name: '7" - 24" Digital TV 12v 240v for Motorhome Caravan Boat DVB-T2 Freeview PVR',
@@ -72,6 +73,10 @@ export default function Homepage(props) {
     })
   }, [url1])
 
+  const TopicProduct = productTopic.map((e)=>
+  <Card product={e} doFunc={shoot}></Card>
+  )
+
 
 
   return (
@@ -94,14 +99,10 @@ export default function Homepage(props) {
       <div class="homepage-center-container">
         <div class="homepage-header">TOP PRODUCTS</div>
         {!props.showLoginPopup && <div class="homepage-header-line"></div>}
-        <div style={{display:"flex",width:"70vw",justifyContent:"space-around",overflow:"hidden",flexFlow:"wrap",}}>
-          <div class ="homepage-card-child"><Card/></div>
-          <div class ="homepage-card-child"><Card/></div>
-          <div class ="homepage-card-child"><Card/></div>
-          <div class ="homepage-card-child"><Card/></div>
+        <div style={{display:"flex",width:"70vw",justifyContent:"space-around",overflow:"hidden",flexFlow:"wrap",marginBottom:"60px"}}>
+          {TopicProduct}
         </div>
       </div>
-      <div style={{height:"60px"}}></div>
     </div>
   )
 }
