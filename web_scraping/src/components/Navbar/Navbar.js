@@ -43,7 +43,7 @@ export default function Navbar(props) {
           </div>
         }
 
-        <div class="navbar-mid-header" onClick={(e) => props.pageHandle("Home")}>
+        <div class="navbar-mid-header" onClick={(e) => props.pageHandle("Home","Home")}>
           <img src={logo} class="navbar-logo"/>
           <div class="navbar-header" >azala</div>
         </div>
