@@ -37,8 +37,10 @@ export default function Homepage(props) {
   }
 
 
-  const [itemProduct, setData] = useState()
+  const [itemProduct, setData] = useState();
+  const [itemFlash, setFlash] = useState();
   const [url, setUrl] = useState("http://43.228.85.133:80/realtime/")
+  const [url1, setUrl1] = useState("http://43.228.85.133:80/flashsale/")
 
   useEffect(() => {
     axios.get(url).then(res => {
@@ -55,6 +57,22 @@ export default function Homepage(props) {
     })
   }, [url])
 
+  useEffect(() => {
+    axios.get(url1).then(res => {
+      const data_trend1 = res.data
+      setFlash(data_trend1.map((e) =>
+        <Card product={e} doFunc={shoot}></Card>
+      ))
+
+      console.log(data_trend1)
+
+      // data.map((each)=> alert(each.name))
+    }).catch(error => {
+      console.log(error.response)
+    })
+  }, [url1])
+
+
 
   return (
     <div class="Homepage">
@@ -63,10 +81,7 @@ export default function Homepage(props) {
         <div class="homepage-header">FLASH SALES</div>
         {!props.showLoginPopup && <div class="homepage-header-line"></div>}
         <div style={{display:"flex",width:"70vw",justifyContent:"space-around",overflow:"hidden",flexFlow:"wrap",}}>
-          <div class ="homepage-card-child"><Card/></div>
-          <div class ="homepage-card-child"><Card/></div>
-          <div class ="homepage-card-child"><Card/></div>
-          <div class ="homepage-card-child"><Card/></div>
+          {itemFlash}
         </div>
       </div>
       <div class="homepage-center-container">
