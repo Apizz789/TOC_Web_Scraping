@@ -24,10 +24,11 @@ function Demo(props) {
     setProduct(ListProduct[event.target.value]);
   } 
   return (
+
     <div>
-      <div style={{ display: "flex", flexDirection: "column", width:"100%", alignItems:"center", marginTop:"2%"}}>
+      <div style={{ display: "flex",borderRadius: "30px", flexDirection: "column", width:"100%", alignItems:"center", marginTop:"2%"}}>
         <div style={{display:"flex",width:"100%",justifyContent:"center"}}>
-          <select style={{width:"65%",height:"60px",paddingLeft:"1%",fontSize:"28px"}} onChange={optionChange}>
+          <select style={{width:"65%",height:"60px",paddingLeft:"1%",fontSize:"28px",borderRadius: "10px"}} onChange={optionChange}>
             <option value="" selected disabled hidden>เลือกรุ่นโทรศัพท์/ไอแพด/ฯลฯ</option>
             <option value="0" class='optionDemo'>Apple iPhone 12</option>
             <option value="1" class='optionDemo'>Samsung Galaxy S10 Lite (RAM8GB/ROM128GB)</option>
@@ -40,29 +41,30 @@ function Demo(props) {
             <option value="8" class='optionDemo'>APPLE Apple Pencil (2nd Generation)</option>
           </select>
         </div>
-        <div style={{ display: "flex", justifyContent:"Space-around", width:"100%",marginTop:"2%"}}>
-          <div style={{ display: "flex", flexDirection: "column",alignItems:"center",width:"20%",}}>
-            <div class="DemoTopic"><h2>Lazada</h2></div>
-            <div class="DemoContentBox">
+
+        <div style={{ display: "flex",borderRadius: "30px", justifyContent:"Space-around", width:"100%",marginTop:"2%"}}>
+          <div style={{ display: "flex", borderRadius: "30px",flexDirection: "column",alignItems:"center",width:"20%",}}>
+            <div class="DemoTopic" style={{borderRadius: "10px"}} ><h2>Lazada</h2></div>
+            <div class="DemoContentBox" style={{borderRadius: "10px"}} >
               <h3>{Product.lazada.name}</h3>
               <hr style={{width:"75%",textAlign:"left",marginLeft:"0"}}/>
-              <h1 class="DemoCost">{Product.lazada.price}</h1>
+              <h1 class="DemoCost" style={{borderRadius: "10px"}} >{Product.lazada.price}</h1>
             </div>
           </div>
-          <div style={{ display: "flex", flexDirection: "column",alignItems:"center",width:"20%",}}>
-            <div class="DemoTopic"><h2>We love shopping</h2></div>
-            <div class="DemoContentBox">
+          <div style={{ display: "flex", borderRadius: "30px",flexDirection: "column",alignItems:"center",width:"20%",}}>
+            <div class="DemoTopic" style={{borderRadius: "10px"}} ><h2>We Love Shopping</h2></div>
+            <div class="DemoContentBox" style={{borderRadius: "10px"}} >
               <h3>{Product.Welove.name}</h3>
               <hr style={{width:"75%",textAlign:"left",marginLeft:"0"}}/>
               <h1 class="DemoCost">{Product.Welove.price}</h1>
             </div>
           </div>
-          <div style={{ display: "flex", flexDirection: "column",alignItems:"center",width:"20%",}}>
-            <div class="DemoTopic"><h2>Ebay</h2></div>
-            <div class="DemoContentBox">
+          <div style={{ display: "flex", borderRadius: "30px",flexDirection: "column",alignItems:"center",width:"20%",}}>
+            <div class="DemoTopic" style={{borderRadius: "10px"}} ><h2>Ebay</h2></div>
+            <div class="DemoContentBox" style={{borderRadius: "10px"}} >
               <h3>{Product.ebay.name}</h3>
               <hr style={{width:"75%",textAlign:"left",marginLeft:"0"}}/>
-              <h1 class="DemoCost">{Product.ebay.price}</h1>
+              <h1 class="DemoCost"style={{borderRadius: "10px"}} >{Product.ebay.price}</h1>
             </div>
           </div>
         </div>

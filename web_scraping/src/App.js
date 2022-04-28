@@ -14,8 +14,7 @@ import Payment from './components/Contents/Cart/Payment';
 import Reciept from './components/Contents/Cart/Reciept';
 import Footer from './components/Navbar/Footer';
 import Spinlucky from './components/Contents/Cart/Spinlucky';
-
-
+import ContactUs from './components/Navbar/ContactUs';
 
 let s;
 
@@ -81,35 +80,49 @@ function App() {
     // alert(page)
     input_page=="Home"?setNavbarHeader(""):setNavbarHeader(navbarHeader)
     input_page=="Home"?setLastClick(false):setLastClick(true)
-    if(input_page=="Search") setPrevPage("Home")
+    
     if(input_page=="Home") setPrevPage("Home")
-    if(input_page=="Cart" && prev =="Home"){
+    if(input_page=="Search") setPrevPage("Home")
+    if(input_page=="Cart" && page=="Home"){
       setPrevPage("Home")
     } 
-    if(input_page=="Cart" && prev =="Search"){
+    if(input_page=="Cart" && page=="Search"){
       setPrevPage("Search")
     } 
     if(input_page=="Order") setPrevPage("Cart")
-    if(input_page=="Reciept") setPrevPage("Spinlucky")
-    if(input_page=="Payment") setPrevPage("Reciept")
-    if(input_page=="Compare" && page=="Home"){
+
+    if(input_page=="Spinlucky") setPrevPage("Order")
+    if(input_page=="Payment") setPrevPage("Spinlucky")
+
+    if(input_page=="Reciept") setPrevPage("Payment")
+    
+    if(input_page=="Compare" && page=="Payment"){
       setPrevPage("Home")
     } 
-    if(input_page=="Compare" && page=="Search"){
-      setPrevPage("Search")
-    }
-    if(input_page=="Spinlucky") setPrevPage("Order") 
+
+    if(input_page=="Spinlucky") setPrevPage("Order")
+    
+    if(input_page=="Spinlucky" && page=="Spinlucky"){
+      setPrevPage("Payment")
+    } 
+
+    if(input_page=="ContactUs") setPrevPage("Home")
+    
+    if(input_page=="Cart") setPrevPage("Home")
     setPage(input_page)
+
+    // if(input_page=="Compare" && page=="Search"){
+    //   setPrevPage("Search")
+    // }
   }
   
   const Logout =() =>{
     setUser(users[0])
     setLoggedin(false)
   }
+  const [prevPage,setPrevPage] =useState("")
 
-  const [prevPage,setPrevPage] = useState("")
 
-  
   const setPopupBackground = (val,type ="closed") => {
     if(type === "login" ){
       setShowLoginPopup(val)
@@ -144,7 +157,9 @@ function App() {
         {page=="Reciept" && <Reciept user={user}  showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Payment" && <Payment onClick={(e)=>setLastClick(false)} user={user} showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Home" && <Homepage showLoginPopup={showLoginPopup}/>}
-        {page=="Spinlucky" && <Spinlucky pageHandle={pageHandle} setdiscount={disscounting}/>}
+        {page=="Spinlucky" && <Spinlucky setdiscount={disscounting}/>}
+        {page=="ContactUs" && <ContactUs setdiscount={disscounting}/>}
+
         </div>
         {!showLoginPopup && <Footer/>}
     </div>
