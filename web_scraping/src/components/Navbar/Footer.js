@@ -12,11 +12,11 @@ function Footer(props) {
                 <div class="footer-container-child">Dazala © 2022</div>
             </div>
 
-            <div class="footer-container box2">
+            <div class="footer-container box2" >
 
 
-                <div class="footer-container-child" onClick={(e) => props.pageHandle("ContactUs", "Home")}>
-                    <div >ContactUs</div>
+                <div class="footer-container-child" onClick={(e) => props.pageHandle("Home", "ContactUs")} >
+                    <div  >ContactUs</div>
                 </div>
 
             </div>

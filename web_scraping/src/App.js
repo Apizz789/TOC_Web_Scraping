@@ -68,7 +68,8 @@ function App() {
   }
 
   const toggleHandle = () => {
-    if (toggle == false) {
+    // alert(toggle)
+    if (toggle === false) {
       setLastClick(true)
     }
     setToggle(!toggle)
@@ -142,7 +143,10 @@ function App() {
       setPrevPage("Payment")
     }
 
-    if (input_page == "ContactUs") setPrevPage("Home")
+    if (input_page == "ContactUs"){ 
+      // alert("set")
+      setPrevPage("Home")
+    } 
 
     if (input_page == "Cart") setPrevPage("Home")
     setPage(input_page)
@@ -194,10 +198,10 @@ function App() {
         {page == "Payment" && <Payment onClick={(e) => setLastClick(false)} user={user} showSearch={showSearch} pageHandle={pageHandle} />}
         {page == "Home" && <Homepage addProduct={addProduct} showLoginPopup={showLoginPopup} />}
         {page == "Spinlucky" && <Spinlucky setdiscount={disscounting} />}
-        {page == "ContactUs" && <ContactUs setdiscount={disscounting} />}
+        {page == "ContactUs" && <ContactUs  />}
 
       </div>
-      {!showLoginPopup && <Footer />}
+      {!showLoginPopup && <Footer pageHandle={pageHandle}/>}
     </div>
   );
 }
