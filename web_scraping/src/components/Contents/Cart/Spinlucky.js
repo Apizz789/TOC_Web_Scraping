@@ -140,7 +140,7 @@ import '../../../css/spinlucky.css'
 
 
 
-function Spinlucky(props) {
+const Spinlucky = (props) => {
     return (
 
 
@@ -156,7 +156,7 @@ function Spinlucky(props) {
                     <div class="row ">
 
 
-                        <div class="text-cart-header"><center><h1>Reciept</h1></center></div>
+                        <div class="text-cart-header"><center><h1>Spinlucky</h1></center></div>
 
                     </div>
 
@@ -190,11 +190,10 @@ function Spinlucky(props) {
                         <div class="component-btn" onClick={(e) => props.setdiscount(5)}><center>
                             <h2>Spin</h2>
                         </center></div>
-                        <div class="component-btn" onClick={(e) => props.pageHandle("Order", "Payment")}>
-                            <center>
-                                <h2>Payment</h2>
-                            </center>
-                        </div>
+                        <div class="component-btn" onClick={(e) => props.pageHandle("Order", "Reciept")}><center>
+                            <h2>Reciept</h2>
+                        </center></div>
+                       
                     </center>
                 </div>
             </div>

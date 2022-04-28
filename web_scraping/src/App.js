@@ -83,14 +83,14 @@ function App() {
     input_page=="Home"?setLastClick(false):setLastClick(true)
     if(input_page=="Search") setPrevPage("Home")
     if(input_page=="Home") setPrevPage("Home")
-    if(input_page=="Cart" && page=="Home"){
+    if(input_page=="Cart" && prev =="Home"){
       setPrevPage("Home")
     } 
-    if(input_page=="Cart" && page=="Search"){
+    if(input_page=="Cart" && prev =="Search"){
       setPrevPage("Search")
     } 
     if(input_page=="Order") setPrevPage("Cart")
-    if(input_page=="Reciept") setPrevPage("Order")
+    if(input_page=="Reciept") setPrevPage("Spinlucky")
     if(input_page=="Payment") setPrevPage("Reciept")
     if(input_page=="Compare" && page=="Home"){
       setPrevPage("Home")
@@ -98,7 +98,7 @@ function App() {
     if(input_page=="Compare" && page=="Search"){
       setPrevPage("Search")
     }
-    if(input_page=="Spinlucky") setPrevPage("Spinlucky") 
+    if(input_page=="Spinlucky") setPrevPage("Order") 
     setPage(input_page)
   }
   
@@ -107,7 +107,7 @@ function App() {
     setLoggedin(false)
   }
 
-  const [prevPage,setPrevPage] =useState("")
+  const [prevPage,setPrevPage] = useState("")
 
   
   const setPopupBackground = (val,type ="closed") => {
@@ -144,7 +144,7 @@ function App() {
         {page=="Reciept" && <Reciept user={user}  showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Payment" && <Payment onClick={(e)=>setLastClick(false)} user={user} showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Home" && <Homepage showLoginPopup={showLoginPopup}/>}
-        {page=="Spinlucky" && <Spinlucky setdiscount={disscounting}/>}
+        {page=="Spinlucky" && <Spinlucky pageHandle={pageHandle} setdiscount={disscounting}/>}
         </div>
         {!showLoginPopup && <Footer/>}
     </div>
