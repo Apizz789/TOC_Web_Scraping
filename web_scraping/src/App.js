@@ -39,7 +39,7 @@ function App() {
   })
 
   const clearCart = (val) => {
-    val == "Complete" ? alert("Cart complete!"):alert("Cart clear!")
+    val == "Complete" ? alert("Cart complete!"): val=="clear"?alert("Cart clear!"):
     setKCart({
       name: "Koon K's Cart",
       products: [],
@@ -50,7 +50,10 @@ function App() {
     pageHandle("Home", "Home")
   }
   const [, forceRender] = useState({});
+
+
   const addProduct = (product) => {
+    if(loggedin){
     const product_shallow = {
       id: kCart.products.length + 1,
       name: product.name,
@@ -63,13 +66,15 @@ function App() {
     shallow_KCart.products.push(product_shallow)
     // alert(parseFloat(product_shallow.price.slice(1, product_shallow.price.length)))
     shallow_KCart.totalPrice = shallow_KCart.totalPrice + parseFloat(product_shallow.price.slice(1, product_shallow.price.length))
-    setKCart(shallow_KCart)
-    forceRender({});
+     setKCart(shallow_KCart)
+    forceRender({});}
   }
+
+
 
   const toggleHandle = () => {
     // alert(toggle)
-    if (toggle === false) {
+    if (toggle == false) {
       setLastClick(true)
     }
     setToggle(!toggle)
@@ -100,6 +105,7 @@ function App() {
 
 
   const isLoggedIn = (username, password) => {
+    clearCart("none")
     const matched_username = users.find(user => user.username == username)
     const matched_password = users.find(user => user.password == password)
     const status = (matched_username === matched_password) && (matched_username !== undefined && matched_password !== undefined)
@@ -108,7 +114,7 @@ function App() {
     { status ? setLoggedin(true) : setLoggedin(false) }
     { status ? setShowLoginPopup(false) : setShowLoginPopup(true) }
     { status ? setPopupBackground(false) : setPopupBackground(true) }
-
+    
   }
 
   const pageHandle = (prev = "Home", input_page) => {
@@ -147,9 +153,12 @@ function App() {
       // alert("set")
       setPrevPage("Home")
     } 
-
+    if(loggedin){
+    if (input_page == "Cart" && page == "Search") {
+      setPrevPage("Search")
+    }
     if (input_page == "Cart") setPrevPage("Home")
-    setPage(input_page)
+    setPage(input_page)}
 
     // if(input_page=="Compare" && page=="Search"){
     //   setPrevPage("Search")
@@ -157,8 +166,10 @@ function App() {
   }
 
   const Logout = () => {
+    clearCart("none")
     setUser(users[0])
     setLoggedin(false)
+    pageHandle("Home", "Home")
   }
   const [prevPage, setPrevPage] = useState("")
 
@@ -191,14 +202,16 @@ function App() {
         {showLoginPopup && <LoginPopup isLoggedIn={isLoggedIn} setLoggedin={setLoggedin} setPopupBackground={setPopupBackground} />}
         {!showLoginPopup && (page == "Home" || page == "Search") && <Searchbox searchResult={searchResult} pageHandle={pageHandle} searchResultHandle={searchResultHandle} onClick={(e) => setToggle(false)} />}
         {page == "Search" && <Content addProduct={addProduct} content={{ type: page, result: searchResult }} />}
-        {page == "Cart" && <Cart clearCart={clearCart} kCart={kCart} addProduct={addProduct} user={user} showSearch={showSearch} pageHandle={pageHandle} />}
+        {page == "Cart" && loggedin && <Cart clearCart={clearCart} kCart={kCart} addProduct={addProduct} user={user} showSearch={showSearch} pageHandle={pageHandle} />}
         {page == "Compare" && <Demo header={searchResult} user={user} showSearch={showSearch} pageHandle={pageHandle} />}
         {page == "Order" && <Order user={user} showSearch={showSearch} pageHandle={pageHandle} />}
         {page == "Reciept" && <Reciept user={user} showSearch={showSearch} pageHandle={pageHandle} />}
         {page == "Payment" && <Payment onClick={(e) => setLastClick(false)} user={user} showSearch={showSearch} pageHandle={pageHandle} />}
+
+
         {page == "Home" && <Homepage addProduct={addProduct} showLoginPopup={showLoginPopup} />}
         {page == "Spinlucky" && <Spinlucky setdiscount={disscounting} />}
-        {page == "ContactUs" && <ContactUs  />}
+        {page == "ContactUs" && <ContactUs setdiscount={disscounting} />}
 
       </div>
       {!showLoginPopup && <Footer pageHandle={pageHandle}/>}

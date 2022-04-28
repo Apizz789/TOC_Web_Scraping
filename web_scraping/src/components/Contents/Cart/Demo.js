@@ -23,8 +23,8 @@ function Demo(props) {
   function optionChange(event){
     setProduct(ListProduct[event.target.value]);
   } 
-  return (
 
+  return (
     <div>
       <div style={{ display: "flex",borderRadius: "30px", flexDirection: "column", width:"100%", alignItems:"center", marginTop:"2%"}}>
         <div style={{display:"flex",width:"100%",justifyContent:"center"}}>
@@ -70,7 +70,6 @@ function Demo(props) {
         </div>
       </div>
     </div>
-
   )
 }
 
