@@ -5,7 +5,6 @@ export default function CardPopup(props) {
     name: null,
     price: null,
     img: [null, null, null],
-    qauntity: null,
     category: [null, null]
   });
   const[countProduct,setCountProduct] = useState(0);
@@ -135,7 +134,7 @@ export default function CardPopup(props) {
           }}>
             <button className='PopupCardButtonQn' onClick={()=> {if(countProduct>0){setCountProduct(countProduct-1)}}}>-</button>
             <p style={{width:"100px",textAlign:"center"}}>{countProduct}</p>
-            <button className='PopupCardButtonQn'onClick={()=> {if(countProduct<productData.qauntity){setCountProduct(countProduct+1)}}}>+</button>
+            <button className='PopupCardButtonQn'onClick={()=> {setCountProduct(countProduct+1)}}>+</button>
           </div>
           <button className='PopupCardButtonCart' onClick={() => {props.doFunc();props.closePopup(false)}}><p>พิมพ์ใส่ตะกร้า</p></button>
         </div>

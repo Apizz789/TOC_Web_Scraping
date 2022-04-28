@@ -8,7 +8,6 @@ function Card(props) {
         name: null,
         price: null,
         img: [null, null, null],
-        qauntity: null,
         category: [null, null]
     });
     useEffect(() => {
