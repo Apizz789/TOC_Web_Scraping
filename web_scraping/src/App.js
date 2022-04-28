@@ -13,6 +13,8 @@ import Order from './components/Contents/Cart/Order';
 import Payment from './components/Contents/Cart/Payment';
 import Reciept from './components/Contents/Cart/Reciept';
 import Footer from './components/Navbar/Footer';
+import Spinlucky from './components/Contents/Cart/Spinlucky';
+
 
 
 let s;
@@ -28,6 +30,7 @@ function App() {
   const [background,setBackground] = useState(false)
   const [toggle, setToggle] = useState(false)
   const [lastClick, setLastClick] = useState(false)
+  const [discount, setdiscount] = useState(false)
 
   const toggleHandle = () =>  {
     if (toggle == false) {
@@ -36,7 +39,10 @@ function App() {
     setToggle(!toggle)
   }
   
+ const disscounting = (discount) =>{
+  alert(discount);
 
+ }
   const selectCategory = (destination) => {
     setSearchResult(destination)
     pageHandle("Home","Search")
@@ -91,10 +97,11 @@ function App() {
     } 
     if(input_page=="Compare" && page=="Search"){
       setPrevPage("Search")
-    } 
+    }
+    if(input_page=="Spinlucky") setPrevPage("Spinlucky") 
     setPage(input_page)
   }
-
+  
   const Logout =() =>{
     setUser(users[0])
     setLoggedin(false)
@@ -137,6 +144,7 @@ function App() {
         {page=="Reciept" && <Reciept user={user}  showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Payment" && <Payment onClick={(e)=>setLastClick(false)} user={user} showSearch={showSearch} pageHandle={pageHandle}/>}
         {page=="Home" && <Homepage showLoginPopup={showLoginPopup}/>}
+        {page=="Spinlucky" && <Spinlucky setdiscount={disscounting}/>}
         </div>
         {!showLoginPopup && <Footer/>}
     </div>

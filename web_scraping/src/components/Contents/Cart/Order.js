@@ -43,11 +43,19 @@ function Order(props) {
 
 
           <center>
-            <div class="component-btn" onClick={(e) => props.pageHandle("Cart","Reciept")}>
+          <div class="component-btn" onClick={(e) => props.pageHandle("Cart","Spinlucky")}>
+              <center>
+                <h2>Spinlucky
+
+                </h2>
+              </center>
+            </div>
+
+            {/* <div class="component-btn" onClick={(e) => props.pageHandle("Cart","Reciept")}>
               <center>
                 <h2>Go Reciept</h2>
               </center>
-            </div>
+            </div> */}
           </center>
         </div>
       </div>
