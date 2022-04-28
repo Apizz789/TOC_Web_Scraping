@@ -128,14 +128,6 @@ export default function CardPopup(props) {
           width: "100%", display: 'flex',
           flexDirection: "column", alignItems: "center"
         }}>
-          <div style={{
-            display: "flex", justifyContent: "space-around",
-            alignItems: "center"
-          }}>
-            <button className='PopupCardButtonQn' onClick={()=> {if(countProduct>0){setCountProduct(countProduct-1)}}}>-</button>
-            <p style={{width:"100px",textAlign:"center"}}>{countProduct}</p>
-            <button className='PopupCardButtonQn'onClick={()=> {setCountProduct(countProduct+1)}}>+</button>
-          </div>
           <button className='PopupCardButtonCart' onClick={() => {props.doFunc();props.closePopup(false)}}>พิมพ์ใส่ตะกร้า</button>
         </div>
       </div>
