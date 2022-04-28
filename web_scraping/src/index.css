@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* เพราะเลื่อนขวา มันมีช่องว่าง : จัด card ด้วย*/
 }
 
 code {

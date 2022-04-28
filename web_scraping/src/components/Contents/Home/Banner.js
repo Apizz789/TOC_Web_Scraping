@@ -13,7 +13,7 @@ function Banner() {
                   className="d-block w-100"
                   src="../images/banner1.png"
                   alt="First slide"
-                  style={{height:'50vh', width:'100vw',backgroundColor:'grey',objectFit:'cover',borderRadius:"20px"}}
+                  style={{backgroundColor:'grey',objectFit:'cover',borderRadius:"20px"}}
                 />
                 <Carousel.Caption>
                 {/* <img src="../images/RTS=LOGO2.png" style={{height:'25vh',objectFit:'contain'}} /><br/><br/> <hr/> */}
@@ -28,7 +28,7 @@ function Banner() {
                   className="d-block w-100"
                   src="../images/banner2.png?"
                   alt="First slide"
-                  style={{height:'50vh', width:'100vw',backgroundColor:'grey',objectFit:'cover',borderRadius:"20px"}}
+                  style={{backgroundColor:'grey',objectFit:'cover',borderRadius:"20px"}}
                 />
                 <Carousel.Caption>
                 {/* <img src="../images/BTS-Logo.png" style={{height:'25vh',objectFit:'contain'}} /> <br/><br/> <hr/> */}
@@ -43,7 +43,7 @@ function Banner() {
                   className="d-block w-100"
                   src="../images/banner3.png"
                   alt="Second slide"
-                  style={{height:'50vh', width:'100vw',backgroundColor:'grey',objectFit:'cover',borderRadius:"20px"}}
+                  style={{backgroundColor:'grey',objectFit:'cover',borderRadius:"20px"}}
                 />
 
                 <Carousel.Caption>
@@ -59,7 +59,7 @@ function Banner() {
                   className="d-block w-100"
                   src="../images/banner4.png"
                   alt="Third slide"
-                  style={{height:'50vh', width:'100vw',backgroundColor:'grey',objectFit:'cover',borderRadius:"20px"}}
+                  style={{backgroundColor:'grey',objectFit:'cover',borderRadius:"20px"}}
                 />
 
                 <Carousel.Caption>
@@ -69,16 +69,9 @@ function Banner() {
                 </Carousel.Caption>
               </Carousel.Item>
 
-
-
             </Carousel>
         </div>
     </div>
-
-
-
-
-
 
   )
 }
