@@ -47,7 +47,7 @@ export default function Navbar(props) {
           <img src={logo} class="navbar-logo"/>
           <div class="navbar-header" >azala</div>
         </div>
-        {props.user.username !== "anonymous" && <div class="navbar-user-name-pad">
+        {props.loggedin && <div class="navbar-user-name-pad">
           <div class="navbar-name-header">Hi! : {props.user.name}</div>
         </div>}
         <div class="login-btn-pad">
