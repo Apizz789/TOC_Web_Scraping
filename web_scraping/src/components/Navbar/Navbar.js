@@ -23,6 +23,7 @@ export default function Navbar(props) {
             <div onClick={(e) => props.pageHandle("Home","Home")}>Home</div>
           </div>}
           {/* {(props.page === "Home" || props.page == "Search")&&
+        
         <div class="category-toggle">
           {props.lastClick && <div class="nav-text-blue" onClick={(e) => props.toggleHandle()}>Category</div>}
           {!props.lastClick && <div class="nav-text-white" onClick={(e) => props.toggleHandle()}>Category</div>}
@@ -32,6 +33,7 @@ export default function Navbar(props) {
           {props.lastClick &&props.toggle && <FontAwesomeIcon icon={faCaretUp} class="toggle-icon-selected" onClick={(e) => props.toggleHandle()} />}
           {props.toggle && <CategoryDropdown toggleHandle={props.toggleHandle} selectCategory={props.selectCategory} />}
         </div>
+
         } */}
         {(props.page === "Home" || props.page == "Search") && 
         <div class="navbar-compare-container white navbar-headlogo" onClick={(e) => props.pageHandle("Home","Compare")}>

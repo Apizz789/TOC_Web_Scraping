@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SubCategoryDropdown from './SubCategoryDropdown';
 
+
+
 let tog = { toggle: false }
 function CategoryDropdown(props) {
   const [toggle, setToggle] = useState(categoryList)
