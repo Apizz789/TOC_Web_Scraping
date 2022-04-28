@@ -1,0 +1,22 @@
+.optionDemo{
+    font-size: 24px;
+}
+.DemoTopic{
+    padding: 5px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #454255;
+    color: white;
+    text-align:center;
+}
+.DemoContentBox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 1vh;
+}
+.DemoCost{
+    text-align: center;
+}
