@@ -62,7 +62,7 @@ export default function Homepage(props) {
       <div class="homepage-center-container">
         <div class="homepage-header">FLASH SALES</div>
         {!props.showLoginPopup && <div class="homepage-header-line"></div>}
-        <div class="homepage-card-container">
+        <div style={{display:"flex",width:"70vw",justifyContent:"space-around",overflow:"hidden",flexFlow:"wrap",}}>
           <div class ="homepage-card-child"><Card/></div>
           <div class ="homepage-card-child"><Card/></div>
           <div class ="homepage-card-child"><Card/></div>
@@ -72,20 +72,21 @@ export default function Homepage(props) {
       <div class="homepage-center-container">
         <div class="homepage-header">TRENDING</div>
         {!props.showLoginPopup && <div class="homepage-header-line"></div>}
-        <div class="homepage-card-container">
+        <div style={{display:"flex",width:"70vw",justifyContent:"space-around",overflow:"hidden",flexFlow:"wrap",}}>
           {itemProduct}
         </div>
       </div>
       <div class="homepage-center-container">
         <div class="homepage-header">TOP PRODUCTS</div>
         {!props.showLoginPopup && <div class="homepage-header-line"></div>}
-        <div class="homepage-card-container">
+        <div style={{display:"flex",width:"70vw",justifyContent:"space-around",overflow:"hidden",flexFlow:"wrap",}}>
           <div class ="homepage-card-child"><Card/></div>
           <div class ="homepage-card-child"><Card/></div>
           <div class ="homepage-card-child"><Card/></div>
           <div class ="homepage-card-child"><Card/></div>
         </div>
       </div>
+      <div style={{height:"60px"}}></div>
     </div>
   )
 }
