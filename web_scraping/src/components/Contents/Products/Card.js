@@ -33,9 +33,13 @@ function Card(props) {
             margin: "20px",
             width: "228px",
             height: "auto",
+            paddingBottom: "10px",
+            paddingLeft: "10px",
+            paddingRight: "10px",
             borderRadius: "10px",
             borderStyle: "none solid solid",
             borderWidth: "1px",
+            boxShadow: "2px 3px 6px 5px rgba(0, 0, 0, 0.2)",
             position: "relative", background: "white",
             display:"flex",flexDirection:"column",alignItems:"center"
         }}>
@@ -66,7 +70,11 @@ function Card(props) {
                 }}>{productData.name}</p>
                 <button style={{
                     width: "34px",
-                    height: "34px"
+                    height: "34px",
+                    borderRadius: "5px",
+
+
+
                 }}
                     disabled={closeButton} onClick={() => setShowpopup(true)}>+</button>
             </div>

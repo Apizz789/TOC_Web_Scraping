@@ -13,13 +13,15 @@ function LoginPopup(props) {
   }
 
   return (
-
+  
     <div class="LoginPopup">
+      <br></br>
+  <br></br>
       <div class="center-containter">
         <div class="center-child loginpopup-content">
 
           <div class="loginpopup-header-pad">
-            <h3 class="login-header-text">Login</h3>
+            <h3 class="login-header-text">LOGIN</h3>
           </div>
           <div class ="login-exit-btn" onClick={(e) => props.setPopupBackground(false)}>x</div>
 
@@ -27,14 +29,19 @@ function LoginPopup(props) {
           <div class="center-containter login-main-input-padding">
             <div class="center-child">
               <div class="login-input-padding">
+                <br></br>
+                <br></br>
+                <br></br>
+                <label>Username</label>
                 <input id="username-element" type="username" className="login-input-box" placeholder="Enter username" />
               </div>
               {/* <label  class="login-input-header">Password</label> */}
               <div class="login-input-padding">
+                <label>Password</label>
                 <input id="password-element" type="password" className="login-input-box" placeholder="Enter password" />
               </div>
               <div class="login-btn-padding">
-                <div className="login-btn" onClick={(e) => Passvalue()}><p>Login</p></div>
+                <div className="login-btn " onClick={(e) => Passvalue()}><p class="mt-2">Login</p></div>
 
 
               </div>
