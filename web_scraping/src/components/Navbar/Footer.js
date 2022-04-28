@@ -10,8 +10,25 @@ function Footer(props) {
             <div class="footer-container box1">
                 <div class="footer-container-child">Dazala © 2022</div>
             </div>
+
+
+           
+
+
+
+
             <div class="footer-container box2">
-                <div class="footer-container-child url">Contact Us</div>
+
+           
+
+            
+            
+            <div class="footer-container-child">
+                <div onClick={(e) => props.pageHandle("ContactUs","Home")}>ContactUs</div>
+            </div>
+            
+      
+
             </div>
             <div class="footer-container box1">
                 <div class="footer-container-child"><img class="contact-img" src={contact_img} /></div>
