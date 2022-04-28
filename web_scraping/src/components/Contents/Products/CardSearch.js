@@ -12,7 +12,7 @@ export default function CardSearch(props) {
   useEffect(() => {
     console.log(products);
     setItemProduct(reset.map((e) =>
-      <Card product={e} doFunc={shoot}></Card>
+      <Card product={e} doFunc={props.addProduct}></Card>
     ));
     setchangeState(changeState+1);
   }, [props.searchResult]);
@@ -20,21 +20,21 @@ export default function CardSearch(props) {
   useEffect(() => {
     console.log(products);
     setItemProduct(products.map((e) =>
-      <Card product={e} doFunc={shoot}></Card>
+      <Card product={e} doFunc={props.addProduct}></Card>
     ));
   }, [changeState]);
   //   setItemProduct(products.map((e) =>
-  //   <Card product={e} doFunc={shoot}></Card>
+  //   <Card product={e} doFunc={props.addProduct}></Card>
   // ));
   // products.map((e) =>
-  //   <Card product={e} doFunc={shoot}></Card>
+  //   <Card product={e} doFunc={props.addProduct}></Card>
   // );
   return (
     <div>
       <div style={{ width: "100vw", display: "flex", justifyContent: "center" }}>
         {/* CardSearch from searchResult = {props.searchResult} */}
         {/* <Card img={"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/VAN_CAT.png/1024px-VAN_CAT.png"} name={"hello my name is brabrabrabrabra"} cost={20}
-        Clickfunction={shoot}></Card>
+        Clickfunction={props.addProduct}></Card>
       <Card img={"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/VAN_CAT.png/1024px-VAN_CAT.png"} name={"hello my name is brabrabrabrabra"}
         Clickfunction={shoot}></Card> */}
         <div className='CardSearch'>

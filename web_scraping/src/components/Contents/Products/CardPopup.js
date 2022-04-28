@@ -128,7 +128,7 @@ export default function CardPopup(props) {
           width: "100%", display: 'flex',
           flexDirection: "column", alignItems: "center"
         }}>
-          <button className='PopupCardButtonCart' onClick={() => {props.doFunc();props.closePopup(false)}}>พิมพ์ใส่ตะกร้า</button>
+          <button className='PopupCardButtonCart' onClick={() => {props.doFunc(productData);props.closePopup(false)}}>พิมพ์ใส่ตะกร้า</button>
         </div>
       </div>
 
