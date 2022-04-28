@@ -1,0 +1,38 @@
+.titlebox-chart{
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 7px 5px 8px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #000000;
+    
+}
+
+.cart-item-box{
+    margin-top: 30px;
+    width: 600;
+    height: 800px;
+    background-color: rgb(211, 156, 73);
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    border-color: rgb(219, 41, 41);
+
+}
+
+.paper1{
+    width: 120px;
+    height: 0px;
+    background-color: rgb(255, 255, 255);
+    margin: 5%;
+    border-radius: 20px;
+    
+
+}
+
+.table-box{
+    padding-top: 20px;
+    width: 120px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    color: #000;
+
+}
+

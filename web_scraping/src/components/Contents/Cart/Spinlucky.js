@@ -140,69 +140,91 @@ import '../../../css/spinlucky.css'
 
 
 
-const Spinlucky = (props) => {
+function Spinlucky(props) {
     return (
 
 
+        <div class="container titlebox-chart  ">
+            <br></br>
+            <div ><center><h1 ><b>My Order(Confirm)</b></h1></center></div>
+            <hr></hr>
 
-        <div className="text-center">
-
-
-            <div className="container">
-
-
-                <div class="col box-cart-main">
-
-                    <div class="row ">
-
-
-                        <div class="text-cart-header"><center><h1>Spinlucky</h1></center></div>
-
-                    </div>
-
-                    {/* <div style="margin-top:50px"> </div>
-                    <div class="text-center">
-                        <h1><strong>คติธรรมประจำวันนี้</strong></h1>
-                    </div><hr></hr>
-                    <div class="spinner">
-                        <div class="row">
-                            <div class="col">
-                                <div id="chart" style="margin-left: 10px;">
-
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div id="question">
-                                    <h1>กด Spin เพื่อรับคติธรรมประจำวันนี้</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="text-center" style="margin-bottom:10px">
-
-                                <button type="button" class="btn btn-outline-primary bttn"><a href="/BubbhaGame/" style="text-decoration:none;">กลับหน้าหลัก</a></button>
-
-                            </div>
-                        </div>
-                        <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-                    </div> */}
-                    <center>
-                        <div class="component-btn" onClick={(e) => props.setdiscount(5)}><center>
-                            <h2>Spin</h2>
-                        </center></div>
-                        <div class="component-btn" onClick={(e) => props.pageHandle("Order", "Reciept")}><center>
-                            <h2>Reciept</h2>
-                        </center></div>
-                       
-                    </center>
-                </div>
+            <div class="row " >
+                <div class="col table-box "> <center>ลำดับ</center> </div>
+                <div class="col  table-box"> <center>รายการ</center> </div>
+                <div class="col table-box"> <center>ราคา(บาท)</center> </div>
             </div>
+            <hr></hr>
+
+
+            {/* Item Drop here */}
+            <div class="row" >
+                <div class="col "> <center>1</center> </div>
+                <div class="col "> <center>รองเท้า</center> </div>
+                <div class="col "> <center>88</center> </div>
+            </div>
+
+            <div class="row" >
+                <div class="col "> <center>2</center> </div>
+                <div class="col "> <center>รองเท้า</center> </div>
+                <div class="col "> <center>88</center> </div>
+            </div>
+
+            <div class="row" >
+                <div class="col "> <center>3</center> </div>
+                <div class="col "> <center>รองเท้า</center> </div>
+                <div class="col "> <center>88</center> </div>
+            </div>
+
+            <div class="row" >
+                <div class="col "> <center>4</center> </div>
+                <div class="col "> <center>รองเท้า</center> </div>
+                <div class="col "> <center>88</center> </div>
+            </div>
+
+            <div class="row" >
+                <div class="col "> <center>5</center> </div>
+                <div class="col "> <center>รองเท้า</center> </div>
+                <div class="col "> <center>88</center> </div>
+            </div>
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <hr></hr>
+
+            <div class="row" >
+                <div class="col "> <center><u>ราคารวม</u></center> </div>
+                <div class="col "> <center></center> </div>
+                <div class="col "> <center>88</center> </div>
+
+            </div>
+            <br></br>
+            <div class="row">
+
+                <div class="col "> <center>
+                    <center>
+                        <div class="component-btn-2" onClick={(e) => props.setdiscount(5)}><center>
+                            <h2>วงล้อส่วนลด</h2>
+                        </center></div>
+                    </center>
+                </center> </div>
+                <div class="col "> <center>
+                    <center>
+                        <div class="component-btn" onClick={(e) => props.pageHandle("Order", "Payment")}>
+                            <center>
+                                <h2>Payment</h2>
+                            </center>
+                        </div>
+                    </center>
+                </center> </div>
+
+
+
+
+            </div>
+
         </div>
-
-        // <div >Reciept
-        //     <div class="component-btn" onClick={(e) => props.pageHandle("Order","Payment")}> go Payment</div>
-        // </div>
-
 
 
 
