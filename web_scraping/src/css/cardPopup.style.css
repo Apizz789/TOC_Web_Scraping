@@ -15,9 +15,11 @@
     background-color: #424242;
 }
 .PopupCardButtonCart{
-    width: 224px;
+    width: 15vw;
     background-color: #424242;
     color: white;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     border-style: none;
 }
 .PopupCardButtonCart:hover{

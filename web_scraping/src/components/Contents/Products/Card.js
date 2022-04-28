@@ -32,15 +32,17 @@ function Card(props) {
         <div style={{
             margin: "20px",
             width: "228px",
-            height: "239px",
+            height: "auto",
             borderRadius: "10px",
             borderStyle: "none solid solid",
             borderWidth: "1px",
-            position: "relative", background: "white", padding: '5px'
+            position: "relative", background: "white",
+            display:"flex",flexDirection:"column",alignItems:"center"
         }}>
             <img src={productData.img[0]}     
                 style={{
-                    width: "228px",
+                    marginTop:"3px",
+                    width: "220px",
                     height: "180px",
                     objectFit: "cover",
                     borderRadius: "10px"
@@ -50,14 +52,16 @@ function Card(props) {
                 paddingLeft: "10px",
                 paddingRight: "10px",
                 justifyContent: "space-between",
-                alignItems: "center"
+                alignItems: "center",
+                marginTop:"1vh",
+                marginBottom:"1vh"
             }}>
                 <p style={{
                     whiteSpace: "nowrap",
                     width: "150px",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
-                    textAlign: "left"
+                    textAlign: "left",marginBottom:"0px"
 
                 }}>{productData.name}</p>
                 <button style={{

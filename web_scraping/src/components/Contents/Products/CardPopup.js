@@ -59,8 +59,8 @@ export default function CardPopup(props) {
     </div>
 
     <div style={{
-      width: "599px",
-      height: "389px",
+      width: "45vw",
+      height: "50vh",
       backgroundColor: "white",
       position: "fixed",
       top: "50%",
@@ -71,10 +71,10 @@ export default function CardPopup(props) {
       justifyContent: "space-between"
     }}>
 
-      <div>
+      <div style={{marginRight:"1vh"}}>
         <img src={showImgPic}
           style={{
-            width: "201px", height: "278px",
+            width: "12vw", height: "13vw",
             objectFit: "cover", borderRadius: "10px",
           }}></img>
 
@@ -107,16 +107,16 @@ export default function CardPopup(props) {
       </div>
 
       <div style={{
-        width: "370px",
+        width: "25vw",
         height: "350px",
         display: "flex", flexDirection: "column", justifyContent: "space-between"
       }}>
         <div>
-          <h3 style={{
+          <h4 style={{
             width: "100%", overflow: "hidden",
             textOverflow: "ellipsis", WebkitLineClamp: "2",
             textAlign: "left", margin: "0px"
-          }}>{productData.name}</h3>
+          }}>{productData.name}</h4>
           <div style={{ display: "flex" }}>{showType}
           </div>
 
@@ -136,7 +136,7 @@ export default function CardPopup(props) {
             <p style={{width:"100px",textAlign:"center"}}>{countProduct}</p>
             <button className='PopupCardButtonQn'onClick={()=> {setCountProduct(countProduct+1)}}>+</button>
           </div>
-          <button className='PopupCardButtonCart' onClick={() => {props.doFunc();props.closePopup(false)}}><p>พิมพ์ใส่ตะกร้า</p></button>
+          <button className='PopupCardButtonCart' onClick={() => {props.doFunc();props.closePopup(false)}}>พิมพ์ใส่ตะกร้า</button>
         </div>
       </div>
 
