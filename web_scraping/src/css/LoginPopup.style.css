@@ -1,5 +1,6 @@
 
 .login-input-box {
+    top:50%;
     border-radius: 5px 5px 5px 5px;
     border: 1px solid rgb(169, 169, 169);
     padding: 5px; 
@@ -8,7 +9,7 @@
     height: 2.5vh;    
     background-color: white;
     font-size: 1.5vh;
-    color: #454255;
+    color: #3e2aad;
     
 }
 .login-input-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -33,7 +34,7 @@
 }
 
 .login-btn-padding{
-    padding-top: 5vh;
+    padding-top: 1vh;
     padding-bottom: 1vh;
 }
 
@@ -52,6 +53,7 @@
 }
 
 .center-child{
+  
   /* Center vertically and horizontally */
   position: absolute;
   top: 50%;
@@ -62,19 +64,20 @@
 }
 
 .loginpopup-content{
+    z-index: 1000;
     /* background-color: #454255; */
     background-color: white;
     /* background-color: #15008a; */
-    height: 40vh;
+    height: 30vh;
     width: 25vw;
     justify-content: center;    
     border-radius: 15px;
-    position: relative;
-    z-index: 150px;
-    
+    /* position: c; */
+
 }
 
 .loginpopup-header-pad{
+  
     position: absolute;
     background-color: #454255;
     height: 6vh;
@@ -92,7 +95,7 @@
 
 .login-btn{
     background-color: rgb(50, 50, 50);
-    height: 5vh;
+    height: 3vh;
     align-items: center;
     text-align: center;
     color: white;
@@ -121,6 +124,6 @@
   .login-header-text{
     width: 80%;
     padding-left: 2.5vw;
-    font-size: 2vh;
+    font-size: 3vh;
     margin-top: 5%;
   }
