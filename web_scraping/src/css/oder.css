@@ -1,4 +1,4 @@
-.box-cart.container{
+.box-cart.container-2{
 
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
 }
 
 
-.box-cart-main{
+.box-cart-main-2{
     position: absolute;
     width: 650px;
     height:max-content;
@@ -23,7 +23,7 @@
     padding: 10px;
 }
 
-.box-cart-table{
+.box-cart-table-2{
     text-shadow: 50px;
     width: 550px;
     height: 300px;
@@ -34,18 +34,18 @@
 }
 
 
-.text-cart-header{
+.text-cart-header-2{
     margin-top: 50px;
     text-align: center;
-    background-color: aqua;
+    background-color: rgb(78, 30, 78);
     border-radius: 30px;
     height: 50px;
-    width: auto;
+    
     margin-left: 50px;
     margin-right: 50px;
 }
 
-.component-btn-cart{
+.component-btn-cart-2{
     color: #FFFF00;
     background-color: aqua;
     border-radius: 30px;
