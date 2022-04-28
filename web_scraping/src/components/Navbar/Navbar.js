@@ -34,23 +34,25 @@ export default function Navbar(props) {
         </div>
         }
         {(props.page === "Home" || props.page == "Search") && 
-        <div class="navbar-compare-container white" onClick={(e) => props.pageHandle("Home","Compare")}>
+        <div class="navbar-compare-container white navbar-headlogo" onClick={(e) => props.pageHandle("Home","Compare")}>
           Compare
         </div>}
         { props.page!=="Search" && props.page!=="Home" &&
-          <div class='navbar-header-container'> 
+          <div class='navbar-header-container navbar-headlogo'> 
                {props.page}
           </div>
         }
 
-        <img src={logo} class="navbar-logo" onClick={(e) => props.pageHandle("Home")}/>
-        <div class="navbar-header" onClick={(e) => props.pageHandle("Home")}>azala</div>
+        <div class="navbar-mid-header" onClick={(e) => props.pageHandle("Home")}>
+          <img src={logo} class="navbar-logo"/>
+          <div class="navbar-header" >azala</div>
+        </div>
         {props.user.username !== "anonymous" && <div class="navbar-user-name-pad">
           <div class="navbar-name-header">Hi! : {props.user.name}</div>
         </div>}
         <div class="login-btn-pad">
-          {!props.loggedin && <div class="navbar-login-button-blue" onClick={(e) => props.setPopupBackground(true, "login")}><p class="btn-center ">Log in</p></div>}
-          {props.loggedin && <div class="navbar-login-button-pink" onClick={(e) => props.Logout()}><p class="btn-center ">Log out</p></div>}
+          {!props.loggedin && <div class="navbar-login-button-blue" onClick={(e) => props.setPopupBackground(true, "login")}>Log in</div>}
+          {props.loggedin && <div class="navbar-login-button-pink" onClick={(e) => props.Logout()}>Log out</div>}
         </div>
       </div>
     </div>

@@ -1,12 +1,24 @@
 .Navbar {
-    height: 6vh;
-    width: 100vw;
+    height: auto;
+    width: 100%;
+    font-size: 28px;
+    font-weight: bold;
     background-color: #454255;
+    padding: 15px 30px;
     /*border-radius: 75px 75px;*/ /*ไม่ออกขอบ*/
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-
+/*
+.hor-center{
+    display: flex;
+    justify-content: center;
+}
+*/
+.hor-center{
+    display: flex;
+    /*justify-content: center;*/
+}
 .test{
     border: 2px solid darkblue;
     height: 50px;
@@ -14,8 +26,8 @@
 }
 
 .navbar-logo{
-    padding-top: 1vh;
-    height: 5vh;
+    /*padding-top: 1vh;*/
+    height: 55px;
 }
 
 .navbar-logo:hover{
@@ -24,16 +36,16 @@
 }
 
 .cartlogo-box{
-    position: absolute;
+    /*position: absolute;*/
     width: fit-content;
-    margin-left: 80vw;
-    padding-top: 1vh;
+    /*margin-left: 80vw;
+    padding-top: 1vh;*/
 }
 
 .cart-icon{
     color: #00DBE9;
-    width: 4vh;
-    height: 4vh;
+    width: 32px;
+    height: 32px;
 }
 
 .cart-icon:hover{
@@ -42,7 +54,7 @@
 }
 
 .home-navbar{
-    position: absolute;
+    /*position: absolute;
     top: 1vh;
     left:3vh;
     flex-direction: row;
@@ -51,18 +63,35 @@
 .nav-text-white:hover{
     cursor: pointer;
     color: #00ffea;
+    flex-direction: row;*/
+    /*display: flex;*/
+    margin-right: 30px;
 }
+
+/*
 .category-toggle{
     position: absolute;
     top: 1vh;
-    left:15vh;
     flex-direction: row;
     display: flex;
+}
+*/
+.category-toggle{
+    display: inline-flex;
+    margin-right: 30px;  
+    color: white;
 }
 
 .category-toggle:hover{
     color: #008892;
     cursor: pointer;
+}
+
+.toggle-icon{
+    color: #ffffff;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
 }
 
 .toggle-icon:hover{
@@ -72,106 +101,100 @@
 
 .toggle-icon-selected{
     color: #008892;
-    margin-left: 10px;
-    margin-top: 2px;
-    width: 3vh;
-    height: 3vh;
+    /*margin-left: 10px;
+    margin-top: 2px;*/
+    width: 32px;
+    height: 32px;
+    display: inline-block;
 }
 
 .nav-text-white{
     color: #ffffff;
-    font-weight: bold;
-    font-size: 24px;
 }
 
+.nav-text-white:hover{
+    cursor: pointer;
+    color: #00ffea;
+}
 .nav-text-blue{
     color: #00C6B6;
-    font-weight: bold;
-    font-size: 24px;
 }
 
 .toggle-icon{
     margin-left: 10px;
     color: #ffffff;
     margin-top: 2px;
-    width: 3vh;
-    height: 3vh;
-}
-
-.hor-center{
-    display: flex;
-    justify-content: center;
+    width: 32px;
+    height: 32px;
 }
 
 .navbar-header{
     color: #00C6B6;
-    font-weight: bold;
-    font-size: 32px;
-    padding-top: 1.5vh;
+    display: inline-block;
+    margin-left: 2px;
+    /*padding-top: 1.5vh;*/
 }
 .navbar-header:hover{
     cursor: pointer;
     opacity: 0.7;
+    display: inline-block;
+    /*margin-left: 2px;*/
 }
 
 .navbar-login-button-pink{
-    border-radius: 42px;
+    border-radius: 20px;
     background-color: #FD7676;
-    height: 4vh;
+    text-align: center;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    margin-left: 30px;
+    /*height: 4vh;
     width: 6vw;
     display: flex;
     justify-content: center;
-    position: relative;
+    position: relative;*/
 }
-
 .navbar-login-button-pink:hover{
     background-color: #e43838;
     cursor: pointer;
 }
-
 .navbar-login-button-blue{
-    border-radius: 42px;
+    border-radius: 20px;
     background-color: #00DBE9;
-    height: 4vh;
-    width: 6vw;
-    display: flex;
-    justify-content: center;
-    position: relative;
+    text-align: center;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    margin-left: 30px;
 }
 .navbar-login-button-blue:hover{
     background-color: #008892;
     cursor: pointer;
-}    
+}  
+/*  
 .login-btn-pad{
     top: 1vh;
     position: absolute;
     margin-left: 90vw;
-}
-
-.btn-center {
-    position: absolute;
-    font-size: 2.2vh;
-    color: white;
-    font-weight: 600;
-    top: -10%;
-    transform: translate(0, -50%);
-}
+}*/
 
 .navbar-user-name-pad{
-    top: 2vh;
-    position: absolute;
-    margin-left: 60vw;
+    /*top: 2vh;
+    position: absolute;*/
+    /*margin-left: 60vw;*/
+    margin-left: auto;
 }
 
 .navbar-name-header{
-    font-size: 2vh;
+    /*font-size: 2vh;*/
     color: white;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 
 .navbar-header-container{ 
-    position: absolute;
+    /*position: absolute;
     top: 1.5vh;
     left:8vh;
     flex-direction: row;
@@ -179,75 +202,92 @@
     align-items: center;
     font-size: 2.5vh;
     font-weight: bold;
+    font-size: 24px;*/
+    /*font-weight: bold;*/
     color: #00C6B6;
 
 }
 
 .navbar-header-text{
-    font-size: 2.5vh;
-    font-weight: 400;
     color: #00C6B6;
 }
 
 .navbar-back-icon-container{
-    position: absolute;
+    /*position: absolute;
     left: 0.5vw;
     margin-top: 0vh;
+    margin-top: 0vh;*/
 }
 
 .navbar-back-icon{
     color: #d7d7d7;
-    margin-top: 0.5vh;
-    width: 5vh;
-    height: 5vh;
+    /*margin-top: 0.5vh;*/
+    width: 32px;
+    height: 32px;
 }
 
 .navbar-back-icon:hover{
     color: rgb(144, 255, 246);
     cursor: pointer;
-    margin-top: 0.25vh;
-    width: 5.5vh;
-    height: 5.5vh;
 }
 
 .toggle-icon-sub:hover{
- background-color: #1f1848;
- cursor: pointer;
- color: #008892;
+    background-color: #1f1848;
+    cursor: pointer;
+    color: #008892;
 }
 
 .username-container{
-    position: absolute;
+    /*position: absolute;
     right: 15vw;
     top: 2vh;
     font-size: 2.2vh;
     font-weight: 600;
+    font-weight: 600;*/
     color: white;
 }
 
 .navbar-compare-container{
-    position: absolute;
+    /*position: absolute;
     top: 1vh;
     left:18vw;
     font-size: 2.5vh;
     font-weight: bold;
+    font-size: 24px;*/
+    /*font-weight: bold;
+    display: inline-block;*/
+    display: inline-block;
 }
-
+/*
 .navbar-demo-container{
     position: absolute;
     top: 1vh;
     left:8vw;
     font-size: 2.5vh;
     font-weight: bold;
-}
+    position: absolute;
+    top: 1vh;
+    left:8vw;
+    /*font-weight: bold;
+}*/
 .blue {
     color: #00C6B6;
 }
 .white{
     color: #ffffff;
 }
-
 .white:hover{
     color: #00C6B6;
     cursor: pointer;
+}
+.navbar-mid-header{
+    display: inline-block;
+}
+.navbar-mid-header:hover{
+    /*รวม class : .navbar-logo:hover + .navbar-header:hover*/
+    cursor: pointer;
+    opacity: 0.7;
+}
+.navbar-headlogo{
+    margin-right: auto;
 }
