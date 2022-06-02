@@ -47,7 +47,7 @@ export default function Homepage(props) {
     axios.get(url).then(res => {
       const data_trend = res.data
       setData(data_trend.map((e) =>
-        <Card product={e} doFunc={shoot}></Card>
+        <Card product={e} doFunc={props.addProduct}></Card>
       ))
 
       console.log(data_trend)
@@ -62,7 +62,7 @@ export default function Homepage(props) {
     axios.get(url1).then(res => {
       const data_trend1 = res.data
       setFlash(data_trend1.map((e) =>
-        <Card product={e} doFunc={shoot}></Card>
+        <Card product={e} doFunc={props.addProduct}></Card>
       ))
 
       console.log(data_trend1)
@@ -74,7 +74,7 @@ export default function Homepage(props) {
   }, [url1])
 
   const TopicProduct = productTopic.map((e)=>
-  <Card product={e} doFunc={shoot}></Card>
+  <Card product={e} doFunc={props.addProduct}></Card>
   )
 
 

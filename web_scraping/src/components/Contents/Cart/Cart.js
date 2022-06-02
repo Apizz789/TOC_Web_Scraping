@@ -17,36 +17,12 @@ function Cart(props) {
       <hr></hr>
 
 
-      {/* Item Drop here */}
-      <div class="row" >
-        <div class="col "> <center>1</center> </div>
-        <div class="col "> <center>รองเท้า</center> </div>
-        <div class="col "> <center>88</center> </div>
-      </div>
-
-      <div class="row" >
-        <div class="col "> <center>2</center> </div>
-        <div class="col "> <center>รองเท้า</center> </div>
-        <div class="col "> <center>88</center> </div>
-      </div>
-
-      <div class="row" >
-        <div class="col "> <center>3</center> </div>
-        <div class="col "> <center>รองเท้า</center> </div>
-        <div class="col "> <center>88</center> </div>
-      </div>
-
-      <div class="row" >
-        <div class="col "> <center>4</center> </div>
-        <div class="col "> <center>รองเท้า</center> </div>
-        <div class="col "> <center>88</center> </div>
-      </div>
-
-      <div class="row" >
-        <div class="col "> <center>5</center> </div>
-        <div class="col "> <center>รองเท้า</center> </div>
-        <div class="col "> <center>88</center> </div>
-      </div>
+      {props.kCart.products.length !== 0 && props.kCart.products.map((each) =>
+          <div class="row" >
+          <div class="col "> <center>{each.id}</center> </div>
+          <div class="col "> <center>{each.name}</center> </div>
+          <div class="col "> <center>{each.price}</center> </div>
+        </div>)}
 
       <br></br>
       <br></br>
@@ -56,7 +32,7 @@ function Cart(props) {
       <div class="row" >
         <div class="col "> <center><u>ราคารวม</u></center> </div>
         <div class="col "> <center></center> </div>
-        <div class="col "> <center>88</center> </div>
+        <div class="col "> <center>{props.kCart.totalPrice}</center> </div>
 
       </div>
       <br></br>
@@ -65,6 +41,12 @@ function Cart(props) {
 
         <div class="col">
           <center>
+          <div class="component-btn" onClick={(e) => props.clearCart("Clear")}>
+
+                    <center>
+                      <h2>ลบตะกร้า</h2>
+                    </center>
+                  </div>
             <div class="component-btn" onClick={(e) => props.pageHandle("Cart", "Home")}>
               <center>
                 <h2>กลับหน้าหลัก</h2>
@@ -74,7 +56,7 @@ function Cart(props) {
         </div>
 
         <div class="col"><center>
-          <div class="component-btn" onClick={(e) => props.pageHandle("Cart", "Order")}>
+          <div class="component-btn" onClick={(e) => props.clearCart("Complete")}>
             <center>
               <h2>ต่อไป</h2>
             </center>

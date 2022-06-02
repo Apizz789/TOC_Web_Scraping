@@ -32,6 +32,11 @@
 .box2 {
     width: 66%;
 }
+.footer-container-child:hover{
+    cursor: pointer;
+    color: aquamarine;
+    /* border: 1px solid firebrick */
+}
 .contact-img{
     height: 2vh;
     width: 2vh;
